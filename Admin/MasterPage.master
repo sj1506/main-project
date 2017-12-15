@@ -1,0 +1,108 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admin_MasterPage" %>
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+   
+    
+    <link rel="stylesheet" href="index_files/style.css" type="text/css" media="screen">
+
+    <script type="text/javascript" src="index_files/jquery-1.js"></script>
+
+    <script type="text/javascript" src="index_files/simpla.js"></script>
+
+</head>
+<body >
+    <form id="form1" runat="server">
+    <div id="body-wrapper">
+        <!-- Wrapper for the radial gradient background -->
+        <div id="sidebar">
+            <div id="sidebar-wrapper">
+                <!-- Sidebar with logo and menu -->
+                <!-- Logo (221px wide) -->
+                <!-- Sidebar Profile links -->
+                <div id="profile-links">
+                    Hello,
+                    <asp:Literal ID="Literal1" runat="server"></asp:Literal>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+                    <br>
+                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">Logout</asp:LinkButton>
+                    &nbsp;</div>
+                <ul id="main-nav">
+                    <!-- Accordion Menu -->
+                    
+                   
+                   
+                   
+                    <li><a style="padding-right: 15px;" href="#" class="nav-top-item" id="a4" runat="server">
+                        Inbox </a>
+                        <ul style="display: none;">
+                            <li><a href="Add-Case.aspx">Inbox</a></li>
+                        </ul>
+                    </li>
+                     <li><a style="padding-right: 15px;" href="#" class="nav-top-item" id="a1" runat="server">
+                        Add Refered Doctor </a>
+                        <ul style="display: none;">
+                            <li><a href="Add-doctor.aspx">Add Refered Doctor</a></li>
+                        </ul>
+                    </li>
+                    
+                     <li><a style="padding-right: 15px;" href="#" class="nav-top-item" id="a5" runat="server">
+                      Search </a>
+                        <ul style="display: none;">
+                            <li><a href="search.aspx">Search</a></li>
+                        </ul>
+                    </li>
+                    
+                    
+                    <li><a href="#" class="nav-top-item" id="i" runat="server">Settings </a>
+                        <ul style="display: none;">
+                            <li><a href="../Default.aspx">LogOut</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <!-- End #main-nav -->
+                <!-- End #messages -->
+            </div>
+        </div>
+        <!-- End #sidebar -->
+        <div id="main-content">
+            <!-- Main Content Section with everything -->
+            <%--<noscript> <!-- Show a notification if the user has disabled javascript -->
+				<div class="notification error png_bg">
+					<div>
+						Javascript is disabled or is not supported by your browser. Please <a href="http://browsehappy.com/" title="Upgrade to a better browser">upgrade</a> your browser or <a href="http://www.google.com/support/bin/answer.py?answer=23852" title="Enable Javascript in your browser">enable</a> Javascript to navigate the interface properly.
+					</div>
+				</div>
+			</noscript>
+			--%>
+            <!-- Page Head -->
+           
+                <asp:ScriptManager ID="ScriptManager1" runat="server">
+                </asp:ScriptManager>
+                &nbsp;&nbsp;&nbsp;
+            </h2>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <!-- End .shortcut-buttons-set -->
+            <!-- End .clear -->
+            <!-- End .content-box -->
+            <!-- End .content-box -->
+            <!-- End .content-box -->
+            <!-- Start Notifications -->
+            <!-- End Notifications -->
+            <div id="footer">
+            </div>
+        </div>
+        <!-- End Notifications -->
+    </div>
+    <!-- End #main-content -->
+    </div>
+    </form>
+</body>
+</html>

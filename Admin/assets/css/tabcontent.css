@@ -1,0 +1,96 @@
+﻿	/* Tab Content - menucool.com */
+
+ul.tabs
+{
+    padding: 7px 12px;
+    font-size: 0;
+    margin:0;
+    list-style-type: none;
+    text-align: left; /*set to left, center, or right to align the tabs as desired*/
+}
+        
+ul.tabs li
+{
+    display: inline;
+    margin: 0;
+    margin-right:3px; /*distance between tabs*/
+	
+}
+        
+ul.tabs li a
+{
+    font-size:16px;
+	font-weight:normal;
+    text-decoration: none;
+    position: relative;
+    padding: 7px 16px;
+    border: 1px solid #CCC;
+    border-bottom-color:#a2a2a2;
+    color: #000;
+    background: #fff;
+    border-radius: 6px 6px 0 0;
+    outline:none;
+	font-family: 'proxima_novaregular';
+}
+        
+ul.tabs li a:visited
+{
+    color: #000;
+}
+        
+ul.tabs li a:hover
+{
+    border: 1px solid #a2a2a2;
+    background:#e6f1f8;
+}
+        
+ul.tabs li.selected a, ul.tabs li.selected a:hover
+{
+    position: relative;
+    top: 0px;
+    font-weight:normal;
+    background: #e6f1f8;
+    border: 1px solid #a2a2a2;
+    border-bottom-color: #eeeeee;
+}
+        
+        
+ul.tabs li.selected a:hover
+{
+    text-decoration: none;
+}
+     
+
+div.tabcontents-breadcame
+{
+    border: 1px solid #a2a2a2; padding: 15px;
+    background-color:#e6f1f8;
+    border-radius: 0 3px 3px 3px #a2a2a2;
+	margin-bottom:15px;
+	border-radius: 6px 6px 6px 6px;
+}
+
+
+.contant-block{
+    border: 1px solid #a2a2a2; padding: 15px;
+    background-color:#ffffff;
+	margin-bottom:15px;
+	border-radius: 6px 6px 6px 6px;
+ 	margin-top:15px;
+	 
+	width:698px;
+	border: 1px solid #a4cadf;
+    border-radius: 5px;
+    box-shadow: -10px -11px 33px -6px rgba(196, 221, 238, 0.74) inset;
+	font-family: 'proxima_novaregular';
+	}
+.doctor-img {
+    float: left;
+}
+
+.doctor-img img{border: solid 5px #fff;}
+.contat-part {
+    float: left;
+    padding-left: 15px;
+    padding-top: 10px;
+}
