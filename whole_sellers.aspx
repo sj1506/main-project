@@ -32,12 +32,45 @@
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
          <div class="col-sm-6">
-             <asp:Label ID="lbl_contact" runat="server" Text=" Contact :"></asp:Label>
+             <asp:Label ID="lbl_contact1" runat="server" Text=" Contact No.1 :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="contact" runat="server"></asp:TextBox>
+             <asp:TextBox ID="contact1" runat="server"></asp:TextBox>
          </div>
          </div>
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_contact2" runat="server" Text=" Contact No.2 :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+             <asp:TextBox ID="contact2" runat="server"></asp:TextBox>
+         </div>
+         </div>
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_mobile1" runat="server" Text=" Mobile No.1 :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+             <asp:TextBox ID="mobile1" runat="server"></asp:TextBox>
+         </div>
+         </div>
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_mobile2" runat="server" Text=" Mobile No.2 :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+             <asp:TextBox ID="mobile2" runat="server"></asp:TextBox>
+         </div>
+         </div>
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_mail" runat="server" Text=" Mail_Id :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+             <asp:TextBox ID="mail_id" runat="server"></asp:TextBox>
+         </div>
+         </div>
+         
                   <asp:Button ID="btn_submit" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
 
@@ -63,7 +96,23 @@
                                                              Address:
                                                         </th>
                                                         <th>
-                                                            Contact :
+                                                            Contact No.1 :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            Contact No.2 :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            Mobile No.1 :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            Mobile No.2 :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            Mail-Id :
                                                         </th>
                                                         <th>
                                                             Edit :
@@ -92,7 +141,23 @@
                                                 <%# Eval("address")%>
                                             </td>
                                             <td>
-                                                <%# Eval("contact")%>
+                                                <%# Eval("contact1")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("contact2")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("mobile1")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("mobile2")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("mail_id")%>
                                             </td>
                                             <td>
                                                 <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"

@@ -30,7 +30,7 @@ public partial class whole_sellers : System.Web.UI.Page
     protected void btn_submit_Click(object sender, EventArgs e)
     {
         if (btn_submit.Text == "insert")
-        {
+         {
             submit();
         }
         if (btn_submit.Text == "update")
@@ -69,7 +69,11 @@ public partial class whole_sellers : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ws_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@ws_name", ws_name.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
+        cmd.Parameters.AddWithValue("@contact1", contact1.Text.ToString());
+        cmd.Parameters.AddWithValue("@contact2", contact2.Text.ToString());
+        cmd.Parameters.AddWithValue("@mobile1", mobile1.Text.ToString());
+        cmd.Parameters.AddWithValue("@mobile2", mobile2.Text.ToString());
+        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -82,7 +86,11 @@ public partial class whole_sellers : System.Web.UI.Page
     {
         ws_name.Text = "";
         address.Text = "";
-        contact.Text = "";
+        contact1.Text = "";
+        contact2.Text = "";
+        mobile1.Text = "";
+        mobile2.Text = "";
+        mail_id.Text = "";
     }
     public void Update()
     {
@@ -94,7 +102,11 @@ public partial class whole_sellers : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ws_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@ws_name", ws_name.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
+        cmd.Parameters.AddWithValue("@contact1", contact1.Text.ToString());
+        cmd.Parameters.AddWithValue("@contact2", contact2.Text.ToString());
+        cmd.Parameters.AddWithValue("@mobile1", mobile1.Text.ToString());
+        cmd.Parameters.AddWithValue("@mobile2", mobile2.Text.ToString());
+        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -124,7 +136,11 @@ public partial class whole_sellers : System.Web.UI.Page
                     hdn1.Value = dr["ws_id"].ToString();
                     ws_name.Text = dr["ws_name"].ToString();
                     address.Text = dr["address"].ToString();
-                    contact.Text = dr["contact"].ToString();
+                    contact1.Text = dr["contact1"].ToString();
+                    contact2.Text = dr["contact2"].ToString();
+                    mobile1.Text = dr["mobile1"].ToString();
+                    mobile2.Text = dr["mobile2"].ToString();
+                    mail_id.Text = dr["mail_id"].ToString();
                 }
 
             }
