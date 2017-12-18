@@ -11,39 +11,20 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
-public partial class customers : System.Web.UI.Page
+
+public partial class statecodemaster : System.Web.UI.Page
 {
-    string conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
+    String conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
     DataSet ds = new DataSet();
     DataTable dt = new DataTable();
     Class1 cl = new Class1();
     string id;
+
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             BindListView();
-        }
-    }
-    private void BindListView()
-    {
-        try
-        {
-            SqlConnection con = new SqlConnection(conn);
-            if (con.State == 0)
-            {
-                con.Open();
-            }
-
-            SqlCommand cmd = new SqlCommand("select * from tbl_customers", con);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            ListView1.DataSource = dt;
-            ListView1.DataBind();
-        }
-        catch
-        {
         }
     }
     protected void btn_submit_Click(object sender, EventArgs e)
@@ -57,19 +38,37 @@ public partial class customers : System.Web.UI.Page
             Update();
         }
     }
+    private void BindListView()
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(conn);
+            if (con.State == 0)
+            {
+                con.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand("select * from tbl_statecodemaster", con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            ListView1.DataSource = dt;
+            ListView1.DataBind();
+        }
+        catch
+        {
+        }
+    }
     public void submit()
     {
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_statecodemaster";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@code", code.Text.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
-        cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
-        cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -80,25 +79,19 @@ public partial class customers : System.Web.UI.Page
     }
     private void clear()
     {
+        code.Text = "";
         name.Text = "";
-        contact.Text = "";
-        address.Text = "";
-        mail_id.Text = "";
-        gst_no.Text = "";
     }
     public void Update()
     {
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_statecodemaster";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@code", code.Text.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
-        cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
-        cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -119,18 +112,15 @@ public partial class customers : System.Web.UI.Page
             if (e.CommandName == "CmdEdit")
             {
 
-               
+
                 btn_submit.Text = "update";
-                string str1 = "select * from tbl_customers where cs_id='" + e.CommandArgument + "'";
+                string str1 = "select * from tbl_statecodemaster where id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
                 {
-                    hdn1.Value = dr["cs_id"].ToString();
+                    hdn1.Value = dr["id"].ToString();
+                    code.Text = dr["code"].ToString();
                     name.Text = dr["name"].ToString();
-                    contact.Text = dr["contact"].ToString();
-                    address.Text = dr["address"].ToString();
-                    mail_id.Text = dr["mail_id"].ToString();
-                    gst_no.Text = dr["gst_no"].ToString();
                 }
 
             }
@@ -139,7 +129,7 @@ public partial class customers : System.Web.UI.Page
                 Session["id"] = e.CommandArgument.ToString();
                 SqlConnection con = new SqlConnection(conn);
                 id = e.CommandArgument.ToString();
-                SqlCommand cmd = new SqlCommand("delete from tbl_customers where cs_id=" + id, con);
+                SqlCommand cmd = new SqlCommand("delete from tbl_statecodemaster where id=" + id, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();

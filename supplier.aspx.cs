@@ -11,7 +11,8 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
-public partial class customers : System.Web.UI.Page
+
+public partial class supplier : System.Web.UI.Page
 {
     string conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
     DataSet ds = new DataSet();
@@ -35,7 +36,7 @@ public partial class customers : System.Web.UI.Page
                 con.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("select * from tbl_customers", con);
+            SqlCommand cmd = new SqlCommand("select * from tbl_supplier", con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -62,9 +63,9 @@ public partial class customers : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_supplier";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@s_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
         cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
@@ -91,9 +92,9 @@ public partial class customers : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_supplier";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@s_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
         cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
@@ -119,13 +120,13 @@ public partial class customers : System.Web.UI.Page
             if (e.CommandName == "CmdEdit")
             {
 
-               
+
                 btn_submit.Text = "update";
-                string str1 = "select * from tbl_customers where cs_id='" + e.CommandArgument + "'";
+                string str1 = "select * from tbl_supplier where s_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
                 {
-                    hdn1.Value = dr["cs_id"].ToString();
+                    hdn1.Value = dr["s_id"].ToString();
                     name.Text = dr["name"].ToString();
                     contact.Text = dr["contact"].ToString();
                     address.Text = dr["address"].ToString();
@@ -139,7 +140,7 @@ public partial class customers : System.Web.UI.Page
                 Session["id"] = e.CommandArgument.ToString();
                 SqlConnection con = new SqlConnection(conn);
                 id = e.CommandArgument.ToString();
-                SqlCommand cmd = new SqlCommand("delete from tbl_customers where cs_id=" + id, con);
+                SqlCommand cmd = new SqlCommand("delete from tbl_supplier where s_id=" + id, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -149,4 +150,5 @@ public partial class customers : System.Web.UI.Page
         }
         catch { }
     }
+
 }

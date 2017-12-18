@@ -11,13 +11,14 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
-public partial class customers : System.Web.UI.Page
+public partial class bank_detail : System.Web.UI.Page
 {
     string conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
     DataSet ds = new DataSet();
     DataTable dt = new DataTable();
     Class1 cl = new Class1();
     string id;
+   
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -35,7 +36,7 @@ public partial class customers : System.Web.UI.Page
                 con.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("select * from tbl_customers", con);
+            SqlCommand cmd = new SqlCommand("select * from tbl_bank_detail", con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -62,14 +63,13 @@ public partial class customers : System.Web.UI.Page
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_bank_detail";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@name", name.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
-        cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
-        cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@cpy_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@cpy_name", cpy_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@acc_no", acc_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@bank_name", bank_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@ifsc_no", ifsc_no.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -80,25 +80,23 @@ public partial class customers : System.Web.UI.Page
     }
     private void clear()
     {
-        name.Text = "";
-        contact.Text = "";
-        address.Text = "";
-        mail_id.Text = "";
-        gst_no.Text = "";
+        cpy_name.Text = "";
+        acc_no.Text = "";
+        bank_name.Text = "";
+        ifsc_no.Text = "";
     }
     public void Update()
     {
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_customer";
+        cmd.CommandText = "sp_bank_detail";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@name", name.Text.ToString());
-        cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
-        cmd.Parameters.AddWithValue("@address", address.Text.ToString());
-        cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
-        cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@cpy_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@cpy_name", cpy_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@acc_no", acc_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@bank_name", bank_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@ifsc_no", ifsc_no.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -119,18 +117,17 @@ public partial class customers : System.Web.UI.Page
             if (e.CommandName == "CmdEdit")
             {
 
-               
+
                 btn_submit.Text = "update";
-                string str1 = "select * from tbl_customers where cs_id='" + e.CommandArgument + "'";
+                string str1 = "select * from tbl_bank_detail where cpy_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
                 {
                     hdn1.Value = dr["cs_id"].ToString();
-                    name.Text = dr["name"].ToString();
-                    contact.Text = dr["contact"].ToString();
-                    address.Text = dr["address"].ToString();
-                    mail_id.Text = dr["mail_id"].ToString();
-                    gst_no.Text = dr["gst_no"].ToString();
+                    cpy_name.Text = dr["name"].ToString();
+                    acc_no.Text = dr["contact"].ToString();
+                    bank_name.Text = dr["address"].ToString();
+                    ifsc_no.Text = dr["mail_id"].ToString();
                 }
 
             }
@@ -139,7 +136,7 @@ public partial class customers : System.Web.UI.Page
                 Session["id"] = e.CommandArgument.ToString();
                 SqlConnection con = new SqlConnection(conn);
                 id = e.CommandArgument.ToString();
-                SqlCommand cmd = new SqlCommand("delete from tbl_customers where cs_id=" + id, con);
+                SqlCommand cmd = new SqlCommand("delete from tbl_bank_detail where cpy_id=" + id, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
