@@ -24,6 +24,8 @@ public partial class statecodemaster : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            string qry = "select id, name from tbl_states";
+            cl.filldropdown(qry, "id", "name", ddl_state);
             BindListView();
         }
     }
@@ -68,7 +70,7 @@ public partial class statecodemaster : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@code", code.Text.ToString());
-        cmd.Parameters.AddWithValue("@name", name.Text.ToString());
+        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedItem.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -80,7 +82,7 @@ public partial class statecodemaster : System.Web.UI.Page
     private void clear()
     {
         code.Text = "";
-        name.Text = "";
+        ddl_state.SelectedIndex = -1;
     }
     public void Update()
     {
@@ -91,7 +93,7 @@ public partial class statecodemaster : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@code", code.Text.ToString());
-        cmd.Parameters.AddWithValue("@name", name.Text.ToString());
+        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedItem.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -120,7 +122,7 @@ public partial class statecodemaster : System.Web.UI.Page
                 {
                     hdn1.Value = dr["id"].ToString();
                     code.Text = dr["code"].ToString();
-                    name.Text = dr["name"].ToString();
+                    ddl_state.SelectedValue = dr["name"].ToString();
                 }
 
             }
