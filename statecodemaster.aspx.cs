@@ -70,7 +70,7 @@ public partial class statecodemaster : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@code", code.Text.ToString());
-        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedItem.ToString());
+        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedValue.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -93,7 +93,7 @@ public partial class statecodemaster : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@code", code.Text.ToString());
-        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedItem.ToString());
+        cmd.Parameters.AddWithValue("@name", ddl_state.SelectedValue.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;

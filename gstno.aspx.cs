@@ -88,39 +88,6 @@ public partial class gstno : System.Web.UI.Page
     }
     protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
-        //Session["Id"] = e.CommandArgument;
-        //try
-        //{
-        //    id = e.CommandArgument.ToString();
-
-        //    if (e.CommandName == "CmdEdit")
-        //    {
-
-
-        //        btn_submit.Text = "update";
-        //        string str1 = "select * from tbl_statecodemaster where id='" + e.CommandArgument + "'";
-        //        SqlDataReader dr = cl.selectDR(str1);
-        //        if (dr.Read())
-        //        {
-        //            hdn1.Value = dr["id"].ToString();
-        //            code.Text = dr["code"].ToString();
-        //            ddl_state.SelectedValue = dr["name"].ToString();
-        //        }
-
-        //    }
-        //    if (e.CommandName == "CmdDelete")
-        //    {
-        //        Session["id"] = e.CommandArgument.ToString();
-        //        SqlConnection con = new SqlConnection(conn);
-        //        id = e.CommandArgument.ToString();
-        //        SqlCommand cmd = new SqlCommand("delete from tbl_statecodemaster where id=" + id, con);
-        //        con.Open();
-        //        cmd.ExecuteNonQuery();
-        //        con.Close();
-        //        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert('Deleted Successfully');</script>");
-        //        BindListView();
-        //    }
-        //}
-        //catch { }
+        
     }
 }
