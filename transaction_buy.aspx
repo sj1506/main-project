@@ -7,9 +7,11 @@
     <title>Transaction Buy</title>
      <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
+    <script src="functions.js" type="text/javascript"></script>
+    <script src="allfunctions.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="jquery.min.js" type="text/javascript"></script>
-    <style>
+    <style type ="text/css">
     .set
     {
         list-style:none;
@@ -250,82 +252,40 @@
                         <%--end details --%>
 
                         <div class="second">
-                        <ul class="set1">
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_barcode" runat="server" Text="Bar Code"></asp:Label><br />
-                            <asp:TextBox ID="barcode" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                        <li>
-                        <div>
-                            <asp:Label ID="lbl_p_title" runat="server" Text="Product Title"></asp:Label><br />
-                            <asp:TextBox ID="p_title" runat="server"></asp:TextBox>
-                        </div>
-                        </li>
-                        <li>
-                        <div>
-                            <asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label><br />
-                            <asp:TextBox ID="qty" runat="server"></asp:TextBox>
-                        </div>
-                        </li>
-                        <li>
-                        <div>
-                            <asp:Label ID="lbl_selling_price" runat="server" Text="Selling Price"></asp:Label><br />
-                            <asp:TextBox ID="selling_price" runat="server"></asp:TextBox>
-                        </div>
-                        </li>
-                        <li>
-                        <div>
-                        <asp:Label ID="lbl_per_unit_cost" runat="server" Text="Per unit cost"></asp:Label><br />
-                            <asp:TextBox ID="per_unit_cost" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost"></asp:Label><br />
-                            <asp:TextBox ID="txt_total_cost" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label><br />
-                            <asp:TextBox ID="txt_ugst" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_cgst1" runat="server" Text="Cgst"></asp:Label><br />
-                            <asp:TextBox ID="txt_cgst" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label><br />
-                            <asp:TextBox ID="txt_igst" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                         <li>
-                        <div>
-                        <asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label><br />
-                            <asp:TextBox ID="txt_sgst" runat="server"></asp:TextBox>
-                        
-                        </div>
-                        </li>
-                        <li>
-                        <div>
-                            <asp:Button ID="btn_addmore" runat="server" Text="Add More" 
-                                onclick="btn_addmore_Click" />
-                        </div>
-                        </li>
-                        
-                        </ul>
+                        <table id="tblData">	
+                        <thead>
+                         <tr> 
+                         <th><asp:Label ID="lbl_barcode" runat="server" Text="Bar Code"></asp:Label></th> 
+                         <th><asp:Label ID="lbl_p_title" runat="server" Text="Product Title"></asp:Label></th>
+                          <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
+                           <th><asp:Label ID="lbl_selling_price" runat="server" Text="Selling Price"></asp:Label></th> 
+                           <th><asp:Label ID="lbl_per_unit_cost" runat="server" Text="Per unit cost"></asp:Label> </th>
+                           <th> <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost"></asp:Label></th>
+                           <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_cgst1" runat="server" Text="Cgst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label></th>
+                           <th></th>
+                           <th></th>
+                           </tr>
+                           <tr>
+                              <td>
+                              <asp:TextBox ID="barcode" runat="server"></asp:TextBox>
+                              </td>
+                              <td><asp:TextBox ID="p_title" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="qty" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="selling_price" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="per_unit_cost" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_total_cost" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_ugst" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_cgst" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_igst" runat="server"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_sgst" runat="server"></asp:TextBox></td>
+                           <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" 
+                                onclick="btn_addmore_Click" /></td>
+                           </tr>
+                            </thead> 
+                               </table>
                         </div>
     </div>
     </form>
