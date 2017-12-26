@@ -7,8 +7,6 @@
     <title>Transaction Buy</title>
      <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
-    <script src="functions.js" type="text/javascript"></script>
-    <script src="allfunctions.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="jquery.min.js" type="text/javascript"></script>
     <style type ="text/css">
@@ -28,15 +26,6 @@
     .second
     {
         width: 200%;
-    }
-    .set1
-    {
-        list-style:none;
-        float:left;
-    }
-    .set1 li
-    {
-        float:left;
     }
     </style>
 </head>
@@ -127,6 +116,124 @@
           </div>
        <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
                                                     runat="server" Text=""></asp:Label><br />
+
+
+                                                   <%-- list view for transaction_buy detail--%>
+                                                   <div class="row">
+                            <div class="col-lg-12">
+                                <div class="table-responsive">
+    <asp:ListView ID="ListView2" runat="server" 
+          onitemcommand="ListView2_ItemCommand" GroupPlaceholderID="groupPlaceHolder2"
+                                        ItemPlaceholderID="itemPlaceHolder2">
+                         <LayoutTemplate>
+                                            <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                                <thead>
+                                                    <tr>
+                                                        <th>
+                                                            S.No :
+                                                        </th>
+                                                        <th>
+                                                             Bar Code. :
+                                                        </th>
+                                                        <th>
+                                                             Product Title:
+                                                        </th>
+                                                        <th>
+                                                            QTY :
+                                                        </th>
+                                                        <th>
+                                                            Selling Price :
+                                                        </th>
+                                                        <th>
+                                                            Per unit cost :
+                                                        </th>
+                                                        <th>
+                                                            Total Cost :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            UGST :
+                                                        </th>
+                                                        <th>
+                                                            CGST :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            IGST :
+                                                        </th>
+                                                        
+                                                        <th>
+                                                            SGST :
+                                                        </th>
+                                                        <th>
+                                                            Edit :
+                                                        </th>
+                                                        <th>
+                                                            Delete :
+                                                        </th>
+                                                    </tr>
+                                                </thead>
+                                                <asp:PlaceHolder runat="server" ID="groupPlaceHolder2"></asp:PlaceHolder>
+                                            </table>
+                                        </LayoutTemplate>
+                                        <GroupTemplate>
+                                            <tr>
+                                                <asp:PlaceHolder runat="server" ID="itemPlaceHolder2"></asp:PlaceHolder>
+                                            </tr>
+                                        </GroupTemplate>
+                                        <ItemTemplate>
+                                            <td>
+                                                <%# Container.DataItemIndex+1 %>
+                                            </td>
+                                            <td>
+                                                <%# Eval("barcode")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("p_id")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("qty")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("selling_price_per_product")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("per_unit_cost")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("total_cost")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("ugst")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("cgst")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("igst")%>
+                                            </td>
+                                            
+                                            <td>
+                                                <%# Eval("sgst")%>
+                                            </td>
+                                            <td>
+                                                <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"
+                                                    Text="Edit" CommandArgument='<%# Eval("t_id")%>' />
+                                            </td>
+                                            <td>
+                                                <asp:Button ID="Button2" runat="server" type="submit" class="btn btn-primary" CommandName="CmdDelete"
+                                                    Text="Delete" CommandArgument='<% #Eval("t_id") %>' OnClientClick="javascript:return confirm('Are you sure you want to Delete?');" />
+                                            </td>
+                                        </ItemTemplate>
+                                    </asp:ListView>
+                                </div>
+                            </div>
+                                                 
+                                                    </div>
+                                                   <%--end details for list view--%>
 
                                                     <%--show details from here--%>
 
@@ -252,6 +359,7 @@
                         <%--end details --%>
 
                         <div class="second">
+                            <asp:HiddenField ID="hdn2" runat="server" />
                         <table id="tblData">	
                         <thead>
                          <tr> 
@@ -282,7 +390,9 @@
                            <td><asp:TextBox ID="txt_igst" runat="server"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_sgst" runat="server"></asp:TextBox></td>
                            <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" 
-                                onclick="btn_addmore_Click" /></td>
+                                onclick="btn_addmore_Click" />
+  
+                                </td>
                            </tr>
                             </thead> 
                                </table>
