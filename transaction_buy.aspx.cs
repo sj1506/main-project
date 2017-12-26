@@ -134,8 +134,6 @@ public partial class transaction_buy : System.Web.UI.Page
 
             if (e.CommandName == "CmdEdit")
             {
-
-
                 btn_submit.Text = "update";
                 string str1 = "select * from tbl_transaction_buy where t_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
@@ -153,9 +151,6 @@ public partial class transaction_buy : System.Web.UI.Page
                     gt_with_tax.Text = dr["gt_with_tax"].ToString();
                     discount.Text = dr["discount"].ToString();
                 }
-
-
-
             }
             if (e.CommandName == "CmdDelete")
             {
@@ -172,6 +167,39 @@ public partial class transaction_buy : System.Web.UI.Page
         }
         catch { }
     }
+    protected void btn_addmore_Click(object sender, EventArgs e)
+    {
+        if (btn_addmore.Text == "Add More")
+        {
+            submit1();
+        }
+        if (btn_addmore.Text == "update")
+        {
+            Update1();
+        }
+
+    }
+    private void BindListView1()
+    {
+        try
+        {
+            SqlConnection con = new SqlConnection(conn);
+            if (con.State == 0)
+            {
+                con.Open();
+            }
+
+            SqlCommand cmd = new SqlCommand("select * from tbl_transaction_detail", con);
+            SqlDataAdapter adp = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+            ListView2.DataSource = dt;
+            ListView2.DataBind();
+        }
+        catch
+        {
+        }
+    }
     protected void ListView2_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         Session["Id"] = e.CommandArgument;
@@ -181,9 +209,7 @@ public partial class transaction_buy : System.Web.UI.Page
 
             if (e.CommandName == "CmdEdit")
             {
-
-
-                btn_submit.Text = "update";
+                btn_addmore.Text = "update";
                 string str1 = "select * from tbl_transaction_detail where t_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
@@ -213,44 +239,12 @@ public partial class transaction_buy : System.Web.UI.Page
                 cmd.ExecuteNonQuery();
                 con.Close();
                 Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert('Deleted Successfully');</script>");
-                // BindListView();
+                 BindListView1();
             }
         }
         catch { }
     }
-    protected void btn_addmore_Click(object sender, EventArgs e)
-    {
-        if (btn_addmore.Text == "Add More")
-        {
-            submit1();
-        }
-        if (btn_addmore.Text == "update")
-        {
-            Update1();
-        }
-           
-    }
-    private void BindListView1()
-    {
-        try
-        {
-            SqlConnection con = new SqlConnection(conn);
-            if (con.State == 0)
-            {
-                con.Open();
-            }
-
-            SqlCommand cmd = new SqlCommand("select * from tbl_transaction_detail", con);
-            SqlDataAdapter adp = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-            ListView2.DataSource = dt;
-            ListView2.DataBind();
-        }
-        catch
-        {
-        }
-    }
+   
     public void submit1()
     {
         SqlConnection con = new SqlConnection(conn);
@@ -289,7 +283,6 @@ public partial class transaction_buy : System.Web.UI.Page
         txt_cgst.Text = "";
         txt_igst.Text = "";
         barcode.Text = "";
-        discount.Text = "";
     }
     public void Update1()
     {
@@ -315,8 +308,8 @@ public partial class transaction_buy : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-        // BindListView();
-        btn_submit.Text = "insert";
+        BindListView1();
+        btn_addmore.Text = "Add More";
         clear1();
     }
 

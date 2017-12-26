@@ -358,9 +358,9 @@
 
                         <%--end details --%>
 
-                        <div class="second">
+                        <div >
                             <asp:HiddenField ID="hdn2" runat="server" />
-                        <table id="tblData">	
+                        <table id="tblData" >	
                         <thead>
                          <tr> 
                          <th><asp:Label ID="lbl_barcode" runat="server" Text="Bar Code"></asp:Label></th> 
