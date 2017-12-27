@@ -23,6 +23,8 @@ public partial class transaction_buy : System.Web.UI.Page
         if (!IsPostBack)
         {
         //    BindListView();
+            string qry = "select p_id, p_title from tbl_product";
+            cl.filldropdown(qry, "p_id", "p_title", ddl_product);
             BindListView1();
         }
     }
@@ -215,7 +217,7 @@ public partial class transaction_buy : System.Web.UI.Page
                 if (dr.Read())
                 {
                     hdn2.Value = dr["t_id"].ToString();
-                    p_title.Text = dr["p_id"].ToString();
+                    ddl_product.SelectedValue = dr["p_id"].ToString();
                     qty.Text = dr["qty"].ToString();
                     selling_price.Text = dr["selling_price_per_unit"].ToString();
                     per_unit_cost.Text = dr["per_unit_cost"].ToString();
@@ -253,7 +255,7 @@ public partial class transaction_buy : System.Web.UI.Page
         cmd.CommandText = "sp_transaction_detail";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@t_id", hdn2.Value.ToString());
-        cmd.Parameters.AddWithValue("@p_id", p_title.Text.ToString());
+        cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@selling_price_per_unit", selling_price.Text.ToString());
         cmd.Parameters.AddWithValue("@per_unit_cost", per_unit_cost.Text.ToString());
@@ -273,7 +275,7 @@ public partial class transaction_buy : System.Web.UI.Page
     }
     private void clear1()
     {
-        p_title.Text = "";
+        ddl_product.SelectedIndex= -1;
         qty.Text = "";
         selling_price.Text = "";
         per_unit_cost.Text = "";
@@ -292,7 +294,7 @@ public partial class transaction_buy : System.Web.UI.Page
         cmd.CommandText = "sp_transaction_detail";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@t_id", hdn2.Value.ToString());
-        cmd.Parameters.AddWithValue("@p_id", p_title.Text.ToString());
+        cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@selling_price_per_unit", selling_price.Text.ToString());
         cmd.Parameters.AddWithValue("@per_unit_cost", per_unit_cost.Text.ToString());
@@ -311,6 +313,17 @@ public partial class transaction_buy : System.Web.UI.Page
         BindListView1();
         btn_addmore.Text = "Add More";
         clear1();
+    }
+    protected void btn_final_Click(object sender, EventArgs e)
+    {
+        if (btn_final.Text == "Save")
+        {
+            submit();
+        }
+        if (btn_final.Text == "update")
+        {
+            Update();
+        }
     }
 
 }
