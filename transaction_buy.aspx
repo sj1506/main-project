@@ -46,8 +46,8 @@
          <div>
              <asp:Label ID="lbl_ws_id" runat="server" Text=" WS_id :"></asp:Label><br />
          
-                     <asp:TextBox ID="ws_id" runat="server"  style="width: 80px;"></asp:TextBox>
-                     </div>
+             <asp:DropDownList ID="ddl_ws" runat="server">
+             </asp:DropDownList>
          </li>
          <li>
                   <div>
@@ -250,6 +250,8 @@
                         <thead>
                          <tr> 
                          <th><asp:Label ID="lbl_barcode" runat="server" Text="Bar Code"></asp:Label></th> 
+                         <th>
+                             <asp:Label ID="lbl_bill_no" runat="server" Text="Bill_No"></asp:Label></th>
                          <th><asp:Label ID="lbl_p_title" runat="server" Text="Product Title"></asp:Label></th>
                           <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
                            <th><asp:Label ID="lbl_selling_price" runat="server" Text="Selling Price"></asp:Label></th> 
@@ -266,15 +268,19 @@
                               <td>
                               <asp:TextBox ID="barcode" runat="server" style="     width: 110px;"></asp:TextBox>
                               </td>
+                              <th>
+                              <asp:TextBox ID="txt_bill_no" runat="server" style="     width: 110px;"></asp:TextBox>
+                              </th>
                                <th>
                              <asp:DropDownList ID="ddl_product" runat="server">
                              </asp:DropDownList>
                          </th>
-                              <%--<td><asp:TextBox ID="p_title" runat="server" style="     width: 110px;"></asp:TextBox></td>--%>
                            <td><asp:TextBox ID="qty" runat="server" style="     width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="selling_price" runat="server" style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="per_unit_cost" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;"></asp:TextBox></td>
+                           <td><asp:TextBox ID="per_unit_cost" runat="server"  style=" width: 90px;" 
+                                   ontextchanged="per_unit_cost_TextChanged"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;" 
+                                   ontextchanged="txt_total_cost_TextChanged"  AutoPostBack="true" ></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_ugst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_cgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_igst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
@@ -304,6 +310,9 @@
                                                         </th>
                                                         <th>
                                                              Bar Code. :
+                                                        </th>
+                                                        <th>
+                                                           Bill No. :
                                                         </th>
                                                         <th>
                                                              Product Title:
@@ -358,6 +367,9 @@
                                             <td>
                                                 <%# Eval("barcode")%>
                                             </td>
+                                            <th>
+                                                <%# Eval("bill_no") %>
+                                            </th>
                                             <td>
                                                 <%# Eval("p_id")%>
                                             </td>
