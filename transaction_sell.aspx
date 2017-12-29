@@ -38,7 +38,9 @@
          <li>
             <div>
              <asp:Label ID="lbl_customer_id" runat="server" Text=" Customer Id :"></asp:Label><br />
-             <asp:TextBox ID="c_id" runat="server" style="width: 80px;"></asp:TextBox>   
+                <asp:DropDownList ID="ddl_customer" runat="server" 
+                    onselectedindexchanged="ddl_customer_SelectedIndexChanged" AutoPostBack="true">
+                </asp:DropDownList>
          </div>
          </li>
          
@@ -256,18 +258,22 @@
                         <table id="tblData" >	
                         <thead>
                          <tr> 
+                         <th><asp:Label ID="lbl_bill" runat="server" Text="Bill No. "></asp:Label></th>
                          <th><asp:Label ID="lbl_ts_id" runat="server" Text="TS-Id"></asp:Label></th> 
                          <th><asp:Label ID="lbl_p_id" runat="server" Text="p_id"></asp:Label></th> 
                           <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
                           <th><asp:Label ID="lbl_cost_per_unit" runat="server" Text="cost per unit"></asp:Label> </th>
                           <th><asp:Label ID="lbl_total" runat="server" Text="total"></asp:Label> </th>
                            <th><asp:Label ID="lbl_cgst1" runat="server" Text="Cgst"></asp:Label></th>
-                           <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label></th>
                           <th><asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label></th>
-                          <th><asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label></th>
+                          <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
            
                          </tr>
                            <tr>
+                           <td>
+                              <asp:TextBox ID="bill_no" runat="server" style=" width: 110px;"></asp:TextBox>
+                           </td>
                               <td>
                               <asp:TextBox ID="ts_id" runat="server" style="     width: 110px;"></asp:TextBox>
                               </td>
@@ -278,11 +284,10 @@
                            <td><asp:TextBox ID="qty" runat="server" style="     width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="cost_per_unit" runat="server" style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="total" runat="server"  style=" width: 90px;" ></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;" ></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_cgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_ugst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_igst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_sgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_igst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
+                           <td><asp:TextBox ID="txt_ugst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" style=" margin-left: 15px;" 
                                 onclick="btn_addmore_Click" />
   
@@ -309,6 +314,9 @@
                                                             S.No :
                                                         </th>
                                                         <th>
+                                                           Bill No. :
+                                                        </th>
+                                                        <th>
                                                              Ts_id :
                                                         </th>
                                                         <th>
@@ -330,7 +338,7 @@
                                                             CGST :
                                                         </th>
                                                         <th>
-                                                            UGST :
+                                                            SGST :
                                                         </th>
                                                         
                                                         <th>
@@ -338,7 +346,7 @@
                                                         </th>
                                                         
                                                         <th>
-                                                            SGST :
+                                                            UGST :
                                                         </th>
                                                         <th>
                                                             Edit :
@@ -359,6 +367,9 @@
                                         <ItemTemplate>
                                             <td>
                                                 <%# Container.DataItemIndex+1 %>
+                                            </td>
+                                            <td>
+                                               <%# Eval("bill_no")%>
                                             </td>
                                             <td>
                                                 <%# Eval("ts_id")%>
@@ -383,7 +394,7 @@
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("ugst")%>
+                                                <%# Eval("sgst")%>
                                             </td>
                                             
                                             <td>
@@ -391,7 +402,7 @@
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("sgst")%>
+                                                <%# Eval("ugst")%>
                                             </td>
                                             <td>
                                                 <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"
@@ -408,6 +419,8 @@
                                                  
                                                     </div>
                                                    <%--end details for list view--%>
+
+
                              <asp:Button ID="btn_final" runat="server" Text="Save" 
                                   Height="21px" Width="91px" style=" margin-left: 90%;
                                  margin-top: 20px;" onclick="btn_final_Click"/>

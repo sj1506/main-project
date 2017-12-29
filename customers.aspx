@@ -13,7 +13,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-     <asp:HiddenField ID="hdn1" runat="server" />
+     <asp:HiddenField ID="hdn0" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
          <div class="col-sm-6">
              <asp:Label ID="lbl_name" runat="server" Text=" Name :"></asp:Label>
@@ -54,8 +54,40 @@
          </div>
          <div class="col-sm-6">
              <asp:TextBox ID="gst_no" runat="server"></asp:TextBox>
+             <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "gst_no" ID="RegularExpressionValidator1" 
+           Operator="DataTypeCheck" Type="Integer" ValidationExpression = "^[\s\S]{0,8}$" runat="server"
+            ErrorMessage="Maximum 8 characters allowed." required="true"></asp:RegularExpressionValidator>
          </div>
          </div>
+
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_state" runat="server" Text="State :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+             <asp:DropDownList ID="ddl_state" runat="server" AutoPostBack="true" 
+                 onselectedindexchanged="ddl_state_SelectedIndexChanged">
+             </asp:DropDownList>
+         </div>
+         </div>
+
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <asp:Label ID="lbl_district" runat="server" Text="District :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+                 <asp:DropDownList ID="ddl_district" runat="server">
+             </asp:DropDownList>
+             
+         </div>
+         </div>
+
+
+         <asp:HiddenField ID="hdn1" runat="server" /><br />
+
+          <asp:HiddenField ID="hdn2" runat="server" /><br />
+
+            <asp:HiddenField ID="hdn3" runat="server" />
 
                   <asp:Button ID="btn_submit" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
@@ -89,6 +121,21 @@
                                                         </th>
                                                         <th>
                                                            Gst No. :
+                                                        </th>
+                                                        <th>
+                                                           State
+                                                        </th>
+                                                        <th>
+                                                          District
+                                                        </th>
+                                                        <th>
+                                                           state_code
+                                                        </th>
+                                                        <th>
+                                                           Pan No.
+                                                        </th>
+                                                        <th>
+                                                          Random No.
                                                         </th>
                                                         <th>
                                                             Edit :
@@ -126,6 +173,24 @@
                                             <td>
                                                 <%# Eval("gst_no")%>
                                             </td>
+                                            <td>
+                                                <%# Eval("state")%>
+                                            </td>
+                                            
+                                        <td>
+                                                <%# Eval("district")%>
+                                            </td>
+                                                
+                                                <td>
+                                                <%# Eval("state_code")%>
+                                            </td>
+                                         <td>
+                                                <%# Eval("pan_no")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("random_no")%>
+                                            </td>
+
                                             <td>
                                                 <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"
                                                     Text="Edit" CommandArgument='<%# Eval("cs_id")%>' />

@@ -18,11 +18,14 @@ public partial class customers : System.Web.UI.Page
     DataTable dt = new DataTable();
     Class1 cl = new Class1();
     string id;
+    string a, b, c, mystring;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
         {
             BindListView();
+            string qry = "select Id, State from tblState ";
+            cl.filldropdown(qry, "Id", "State", ddl_state);
         }
     }
     private void BindListView()
@@ -56,20 +59,33 @@ public partial class customers : System.Web.UI.Page
         {
             Update();
         }
+        
     }
     public void submit()
     {
+        mystring = gst_no.Text.ToString();
+        a = mystring.Substring(0, 2);
+        b = mystring.Substring(2, 10);
+        c = mystring.Substring(12, 3);
+        hdn1.Value = a.ToString();
+        hdn2.Value = b.ToString();
+        hdn3.Value = c.ToString();
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "sp_customer";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@cs_id", hdn0.Value.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
         cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
         cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
         cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@state", Convert.ToInt32(ddl_state.SelectedValue.ToString()));
+        cmd.Parameters.AddWithValue("@district", Convert.ToInt32(ddl_district.SelectedValue.ToString()));
+        cmd.Parameters.AddWithValue("@state_code", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@pan_no", hdn2.Value.ToString());
+        cmd.Parameters.AddWithValue("@random_no", hdn3.Value.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -93,13 +109,17 @@ public partial class customers : System.Web.UI.Page
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "sp_customer";
         cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@cs_id", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@cs_id", hdn0.Value.ToString());
         cmd.Parameters.AddWithValue("@name", name.Text.ToString());
         cmd.Parameters.AddWithValue("@contact", contact.Text.ToString());
         cmd.Parameters.AddWithValue("@address", address.Text.ToString());
         cmd.Parameters.AddWithValue("@mail_id", mail_id.Text.ToString());
         cmd.Parameters.AddWithValue("@gst_no", gst_no.Text.ToString());
-        cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+        cmd.Parameters.AddWithValue("@state", Convert.ToInt32(ddl_state.SelectedValue.ToString()));
+        cmd.Parameters.AddWithValue("@district", Convert.ToInt32(ddl_district.SelectedValue.ToString()));
+        cmd.Parameters.AddWithValue("@state_code", hdn1.Value.ToString());
+        cmd.Parameters.AddWithValue("@pan_no", hdn2.Value.ToString());
+        cmd.Parameters.AddWithValue("@random_no", hdn3.Value.ToString());
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
         con.Open();
@@ -125,12 +145,17 @@ public partial class customers : System.Web.UI.Page
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
                 {
-                    hdn1.Value = dr["cs_id"].ToString();
+                    hdn0.Value = dr["cs_id"].ToString();
                     name.Text = dr["name"].ToString();
                     contact.Text = dr["contact"].ToString();
                     address.Text = dr["address"].ToString();
                     mail_id.Text = dr["mail_id"].ToString();
                     gst_no.Text = dr["gst_no"].ToString();
+                    ddl_state.SelectedValue = dr["state"].ToString();
+                    ddl_district.SelectedValue = dr["district"].ToString();
+                    hdn1.Value=dr["state_code"].ToString();
+                    hdn2.Value=dr["pan_no"].ToString();
+                    hdn3.Value=dr["random_no"].ToString();
                 }
 
             }
@@ -148,5 +173,10 @@ public partial class customers : System.Web.UI.Page
             }
         }
         catch { }
+    }
+    protected void ddl_state_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string qy = "select DistrictId,  District  from tbl_District where StateId=" + ddl_state.SelectedValue;
+        cl.filldropdown(qy, "DistrictId", "District", ddl_district);
     }
 }
