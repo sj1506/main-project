@@ -31,6 +31,9 @@
 </head>
 <body>
     <form id="form1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
+                                       </asp:ScriptManager>
+      
     <div>
     <asp:HiddenField ID="hdn1" runat="server" />
     <div class="first">
@@ -38,7 +41,7 @@
          <li>
             <div>
              <asp:Label ID="lbl_billno" runat="server" Text=" Bill No :"></asp:Label><br />
-             <asp:TextBox ID="b_id" runat="server" style="width: 80px;"></asp:TextBox>   
+             <asp:TextBox ID="b_id" runat="server" style="width: 80px;" required="true;"></asp:TextBox>   
          </div>
          </li>
          
@@ -46,15 +49,23 @@
          <div>
              <asp:Label ID="lbl_ws_id" runat="server" Text=" WS_id :"></asp:Label><br />
          
-             <asp:DropDownList ID="ddl_ws" runat="server">
+             <asp:DropDownList ID="ddl_ws" runat="server" AutoPostBack="true" 
+                 onselectedindexchanged="ddl_ws_SelectedIndexChanged">
              </asp:DropDownList>
          </li>
          <li>
                   <div>
+                     
              <asp:Label ID="lbl_total_cost" runat="server" Text=" Total Cost :" style="width: 80px;"></asp:Label><br />
          
-         
-             <asp:TextBox ID="total_cost" runat="server"></asp:TextBox>
+              <asp:TextBox ID="total_cost" runat="server"></asp:TextBox>
+                <asp:UpdatePanel runat="server">
+                 <ContentTemplate>
+              
+                  </ContentTemplate>
+                </asp:UpdatePanel>
+                    
+            
          
          </div>
          </li>
@@ -250,17 +261,17 @@
                         <thead>
                          <tr> 
                          <th><asp:Label ID="lbl_barcode" runat="server" Text="Bar Code"></asp:Label></th> 
-                         <th>
-                             <asp:Label ID="lbl_bill_no" runat="server" Text="Bill_No"></asp:Label></th>
+                         <%--<th>
+                             <asp:Label ID="lbl_bill_no" runat="server" Text="Bill_No"></asp:Label></th>--%>
                          <th><asp:Label ID="lbl_p_title" runat="server" Text="Product Title"></asp:Label></th>
                           <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
                            <th><asp:Label ID="lbl_selling_price" runat="server" Text="Selling Price"></asp:Label></th> 
                            <th><asp:Label ID="lbl_per_unit_cost" runat="server" Text="Per unit cost"></asp:Label> </th>
                            <th> <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost"></asp:Label></th>
-                           <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
                            <th><asp:Label ID="lbl_cgst1" runat="server" Text="Cgst"></asp:Label></th>
-                           <th><asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label></th>
                            <th><asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label></th>
+                           <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
                            <th></th>
                            <th></th>
                            </tr>
@@ -268,9 +279,9 @@
                               <td>
                               <asp:TextBox ID="barcode" runat="server" style="     width: 110px;"></asp:TextBox>
                               </td>
-                              <th>
+                              <%--<th>
                               <asp:TextBox ID="txt_bill_no" runat="server" style="     width: 110px;"></asp:TextBox>
-                              </th>
+                              </th>--%>
                                <th>
                              <asp:DropDownList ID="ddl_product" runat="server">
                              </asp:DropDownList>
@@ -279,8 +290,14 @@
                            <td><asp:TextBox ID="selling_price" runat="server" style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="per_unit_cost" runat="server"  style=" width: 90px;" 
                                    ontextchanged="per_unit_cost_TextChanged"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;" 
+                                    
+                                         <%--<asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                                               <ContentTemplate>--%>
+                  <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;" 
                                    ontextchanged="txt_total_cost_TextChanged"  AutoPostBack="true" ></asp:TextBox></td>
+                                          <%-- </ContentTemplate>
+                                              </asp:UpdatePanel>--%>
+                       
                            <td><asp:TextBox ID="txt_ugst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_cgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
                            <td><asp:TextBox ID="txt_igst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
@@ -311,9 +328,9 @@
                                                         <th>
                                                              Bar Code. :
                                                         </th>
-                                                        <th>
+                                                       <%-- <th>
                                                            Bill No. :
-                                                        </th>
+                                                        </th>--%>
                                                         <th>
                                                              Product Title:
                                                         </th>
@@ -331,10 +348,10 @@
                                                         </th>
                                                         
                                                         <th>
-                                                            UGST :
+                                                            CGST :
                                                         </th>
                                                         <th>
-                                                            CGST :
+                                                            SGST :
                                                         </th>
                                                         
                                                         <th>
@@ -342,7 +359,7 @@
                                                         </th>
                                                         
                                                         <th>
-                                                            SGST :
+                                                            UGST :
                                                         </th>
                                                         <th>
                                                             Edit :
@@ -367,9 +384,9 @@
                                             <td>
                                                 <%# Eval("barcode")%>
                                             </td>
-                                            <th>
+                                            <%--<th>
                                                 <%# Eval("bill_no") %>
-                                            </th>
+                                            </th>--%>
                                             <td>
                                                 <%# Eval("p_id")%>
                                             </td>
@@ -387,11 +404,11 @@
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("ugst")%>
+                                                <%# Eval("cgst")%>
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("cgst")%>
+                                                <%# Eval("sgst")%>
                                             </td>
                                             
                                             <td>
@@ -399,7 +416,7 @@
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("sgst")%>
+                                                <%# Eval("ugst")%>
                                             </td>
                                             <td>
                                                 <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"

@@ -55,8 +55,8 @@
          <div class="col-sm-6">
              <asp:TextBox ID="gst_no" runat="server"></asp:TextBox>
              <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "gst_no" ID="RegularExpressionValidator1" 
-           Operator="DataTypeCheck" Type="Integer" ValidationExpression = "^[\s\S]{0,8}$" runat="server"
-            ErrorMessage="Maximum 8 characters allowed." required="true"></asp:RegularExpressionValidator>
+           Operator="DataTypeCheck" Type="Integer" ValidationExpression = "^[\s\S]{15,15}$" runat="server"
+            ErrorMessage=" 15 characters allowed only." required="true"></asp:RegularExpressionValidator>
          </div>
          </div>
 

@@ -177,6 +177,7 @@ public partial class customers : System.Web.UI.Page
     protected void ddl_state_SelectedIndexChanged(object sender, EventArgs e)
     {
         string qy = "select DistrictId,  District  from tbl_District where StateId=" + ddl_state.SelectedValue;
-        cl.filldropdown(qy, "DistrictId", "District", ddl_district);
+        cl.filldropdown(qy, "DistrictId", "District", ddl_district);                                                                                           
+
     }
 }
