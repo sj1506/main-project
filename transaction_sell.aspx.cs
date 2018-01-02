@@ -29,6 +29,9 @@ public partial class transaction_sell : System.Web.UI.Page
             cl.filldropdown(qry, "p_id", "p_title", ddl_product);
             string qy = "select cs_id , name from tbl_customers";
             cl.filldropdown(qy, "cs_id", "name", ddl_customer);
+            string state = "select id , name from tbl_states";
+            cl.filldropdown(state, "id", "name", ddl_state);
+            ddl_state.SelectedIndex = 29;
 
         }
     }
@@ -74,6 +77,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ts_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@customer_id",ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@state", ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
         cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
@@ -94,6 +98,7 @@ public partial class transaction_sell : System.Web.UI.Page
     }
     private void clear()
     {
+        ddl_state.SelectedIndex = -1;
         ddl_customer.SelectedIndex = -1;
         cs_name.Text = "";
         b_no.Text = "";
@@ -116,6 +121,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ts_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@state", ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
         cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
@@ -226,7 +232,7 @@ public partial class transaction_sell : System.Web.UI.Page
                 if (dr.Read())
                 {
                     hdn2.Value = dr["id"].ToString();
-                    bill_no.Text = dr["bill_no"].ToString();
+                    b_no.Text = dr["bill_no"].ToString();
                     ts_id.Text = dr["ts_id"].ToString();
                     ddl_product.SelectedValue = dr["p_id"].ToString();
                     qty.Text = dr["qty"].ToString();
@@ -262,7 +268,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.CommandText = "sp_temp_transaction_sell_detail";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
-        cmd.Parameters.AddWithValue("@bill_no", bill_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
@@ -282,7 +288,7 @@ public partial class transaction_sell : System.Web.UI.Page
     }
     private void clear1()
     {
-        bill_no.Text = "";
+        //bill_no.Text = "";
         ts_id.Text = "";
         ddl_product.SelectedIndex = -1;
         qty.Text = "";
@@ -301,7 +307,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.CommandText = "sp_temp_transaction_sell_detail";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
-        cmd.Parameters.AddWithValue("@bill_no", bill_no.Text.ToString());
+        cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());

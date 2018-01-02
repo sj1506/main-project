@@ -35,20 +35,20 @@ public partial class transaction_buy : System.Web.UI.Page
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    protected void btn_submit_Click(object sender, EventArgs e)
-    {
-        if (btn_submit.Text == "insert")
-        {
-            submit();
+    //protected void btn_submit_Click(object sender, EventArgs e)
+    //{
+    //    if (btn_submit.Text == "insert")
+    //    {
+    //        submit();
 
 
 
-        }
-        if (btn_submit.Text == "update")
-        {
-            Update();
-        }
-    }
+    //    }
+    //    if (btn_submit.Text == "update")
+    //    {
+    //        Update();
+    //    }
+    //}
     private void BindListView()
     {
         try
@@ -76,7 +76,7 @@ public partial class transaction_buy : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "sp_transaction_buy";
-        cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
+        cmd.Parameters.AddWithValue("@action", "insert");
         cmd.Parameters.AddWithValue("@t_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@b_id", b_id.Text.ToString());
         cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
@@ -94,7 +94,7 @@ public partial class transaction_buy : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-        clear();
+       // clear();
     }
     private void clear()
     {
@@ -109,34 +109,34 @@ public partial class transaction_buy : System.Web.UI.Page
         gt_with_tax.Text = "";
         discount.Text = "";
     }
-    public void Update()
-    {
-        SqlConnection con = new SqlConnection(conn);
-        SqlCommand cmd = new SqlCommand();
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_transaction_buy";
-        cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@t_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@b_id", b_id.Text.ToString());
-        cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
-        cmd.Parameters.AddWithValue("@ugst", ugst.Text.ToString());
-        cmd.Parameters.AddWithValue("@sgst", sgst.Text.ToString());
-        cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
-        cmd.Parameters.AddWithValue("@igst", igst.Text.ToString());
-        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
-        cmd.Parameters.AddWithValue("@gt_with_tax", gt_with_tax.Text.ToString());
-        cmd.Parameters.AddWithValue("@discount", discount.Text.ToString());
-        cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
-        cmd.Parameters["@result"].Direction = ParameterDirection.Output;
-        cmd.Connection = con;
-        con.Open();
-        cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-       // BindListView();
-        btn_submit.Text = "insert";
-        clear();
-    }
+    //public void Update()
+    //{
+    //    SqlConnection con = new SqlConnection(conn);
+    //    SqlCommand cmd = new SqlCommand();
+    //    cmd.CommandType = CommandType.StoredProcedure;
+    //    cmd.CommandText = "sp_transaction_buy";
+    //    cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
+    //    cmd.Parameters.AddWithValue("@t_id", hdn1.Value.ToString());
+    //    cmd.Parameters.AddWithValue("@b_id", b_id.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
+    //    cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@ugst", ugst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@sgst", sgst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@igst", igst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@date", date.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@gt_with_tax", gt_with_tax.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@discount", discount.Text.ToString());
+    //    cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+    //    cmd.Parameters["@result"].Direction = ParameterDirection.Output;
+    //    cmd.Connection = con;
+    //    con.Open();
+    //    cmd.ExecuteNonQuery();
+    //    lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+    //   // BindListView();
+    //    btn_submit.Text = "insert";
+    //    clear();
+    //}
     protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         Session["Id"] = e.CommandArgument;
@@ -146,7 +146,7 @@ public partial class transaction_buy : System.Web.UI.Page
 
             if (e.CommandName == "CmdEdit")
             {
-                btn_submit.Text = "update";
+              //  btn_submit.Text = "update";
                 string str1 = "select * from tbl_transaction_buy where t_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
@@ -333,7 +333,7 @@ public partial class transaction_buy : System.Web.UI.Page
     {
         if (btn_final.Text == "Save")
         {
-           // submit();
+            submit();
 
             string QryforTemp = "select * from dbo.tbl_temp_transaction_buy_detail where bill_no='" + b_id.Text + "' and ws_id='" + ddl_ws.SelectedValue + "'";
             // DataSet dt = new DataSet();
@@ -400,7 +400,7 @@ public partial class transaction_buy : System.Web.UI.Page
         }
         if (btn_final.Text == "update")
         {
-            Update();
+            //Update();
         }
     }
 

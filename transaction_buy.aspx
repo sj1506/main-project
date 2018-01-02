@@ -119,9 +119,9 @@
          </li>
          <li>
          <div>
-         <asp:Button ID="btn_submit" runat="server" Text="insert" style="     margin-top: 20px;
+        <%-- <asp:Button ID="btn_submit" runat="server" Text="insert" style="     margin-top: 20px;
     margin-left: 15px;"
-          onclick="btn_submit_Click" />
+          onclick="btn_submit_Click" />--%>
          </div>
          </li>
           </ul>

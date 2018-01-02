@@ -50,7 +50,14 @@
              <asp:TextBox ID="cs_name" runat="server" style="width: 80px;"></asp:TextBox>  
              </div>
          </li>
-
+         <li>
+         <div >
+             <asp:Label ID="lbl_state" runat="server" Text=" State :"></asp:Label><br />
+         
+             <asp:DropDownList ID="ddl_state" runat="server">
+             </asp:DropDownList>
+         </div>
+         </li>
          <li>
                   <div>
              <asp:Label ID="lbl_bill_no" runat="server" Text=" Bill No :" style="width: 80px;"></asp:Label><br />
@@ -258,7 +265,7 @@
                         <table id="tblData" >	
                         <thead>
                          <tr> 
-                         <th><asp:Label ID="lbl_bill" runat="server" Text="Bill No. "></asp:Label></th>
+                        <%-- <th><asp:Label ID="lbl_bill" runat="server" Text="Bill No. "></asp:Label></th>--%>
                          <th><asp:Label ID="lbl_ts_id" runat="server" Text="TS-Id"></asp:Label></th> 
                          <th><asp:Label ID="lbl_p_id" runat="server" Text="p_id"></asp:Label></th> 
                           <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
@@ -271,9 +278,9 @@
            
                          </tr>
                            <tr>
-                           <td>
+                           <%--<td>
                               <asp:TextBox ID="bill_no" runat="server" style=" width: 110px;"></asp:TextBox>
-                           </td>
+                           </td>--%>
                               <td>
                               <asp:TextBox ID="ts_id" runat="server" style="     width: 110px;"></asp:TextBox>
                               </td>
@@ -313,9 +320,9 @@
                                                         <th>
                                                             S.No :
                                                         </th>
-                                                        <th>
+                                                        <%--<th>
                                                            Bill No. :
-                                                        </th>
+                                                        </th>--%>
                                                         <th>
                                                              Ts_id :
                                                         </th>
@@ -368,9 +375,9 @@
                                             <td>
                                                 <%# Container.DataItemIndex+1 %>
                                             </td>
-                                            <td>
+                                            <%--<td>
                                                <%# Eval("bill_no")%>
-                                            </td>
+                                            </td>--%>
                                             <td>
                                                 <%# Eval("ts_id")%>
                                             </td>
