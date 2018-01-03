@@ -200,6 +200,8 @@ public partial class transaction_sell : System.Web.UI.Page
         if (btn_addmore.Text == "Add More")
         {
             submit1();
+            BindListView1();
+            clear1();
         }
         if (btn_addmore.Text == "update")
         {
@@ -405,6 +407,7 @@ public partial class transaction_sell : System.Web.UI.Page
                 }
 
             }
+            inserttransaction_sell_detail();
         }
              if (btn_final.Text == "update")
             {
@@ -447,6 +450,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.CommandText = "sp_temp_transaction_sell_detail";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
+        cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
