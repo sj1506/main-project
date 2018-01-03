@@ -81,7 +81,7 @@ public partial class product : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-        clear();
+        //clear();
     }
     private void clear()
     {
@@ -117,13 +117,15 @@ public partial class product : System.Web.UI.Page
             lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
             BindListView();
             btn_submit.Text = "insert";
-            clear();
+            //clear();
         }
         catch
         { }
     }
     protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
+        string qury = "select unit_id, unit_Name from tbl_unit ";
+        cl.filldropdown(qury, "unit_id", "unit_Name", ddl_unit);
         Session["Id"] = e.CommandArgument;
         try
         {
@@ -142,11 +144,12 @@ public partial class product : System.Web.UI.Page
                     p_title.Text = dr["p_title"].ToString();
                     ddl_Brandname.SelectedValue = dr["brand"].ToString();
                     min_qty.Text = dr["minimum_quantity"].ToString();
-                    ddl_unit.SelectedValue = dr["unit"].ToString();
+                   //string h = dr["unit"].ToString();
+                  ddl_unit.SelectedValue = dr["unit"].ToString();
                     bar_code.Text = dr["bar_code"].ToString();
                     txt_qtyinstock.Text = dr["qty_in_stock"].ToString();
                 }
-
+                
             }
             if (e.CommandName == "CmdDelete")
             {

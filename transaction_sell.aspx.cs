@@ -32,20 +32,30 @@ public partial class transaction_sell : System.Web.UI.Page
             string state = "select id , name from tbl_states";
             cl.filldropdown(state, "id", "name", ddl_state);
             ddl_state.SelectedIndex = 29;
+            SqlConnection con = new SqlConnection(conn);
+            if (con.State == 0)
+            {
+                con.Open();
+            }
+            
+            string bill = "select (bill_no)+1 from tbl_transaction_sell where ts_id in (select max (ts_id) as ts_id from tbl_transaction_sell) ";
+            SqlCommand command = new SqlCommand(bill, con);
+            b_no.Text   = command.ExecuteScalar().ToString();
+       
 
         }
     }
-    protected void btn_submit_Click(object sender, EventArgs e)
-    {
-        if (btn_submit.Text == "insert")
-        {
-            submit();
-        }
-        if (btn_submit.Text == "update")
-        {
-            Update();
-        }
-    }
+    //protected void btn_submit_Click(object sender, EventArgs e)
+    //{
+    //    if (btn_submit.Text == "insert")
+    //    {
+    //        submit();
+    //    }
+    //    if (btn_submit.Text == "update")
+    //    {
+    //        Update();
+    //    }
+    //}
     private void BindListView()
     {
         try
@@ -73,7 +83,7 @@ public partial class transaction_sell : System.Web.UI.Page
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
         cmd.CommandText = "sp_transaction_sell";
-        cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
+        cmd.Parameters.AddWithValue("@action","insert");
         cmd.Parameters.AddWithValue("@ts_id", hdn1.Value.ToString());
         cmd.Parameters.AddWithValue("@customer_id",ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
@@ -93,7 +103,7 @@ public partial class transaction_sell : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-        clear();
+        //clear();
         
     }
     private void clear()
@@ -111,36 +121,36 @@ public partial class transaction_sell : System.Web.UI.Page
         gt_with_tax.Text = "";
         discount.Text = "";
     }
-    public void Update()
-    {
-        SqlConnection con = new SqlConnection(conn);
-        SqlCommand cmd = new SqlCommand();
-        cmd.CommandType = CommandType.StoredProcedure;
-        cmd.CommandText = "sp_transaction_sell";
-        cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
-        cmd.Parameters.AddWithValue("@ts_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
-        cmd.Parameters.AddWithValue("@state", ddl_customer.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
-        cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
-        cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
-        cmd.Parameters.AddWithValue("@sgst", sgst.Text.ToString());
-        cmd.Parameters.AddWithValue("@igst", igst.Text.ToString());
-        cmd.Parameters.AddWithValue("@ugst", ugst.Text.ToString());
-        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
-        cmd.Parameters.AddWithValue("@grand_total_with_tax", gt_with_tax.Text.ToString());
-        cmd.Parameters.AddWithValue("@discount", discount.Text.ToString());
-        cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
-        cmd.Parameters["@result"].Direction = ParameterDirection.Output;
-        cmd.Connection = con;
-        con.Open();
-        cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
-        // BindListView();
-        btn_submit.Text = "insert";
-        clear();
-    }
+    //public void Update()
+    //{
+    //    SqlConnection con = new SqlConnection(conn);
+    //    SqlCommand cmd = new SqlCommand();
+    //    cmd.CommandType = CommandType.StoredProcedure;
+    //    cmd.CommandText = "sp_transaction_sell";
+    //    cmd.Parameters.AddWithValue("@action", btn_submit.Text.ToLower());
+    //    cmd.Parameters.AddWithValue("@ts_id", hdn1.Value.ToString());
+    //    cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+    //    cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@state", ddl_customer.SelectedValue.ToString());
+    //    cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@total_cost", total_cost.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@cgst", cgst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@sgst", sgst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@igst", igst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@ugst", ugst.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@date", date.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@grand_total_with_tax", gt_with_tax.Text.ToString());
+    //    cmd.Parameters.AddWithValue("@discount", discount.Text.ToString());
+    //    cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+    //    cmd.Parameters["@result"].Direction = ParameterDirection.Output;
+    //    cmd.Connection = con;
+    //    con.Open();
+    //    cmd.ExecuteNonQuery();
+    //    lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+    //    // BindListView();
+    //    btn_submit.Text = "insert";
+    //    clear();
+    //}
     protected void ListView1_ItemCommand(object sender, ListViewCommandEventArgs e)
     {
         Session["Id"] = e.CommandArgument;
@@ -150,7 +160,7 @@ public partial class transaction_sell : System.Web.UI.Page
 
             if (e.CommandName == "CmdEdit")
             {
-                btn_submit.Text = "update";
+                //btn_submit.Text = "update";
                 string str1 = "select * from tbl_transaction_sell where ts_id='" + e.CommandArgument + "'";
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
@@ -158,6 +168,7 @@ public partial class transaction_sell : System.Web.UI.Page
                     hdn1.Value = dr["ts_id"].ToString();
                     ddl_customer.SelectedValue = dr["customer_id"].ToString();
                     cs_name.Text = dr["customer_name"].ToString();
+                    ddl_state.SelectedValue = dr["state"].ToString();
                     b_no.Text = dr["bill_no"].ToString();
                     total_cost.Text = dr["total_cost"].ToString();
                     cgst.Text = dr["cgst"].ToString();
@@ -206,7 +217,7 @@ public partial class transaction_sell : System.Web.UI.Page
                 con.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("select * from tbl_temp_transaction_sell_detail", con);
+            SqlCommand cmd = new SqlCommand("select * from tbl_temp_transaction_sell_detail where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'", con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -278,6 +289,8 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ugst", txt_ugst.Text.ToString());
         cmd.Parameters.AddWithValue("@igst", txt_igst.Text.ToString());
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
+        cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -317,6 +330,8 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ugst", txt_ugst.Text.ToString());
         cmd.Parameters.AddWithValue("@igst", txt_igst.Text.ToString());
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
+        cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@sgst", cs_name.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -332,11 +347,69 @@ public partial class transaction_sell : System.Web.UI.Page
         if (btn_final.Text == "Save")
         {
             submit();
+
+            string QryforTemp = "select * from tbl_temp_transaction_sell_detail where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'";
+            // DataSet dt = new DataSet();
+            SqlConnection con = new SqlConnection(conn);
+
+            SqlCommand cmd = new SqlCommand(QryforTemp, con);
+            SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            DataSet ds = new DataSet();
+            sda.Fill(ds);
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {//t_id, bill_no, p_id, qty, selling_price_per_product, per_unit_cost, total_cost, ugst, cgst, igst, sgst, barcode, ws_id
+                    //string t_id= ds.Tables[0].Rows[0][""].ToString();
+
+                    SqlCommand cmd1 = new SqlCommand();
+                    cmd1.CommandType = CommandType.StoredProcedure;
+                    cmd1.CommandText = "sp_transaction_sell_detail";
+                    cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
+                    cmd1.Parameters.AddWithValue("@id", ds.Tables[0].Rows[i]["id"].ToString());
+                    cmd1.Parameters.AddWithValue("@ts_id", ds.Tables[0].Rows[i]["ts_id"].ToString());
+                    cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
+                    cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
+                    cmd1.Parameters.AddWithValue("@cost_per_unit", ds.Tables[0].Rows[i]["cost_per_unit"].ToString());
+                    cmd1.Parameters.AddWithValue("@total", ds.Tables[0].Rows[i]["total"].ToString());
+                    cmd1.Parameters.AddWithValue("@cgst", ds.Tables[0].Rows[i]["cgst"].ToString());
+                    cmd1.Parameters.AddWithValue("@ugst", ds.Tables[0].Rows[i]["ugst"].ToString());
+                    cmd1.Parameters.AddWithValue("@igst", ds.Tables[0].Rows[i]["igst"].ToString());
+                    cmd1.Parameters.AddWithValue("@sgst", ds.Tables[0].Rows[i]["sgst"].ToString());
+                    cmd1.Parameters.AddWithValue("@customer_id", ds.Tables[0].Rows[i]["customer_id"].ToString());
+                    cmd1.Parameters.AddWithValue("@customer_name", ds.Tables[0].Rows[i]["customer_name"].ToString());
+                    cmd1.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+                    cmd1.Parameters["@result"].Direction = ParameterDirection.Output;
+                    cmd1.Connection = con;
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    cmd1.ExecuteNonQuery();
+                    lbl_msg.Text = cmd1.Parameters["@result"].Value.ToString();
+
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd2.CommandType = CommandType.StoredProcedure;
+                    cmd2.CommandText = "sp_temp_transaction_sell_detail_delete";
+                    cmd2.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+                    cmd2.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+                    cmd2.Connection = con;
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+                    }
+
+                    cmd2.ExecuteNonQuery();
+
+                }
+
+            }
         }
-        if (btn_final.Text == "update")
-        {
-            Update();
-        }
+             if (btn_final.Text == "update")
+            {
+                //Update();
+            }
     }
     protected void ddl_customer_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -345,5 +418,53 @@ public partial class transaction_sell : System.Web.UI.Page
         {
             cs_name.Text = "";
         }
+        BindListView1();
     }
-}
+    protected void ddl_product_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        SqlConnection con = new SqlConnection(conn);
+       if (con.State == 0)
+            {
+                con.Open();
+            }
+
+        string sql = "select ugst, cgst, igst, sgst from tbl_transaction_buy_detail where p_id= '" + ddl_product.SelectedValue + "'";
+        SqlCommand cmd= new SqlCommand(sql,con);
+         SqlDataReader dr = cl.selectDR(sql);
+                if (dr.Read())
+                {
+                    txt_cgst.Text = dr["cgst"].ToString();
+                    txt_sgst.Text = dr["sgst"].ToString();
+                    txt_igst.Text = dr["igst"].ToString();
+                    txt_ugst.Text = dr["ugst"].ToString();
+                }
+            }
+    public void inserttransaction_sell_detail()
+    {
+        SqlConnection con = new SqlConnection(conn);
+        SqlCommand cmd = new SqlCommand();
+        cmd.CommandType = CommandType.StoredProcedure;
+        cmd.CommandText = "sp_temp_transaction_sell_detail";
+        cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
+        cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
+        cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
+        cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
+        cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
+        cmd.Parameters.AddWithValue("@total", total.Text.ToString());
+        cmd.Parameters.AddWithValue("@cgst", txt_cgst.Text.ToString());
+        cmd.Parameters.AddWithValue("@ugst", txt_ugst.Text.ToString());
+        cmd.Parameters.AddWithValue("@igst", txt_igst.Text.ToString());
+        cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
+        cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+        cmd.Parameters["@result"].Direction = ParameterDirection.Output;
+        cmd.Connection = con;
+        con.Open();
+        cmd.ExecuteNonQuery();
+        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+
+    }
+
+ }

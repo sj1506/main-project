@@ -123,9 +123,9 @@
          </li>
          <li>
          <div>
-         <asp:Button ID="btn_submit" runat="server" Text="insert" style="     margin-top: 20px;
+        <%-- <asp:Button ID="btn_submit" runat="server" Text="insert" style="     margin-top: 20px;
     margin-left: 15px;"
-          onclick="btn_submit_Click" />
+          onclick="btn_submit_Click" />--%>
          </div>
          </li>
           </ul>
@@ -285,7 +285,8 @@
                               <asp:TextBox ID="ts_id" runat="server" style="     width: 110px;"></asp:TextBox>
                               </td>
                                <th>
-                             <asp:DropDownList ID="ddl_product" runat="server">
+                             <asp:DropDownList ID="ddl_product" runat="server" 
+                                       onselectedindexchanged="ddl_product_SelectedIndexChanged" AutoPostBack="true">
                              </asp:DropDownList>
                          </th>
                            <td><asp:TextBox ID="qty" runat="server" style="     width: 90px;"></asp:TextBox></td>
@@ -306,7 +307,7 @@
 
     </div>
 
-                                                            <%-- list view for transaction_buy detail--%>
+                                                            <%-- list view for transaction_sell detail--%>
                                                    <div class="row">
                             <div class="col-lg-12">
                                 <div class="table-responsive">
