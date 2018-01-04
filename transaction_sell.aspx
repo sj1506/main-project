@@ -266,7 +266,6 @@
                         <thead>
                          <tr> 
                         <%-- <th><asp:Label ID="lbl_bill" runat="server" Text="Bill No. "></asp:Label></th>--%>
-                         <th><asp:Label ID="lbl_ts_id" runat="server" Text="TS-Id"></asp:Label></th> 
                          <th><asp:Label ID="lbl_p_id" runat="server" Text="p_id"></asp:Label></th> 
                           <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
                           <th><asp:Label ID="lbl_cost_per_unit" runat="server" Text="cost per unit"></asp:Label> </th>
@@ -281,9 +280,7 @@
                            <%--<td>
                               <asp:TextBox ID="bill_no" runat="server" style=" width: 110px;"></asp:TextBox>
                            </td>--%>
-                              <td>
-                              <asp:TextBox ID="ts_id" runat="server" style="     width: 110px;"></asp:TextBox>
-                              </td>
+                             
                                <th>
                              <asp:DropDownList ID="ddl_product" runat="server" 
                                        onselectedindexchanged="ddl_product_SelectedIndexChanged" AutoPostBack="true">
@@ -313,7 +310,8 @@
                                 <div class="table-responsive">
     <asp:ListView ID="ListView2" runat="server" 
           onitemcommand="ListView2_ItemCommand" GroupPlaceholderID="groupPlaceHolder2"
-                                        ItemPlaceholderID="itemPlaceHolder2">
+                                        ItemPlaceholderID="itemPlaceHolder2" 
+                                        onitemdatabound="ListView2_ItemDataBound" >
                          <LayoutTemplate>
                                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                                 <thead>
@@ -324,9 +322,7 @@
                                                         <%--<th>
                                                            Bill No. :
                                                         </th>--%>
-                                                        <th>
-                                                             Ts_id :
-                                                        </th>
+                                                        
                                                         <th>
                                                            p_id :
                                                         </th>
@@ -379,10 +375,7 @@
                                             <%--<td>
                                                <%# Eval("bill_no")%>
                                             </td>--%>
-                                            <td>
-                                                <%# Eval("ts_id")%>
-                                            </td>
-                                         
+                                           
                                             <td>
                                                 <%# Eval("p_id")%>
                                             </td>
@@ -394,23 +387,28 @@
                                                 <%# Eval("cost_per_unit")%>
                                             </td>
                                             <td>
-                                                <%# Eval("total")%>
+                                               
+                                                <asp:Label ID="lbl_total1" runat="server" Text='<%# Eval("total")%>'></asp:Label>
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("cgst")%>
+                                                
+                                                <asp:Label ID="lbl_cgst1" runat="server" Text='<%# Eval("cgst")%>'></asp:Label>
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("sgst")%>
+                                                
+                                                <asp:Label ID="lbl_sgst1" runat="server" Text='<%# Eval("sgst")%>'></asp:Label>
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("igst")%>
+                                                
+                                                <asp:Label ID="lbl_igst1" runat="server" Text='<%# Eval("igst")%>'></asp:Label>
                                             </td>
                                             
                                             <td>
-                                                <%# Eval("ugst")%>
+                                                
+                                                <asp:Label ID="lbl_ugst1" runat="server" Text='<%# Eval("ugst")%>'></asp:Label>
                                             </td>
                                             <td>
                                                 <asp:Button ID="btnedit" runat="server" type="submit" class="btn btn-primary" CommandName="CmdEdit"

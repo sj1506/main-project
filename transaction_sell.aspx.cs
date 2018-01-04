@@ -19,6 +19,8 @@ public partial class transaction_sell : System.Web.UI.Page
     DataTable dt = new DataTable();
     Class1 cl = new Class1();
     string id;
+    decimal total_cost1 = 0;
+    decimal ugst11, sgst11, cgst11, igst11 = 0;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!IsPostBack)
@@ -37,8 +39,9 @@ public partial class transaction_sell : System.Web.UI.Page
             {
                 con.Open();
             }
-            
-            string bill = "select (bill_no)+1 from tbl_transaction_sell where ts_id in (select max (ts_id) as ts_id from tbl_transaction_sell) ";
+
+            string bill = "select isnull(max(bill_no),0)+1 from tbl_transaction_sell where ts_id in (select ISNULL(max (ts_id),0) as ts_id from tbl_transaction_sell) ";
+            //SELECT @ts_id=ISNULL(MAX(ts_id),0)+1 FROM tbl_transaction_sell
             SqlCommand command = new SqlCommand(bill, con);
             b_no.Text   = command.ExecuteScalar().ToString();
        
@@ -246,7 +249,6 @@ public partial class transaction_sell : System.Web.UI.Page
                 {
                     hdn2.Value = dr["id"].ToString();
                     b_no.Text = dr["bill_no"].ToString();
-                    ts_id.Text = dr["ts_id"].ToString();
                     ddl_product.SelectedValue = dr["p_id"].ToString();
                     qty.Text = dr["qty"].ToString();
                     cost_per_unit.Text = dr["cost_per_unit"].ToString();
@@ -282,7 +284,6 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
-        cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
@@ -304,7 +305,7 @@ public partial class transaction_sell : System.Web.UI.Page
     private void clear1()
     {
         //bill_no.Text = "";
-        ts_id.Text = "";
+        
         ddl_product.SelectedIndex = -1;
         qty.Text = "";
         cost_per_unit.Text = "";
@@ -323,7 +324,6 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
-        cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
@@ -369,8 +369,8 @@ public partial class transaction_sell : System.Web.UI.Page
                     cmd1.CommandText = "sp_transaction_sell_detail";
                     cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
                     cmd1.Parameters.AddWithValue("@id", ds.Tables[0].Rows[i]["id"].ToString());
-                    cmd1.Parameters.AddWithValue("@ts_id", ds.Tables[0].Rows[i]["ts_id"].ToString());
                     cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
+                    cmd1.Parameters.AddWithValue("@ts_id",0);
                     cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
                     cmd1.Parameters.AddWithValue("@cost_per_unit", ds.Tables[0].Rows[i]["cost_per_unit"].ToString());
                     cmd1.Parameters.AddWithValue("@total", ds.Tables[0].Rows[i]["total"].ToString());
@@ -391,6 +391,8 @@ public partial class transaction_sell : System.Web.UI.Page
                     cmd1.ExecuteNonQuery();
                     lbl_msg.Text = cmd1.Parameters["@result"].Value.ToString();
 
+                   // inserttransaction_sell_detail();
+
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.CommandType = CommandType.StoredProcedure;
                     cmd2.CommandText = "sp_temp_transaction_sell_detail_delete";
@@ -407,7 +409,7 @@ public partial class transaction_sell : System.Web.UI.Page
                 }
 
             }
-            inserttransaction_sell_detail();
+            BindListView1();
         }
              if (btn_final.Text == "update")
             {
@@ -451,7 +453,6 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
-        cmd.Parameters.AddWithValue("@ts_id", ts_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
@@ -471,4 +472,31 @@ public partial class transaction_sell : System.Web.UI.Page
 
     }
 
- }
+
+    protected void ListView2_ItemDataBound(object sender, ListViewItemEventArgs e)
+    {
+        if (e.Item.ItemType == ListViewItemType.DataItem)
+        {
+            Label lbl_totalcost = (Label)e.Item.FindControl("lbl_total1");
+            total_cost1 = total_cost1 + Convert.ToDecimal(lbl_totalcost.Text);
+            total_cost.Text = total_cost1.ToString();
+            
+
+            Label lbl_totalcgst = (Label)e.Item.FindControl("lbl_cgst1");
+            cgst11 = cgst11 + Convert.ToDecimal(lbl_totalcgst.Text);
+            cgst.Text = cgst11.ToString();
+
+            Label lbl_totalsgst = (Label)e.Item.FindControl("lbl_sgst1");
+            sgst11 = sgst11 + Convert.ToDecimal(lbl_totalsgst.Text);
+            sgst.Text = sgst11.ToString();
+
+            Label lbl_totaligst = (Label)e.Item.FindControl("lbl_igst1");
+            igst11 = igst11 + Convert.ToDecimal(lbl_totaligst.Text);
+            igst.Text = igst11.ToString();
+
+            Label lbl_totalugst = (Label)e.Item.FindControl("lbl_ugst1");
+            ugst11 = ugst11 + Convert.ToDecimal(lbl_totalugst.Text);
+            ugst.Text = ugst11.ToString();
+        }
+    }
+}
