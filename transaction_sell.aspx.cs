@@ -257,6 +257,7 @@ public partial class transaction_sell : System.Web.UI.Page
                     txt_ugst.Text = dr["ugst"].ToString();
                     txt_igst.Text = dr["igst"].ToString();
                     txt_sgst.Text = dr["sgst"].ToString();
+                    date.Text = dr["date"].ToString();
                 }
             }
             if (e.CommandName == "CmdDelete")
@@ -294,6 +295,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -333,7 +335,8 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@igst", txt_igst.Text.ToString());
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
-        cmd.Parameters.AddWithValue("@sgst", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -380,6 +383,7 @@ public partial class transaction_sell : System.Web.UI.Page
                     cmd1.Parameters.AddWithValue("@sgst", ds.Tables[0].Rows[i]["sgst"].ToString());
                     cmd1.Parameters.AddWithValue("@customer_id", ds.Tables[0].Rows[i]["customer_id"].ToString());
                     cmd1.Parameters.AddWithValue("@customer_name", ds.Tables[0].Rows[i]["customer_name"].ToString());
+                    cmd1.Parameters.AddWithValue("@date", ds.Tables[0].Rows[i]["date"].ToString());
                     cmd1.Parameters.Add("@result", SqlDbType.NVarChar, 500);
                     cmd1.Parameters["@result"].Direction = ParameterDirection.Output;
                     cmd1.Connection = con;
@@ -463,6 +467,7 @@ public partial class transaction_sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;

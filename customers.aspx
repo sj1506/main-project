@@ -81,6 +81,8 @@
              
          </div>
          </div>
+         <asp:Label ID="lbl_testmsg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
+                                                    runat="server" Text=""></asp:Label><br />
 
 
          <asp:HiddenField ID="hdn1" runat="server" /><br />
