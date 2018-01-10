@@ -240,6 +240,8 @@ public partial class transaction_buy : System.Web.UI.Page
                     txt_igst.Text = dr["igst"].ToString();
                     txt_sgst.Text = dr["sgst"].ToString();
                     barcode.Text = dr["barcode"].ToString();
+                    ddl_ws.SelectedValue = dr["ws_id"].ToString();
+                    date.Text = dr["date"].ToString();
                 }
             }
             if (e.CommandName == "CmdDelete")
@@ -278,6 +280,7 @@ public partial class transaction_buy : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@barcode", barcode.Text.ToString());
         cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -299,6 +302,7 @@ public partial class transaction_buy : System.Web.UI.Page
         txt_cgst.Text = "";
         txt_igst.Text = "";
         barcode.Text = "";
+        date.Text = "";
     }
     public void Update1()
     {
@@ -319,6 +323,8 @@ public partial class transaction_buy : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@igst", txt_igst.Text.ToString());
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@barcode", barcode.Text.ToString());
+        cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -367,6 +373,7 @@ public partial class transaction_buy : System.Web.UI.Page
                   cmd1.Parameters.AddWithValue("@sgst", ds.Tables[0].Rows[i]["sgst"].ToString());
                   cmd1.Parameters.AddWithValue("@barcode", ds.Tables[0].Rows[i]["barcode"].ToString());
                   cmd1.Parameters.AddWithValue("@ws_id", ds.Tables[0].Rows[i]["ws_id"].ToString());
+                  cmd1.Parameters.AddWithValue("@date", ds.Tables[0].Rows[i]["date"].ToString());
                   cmd1.Parameters.Add("@result", SqlDbType.NVarChar, 500);
                   cmd1.Parameters["@result"].Direction = ParameterDirection.Output;
                   cmd1.Connection = con;
@@ -449,6 +456,7 @@ public partial class transaction_buy : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@sgst", txt_sgst.Text.ToString());
         cmd.Parameters.AddWithValue("@barcode", barcode.Text.ToString());
         cmd.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
