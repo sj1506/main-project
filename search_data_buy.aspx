@@ -36,7 +36,7 @@
            </asp:TemplateField>
             <asp:TemplateField HeaderText="total_cost">
            <ItemTemplate>
-            <asp:Label ID="lbl_" runat="server" Text= '<%# Eval("cost_per_unit")%>'></asp:Label>
+            <asp:Label ID="lbl_" runat="server" Text= '<%# Eval("selling_price_per_product")%>'></asp:Label>
            </ItemTemplate>
            </asp:TemplateField>
            <asp:TemplateField HeaderText="Product">
