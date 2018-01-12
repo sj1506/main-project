@@ -45,7 +45,17 @@
              <asp:Label ID="lbl_unit" runat="server" Text="Unit :"></asp:Label>
          </div>
          <div class="col-sm-6">
-              <asp:DropDownList ID="ddl_unit" class="form-control" runat="server">
+              <asp:DropDownList ID="ddl_unit" class="form-control" runat="server" AutoPostBack="true"
+                  onselectedindexchanged="ddl_unit_SelectedIndexChanged">
+                                                    </asp:DropDownList>
+         </div>
+         </div>
+         <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6">
+             <%--<asp:Label ID="Label1" runat="server" Text="Unit :"></asp:Label>--%>
+         </div>
+         <div class="col-sm-6">
+              <asp:DropDownList ID="ddl_sub_unit" class="form-control" runat="server">
                                                     </asp:DropDownList>
          </div>
          </div>

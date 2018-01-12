@@ -73,6 +73,7 @@ public partial class product : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@brand", ddl_Brandname.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@minimum_quantity",min_qty.Text.ToString());
         cmd.Parameters.AddWithValue("@unit",ddl_unit.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@sub_unit", ddl_sub_unit.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@bar_code",bar_code.Text.ToString());
         cmd.Parameters.AddWithValue("qty_in_stock",txt_qtyinstock.Text.ToString());
         cmd.Parameters.Add("@result",SqlDbType.NVarChar,500);
@@ -89,6 +90,7 @@ public partial class product : System.Web.UI.Page
         ddl_Brandname.SelectedIndex = -1;
         min_qty.Text = "";
         ddl_unit.SelectedIndex = -1;
+        ddl_sub_unit.SelectedIndex = -1;
         bar_code.Text = "";
         txt_qtyinstock.Text = "";
         txt_qtyinstock.Text = "";
@@ -107,6 +109,7 @@ public partial class product : System.Web.UI.Page
             cmd.Parameters.AddWithValue("@brand", ddl_Brandname.SelectedValue.ToString());
             cmd.Parameters.AddWithValue("@minimum_quantity", min_qty.Text.ToString());
             cmd.Parameters.AddWithValue("@unit", ddl_unit.SelectedValue.ToString());
+            cmd.Parameters.AddWithValue("@sub_unit", ddl_sub_unit.SelectedValue.ToString());
             cmd.Parameters.AddWithValue("@bar_code", bar_code.Text.ToString());
             cmd.Parameters.AddWithValue("qty_in_stock", txt_qtyinstock.Text.ToString());
             cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
@@ -146,6 +149,7 @@ public partial class product : System.Web.UI.Page
                     min_qty.Text = dr["minimum_quantity"].ToString();
                    //string h = dr["unit"].ToString();
                   ddl_unit.SelectedValue = dr["unit"].ToString();
+                  ddl_sub_unit.SelectedValue = dr["sub_unit"].ToString();
                     bar_code.Text = dr["bar_code"].ToString();
                     txt_qtyinstock.Text = dr["qty_in_stock"].ToString();
                 }
@@ -166,5 +170,10 @@ public partial class product : System.Web.UI.Page
             
         }
         catch { }
+    }
+    protected void ddl_unit_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string q = "select id , subunit_name from tbl_sub_unit where unit_id='"+ddl_unit.SelectedValue+"'";
+        cl.filldropdown(q, "id", "subunit_name", ddl_sub_unit);
     }
 }

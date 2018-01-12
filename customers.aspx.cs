@@ -53,7 +53,34 @@ public partial class customers : System.Web.UI.Page
     {
         if (btn_submit.Text == "insert")
         {
-            submit();
+            mystring = gst_no.Text.ToString();
+            a = mystring.Substring(0, 2);
+            b = mystring.Substring(2, 10);
+            c = mystring.Substring(12, 3);
+            hdn1.Value = a.ToString();
+            hdn2.Value = b.ToString();
+            hdn3.Value = c.ToString();
+
+            string qry = "select * from tbl_statecodemaster where code= '" + a + "'";
+            string q = cl.excuteScalar(qry);
+
+            if (q == "null" || q == "")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please Enter correct Gst Number')", true);
+            }
+            else
+            {
+                string sql = "select * from tbl_statecodemaster where name= '" + ddl_state.SelectedIndex + "'";
+                string r = cl.excuteScalar(sql);
+                if (r == q)
+                {
+                    submit();
+                }
+                else
+                {
+                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('You entered wrong Gst Number.')", true);
+                }
+            }
         }
         if (btn_submit.Text == "update")
         {
@@ -63,36 +90,7 @@ public partial class customers : System.Web.UI.Page
     }
     public void submit()
     {
-        mystring = gst_no.Text.ToString();
-        a = mystring.Substring(0, 2);
-        b = mystring.Substring(2, 10);
-        c = mystring.Substring(12, 3);
-        hdn1.Value = a.ToString();
-        hdn2.Value = b.ToString();
-        hdn3.Value = c.ToString();
-
-        string qry = "select * from tbl_statecodemaster where code= '" + a + "'";
-        string q= cl.excuteScalar(qry);
-
-        if (q == "null" || q == "")
-        {
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "error", true);
-        }
-        else
-        {
-            string sql = "select * from tbl_statecodemaster where name= '" + ddl_state.SelectedIndex + "'";
-            string r= cl.excuteScalar(sql);
-            if (r == q)
-            {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "right", true);
-                lbl_testmsg.Text = "right";
-            }
-            else
-            {
-                lbl_testmsg.Text = "wrong";
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "wrong", true);
-            }
-        }
+       
         SqlConnection con = new SqlConnection(conn);
         SqlCommand cmd = new SqlCommand();
         cmd.CommandType = CommandType.StoredProcedure;
@@ -124,6 +122,8 @@ public partial class customers : System.Web.UI.Page
         address.Text = "";
         mail_id.Text = "";
         gst_no.Text = "";
+        ddl_state.SelectedIndex = -1;
+        ddl_district.SelectedIndex = -1;
     }
     public void Update()
     {
