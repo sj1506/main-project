@@ -40,7 +40,12 @@ public partial class display_barcode_data : System.Web.UI.Page
     }
     protected void btn_print_Click(object sender, EventArgs e)
     {
+        GridViewRow row = GridView1.SelectedRow;
+        txt_title.Text = row.Cells[0].Text;
+        txt_size.Text = row.Cells[1].Text;
+        txt_total.Text = row.Cells[2].Text;
         string barCode = txtCode.Text;
+
         System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
         using (Bitmap bitMap = new Bitmap(barCode.Length * 40, 80))
         {
@@ -62,8 +67,10 @@ public partial class display_barcode_data : System.Web.UI.Page
                 imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
             }
             plBarCode.Controls.Add(imgBarCode);
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
         }
+       
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
+        
     }
     protected void btnGenerate_Click(object sender, EventArgs e)
     {
@@ -90,5 +97,12 @@ public partial class display_barcode_data : System.Web.UI.Page
             }
             plBarCode.Controls.Add(imgBarCode);
         }
+    }
+    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        GridViewRow row = GridView1.SelectedRow;
+        txt_title.Text = row.Cells[0].Text;
+        txt_size.Text = row.Cells[1].Text;
+        txt_total.Text = row.Cells[2].Text;
     }
 }

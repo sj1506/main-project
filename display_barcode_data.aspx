@@ -31,7 +31,8 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" 
+            onselectedindexchanged="GridView1_SelectedIndexChanged">
         <Columns>
            <asp:TemplateField HeaderText="Item Name" >
            <ItemTemplate>
@@ -50,15 +51,56 @@
            </asp:TemplateField>
            <asp:TemplateField>
            <ItemTemplate>
-           <asp:Button ID="btn_print" runat="server" Text="print" onclick="btn_print_Click"/>
+          <asp:Button ID="btn_print" runat="server" Text="print" onclick="btn_print_Click"/>
            </ItemTemplate>
            </asp:TemplateField>     
         </Columns>
         </asp:GridView>
+         
     </div>
 
+    <br />
+<table cellpadding="0" cellspacing="0">
+    <tr>
+        <td style="width: 100px">
+            Title
+        </td>
+        <td>
+            <asp:TextBox ID="txt_title" runat="server" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            size
+        </td>
+        <td>
+            <asp:TextBox ID="txt_size" runat="server" />
+        </td>
+    </tr>
+        <tr>
+        <td>
+            &nbsp;
+        </td>
+    </tr>
+    <tr>
+        <td>
+            total
+        </td>
+        <td>
+            <asp:TextBox ID="txt_total" runat="server" />
+        </td>
+    </tr>
+</table>
+
+
+
        <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
-                   <asp:Button ID="btnGenerate" runat="server" Text="Generate" onclick="btnGenerate_Click" AutoPostBack="true"/>
+                   <asp:Button ID="btnGenerate" runat="server" Text="Generate" onclick="btnGenerate_Click"/>
 
               <div id="myModal" class="modal fade" style="margin-left: 1PX; width: 100%;" data-toggle="modal"
         data-backdrop="static" data-keyboard="false">
