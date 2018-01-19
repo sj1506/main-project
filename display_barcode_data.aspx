@@ -31,9 +31,23 @@
 <body>
     <form id="form1" runat="server">
     <div>
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false" 
-            onselectedindexchanged="GridView1_SelectedIndexChanged">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false"
+            onrowcommand="GridView1_RowCommand">
         <Columns>
+
+        <asp:TemplateField HeaderText="" Visible="false" >
+           <ItemTemplate>
+            <asp:Label ID="lblid" runat="server"  Text= ' <%# Container.DataItemIndex+1 %>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+
+         <asp:TemplateField HeaderText="" Visible="false" >
+           <ItemTemplate>
+            <asp:Label ID="lblpid" runat="server"  Text= '<%# Eval("p_id")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
            <asp:TemplateField HeaderText="Item Name" >
            <ItemTemplate>
             <asp:Label ID="lbl_title" runat="server"  Text= '<%# Eval("p_title")%>' style="width: 40%;"></asp:Label>
@@ -46,12 +60,21 @@
            </asp:TemplateField>
             <asp:TemplateField HeaderText="Price">
            <ItemTemplate>
-            <asp:Label ID="lbl_minimum_quantity" runat="server" Text= '<%# Eval("total_cost")%>'></asp:Label>
+            <asp:Label ID="total" runat="server" Text= '<%# Eval("total_cost")%>'></asp:Label>
            </ItemTemplate>
            </asp:TemplateField>
+
+
+            <asp:TemplateField HeaderText="BarCode">
+           <ItemTemplate>
+            <asp:Label ID="bar" runat="server" Text= '<%# Eval("bar_code")%>'></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+
            <asp:TemplateField>
            <ItemTemplate>
-          <asp:Button ID="btn_print" runat="server" Text="print" onclick="btn_print_Click"/>
+          <asp:Button ID="btn_print" runat="server" Text="print"  CommandArgument=' <%# Container.DataItemIndex %>'/>
            </ItemTemplate>
            </asp:TemplateField>     
         </Columns>
@@ -59,8 +82,24 @@
          
     </div>
 
-    <br />
-<table cellpadding="0" cellspacing="0">
+              <div id="myModal" class="modal fade" style="margin-left: 1PX; width: 100%;" data-toggle="modal"
+        data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" style="width: 85%;">
+            <!-- Modal content-->
+            <div class="modal-content" style="height: 700px; overflow-y: scroll;">
+                <div class="modal-body" style="background-color: #2e6da4; height: 50px;">
+                    <button type="button" class="close" data-dismiss="modal" style="background: #2e6da4;
+                        border-radius: 50% 50% 50% 50%; -webkit-border-radius: 50% 50% 50% 50%; font-size: 18px;
+                        font-weight: bold; position: absolute; right: 15px; text-align: center; top: 10px;
+                        width: 30px; height: 30px; line-height: 30px; color: white; opacity: 1;">
+                        &times;
+                    </button>
+                    <div class="lightbox-inner">
+                                            
+                    </div>
+                    <div class="container">
+                           <div id="print">
+                           <table cellpadding="0" cellspacing="0">
     <tr>
         <td style="width: 100px">
             Title
@@ -96,32 +135,6 @@
         </td>
     </tr>
 </table>
-
-
-
-       <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
-                   <asp:Button ID="btnGenerate" runat="server" Text="Generate" onclick="btnGenerate_Click"/>
-
-              <div id="myModal" class="modal fade" style="margin-left: 1PX; width: 100%;" data-toggle="modal"
-        data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog" style="width: 85%;">
-            <!-- Modal content-->
-            <div class="modal-content" style="height: 700px; overflow-y: scroll;">
-                <div class="modal-body" style="background-color: #2e6da4; height: 50px;">
-                    <button type="button" class="close" data-dismiss="modal" style="background: #2e6da4;
-                        border-radius: 50% 50% 50% 50%; -webkit-border-radius: 50% 50% 50% 50%; font-size: 18px;
-                        font-weight: bold; position: absolute; right: 15px; text-align: center; top: 10px;
-                        width: 30px; height: 30px; line-height: 30px; color: white; opacity: 1;">
-                        &times;
-                    </button>
-                    <div class="lightbox-inner">
-                                            
-                    </div>
-                    <div class="container">
-                           <div id="print">
-                            <asp:HiddenField ID="hdn1" runat="server" />
-                            <asp:HiddenField ID="hdn2" runat="server" />
-                            <asp:HiddenField ID="hdn3" runat="server" />
                       <asp:PlaceHolder ID="plBarCode" runat="server" />
                           </div>
                       

@@ -29,7 +29,7 @@ public partial class display_barcode_data : System.Web.UI.Page
     {
         string connectionstring = WebConfigurationManager.ConnectionStrings["connection"].ConnectionString;
         SqlConnection cnn = new SqlConnection(connectionstring);
-        string qry = "select a.p_title, a.sub_unit, b.total_cost from tbl_product as a left join tbl_transaction_buy_detail as b on a.p_id=b.p_id";
+        string qry = "select  a.p_id,a.bar_code,a.p_title, a.sub_unit, b.total_cost from tbl_product as a left join tbl_transaction_buy_detail as b on a.p_id=b.p_id";
         SqlCommand cmd = new SqlCommand(qry, cnn);
         SqlDataAdapter ad = new SqlDataAdapter(cmd);
         DataTable dt = new DataTable();
@@ -38,16 +38,30 @@ public partial class display_barcode_data : System.Web.UI.Page
         GridView1.DataSource = dt;
         GridView1.DataBind();
     }
-    protected void btn_print_Click(object sender, EventArgs e)
-    {
-        GridViewRow row = GridView1.SelectedRow;
-        txt_title.Text = row.Cells[0].Text;
-        txt_size.Text = row.Cells[1].Text;
-        txt_total.Text = row.Cells[2].Text;
-        string barCode = txtCode.Text;
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {  
+        int index = int.Parse(e.CommandArgument.ToString());
+        Label id = (Label)GridView1.Rows[index].FindControl("lblid");
+        Label paperid = (Label)GridView1.Rows[index].FindControl("lbl_title");
+        Label size = (Label)GridView1.Rows[index].FindControl("lbl_size");
+        Label total = (Label)GridView1.Rows[index].FindControl("total");
+        Label bar = (Label)GridView1.Rows[index].FindControl("bar");
+        string barcode=bar.Text;
+        txt_title.Text = paperid.Text.ToString();
+        txt_size.Text = size.Text.ToString();
+       txt_total.Text = total.Text.ToString();
+       functionbar(barcode);
 
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
+
+    }
+
+    private void functionbar(string barcode)
+    {
+
+        string sbarCode = barcode;
         System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
-        using (Bitmap bitMap = new Bitmap(barCode.Length * 40, 80))
+        using (Bitmap bitMap = new Bitmap(sbarCode.Length * 40, 80))
         {
             using (Graphics graphics = Graphics.FromImage(bitMap))
             {
@@ -56,7 +70,7 @@ public partial class display_barcode_data : System.Web.UI.Page
                 SolidBrush blackBrush = new SolidBrush(Color.Black);
                 SolidBrush whiteBrush = new SolidBrush(Color.White);
                 graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
-                graphics.DrawString("*" + barCode + "*", oFont, blackBrush, point);
+                graphics.DrawString("*" + sbarCode + "*", oFont, blackBrush, point);
             }
             using (MemoryStream ms = new MemoryStream())
             {
@@ -68,41 +82,7 @@ public partial class display_barcode_data : System.Web.UI.Page
             }
             plBarCode.Controls.Add(imgBarCode);
         }
-       
-            ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
-        
-    }
-    protected void btnGenerate_Click(object sender, EventArgs e)
-    {
-        string barCode = txtCode.Text;
-        System.Web.UI.WebControls.Image imgBarCode = new System.Web.UI.WebControls.Image();
-        using (Bitmap bitMap = new Bitmap(barCode.Length * 40, 80))
-        {
-            using (Graphics graphics = Graphics.FromImage(bitMap))
-            {
-                Font oFont = new Font("IDAutomationHC39M", 16);
-                PointF point = new PointF(2f, 2f);
-                SolidBrush blackBrush = new SolidBrush(Color.Black);
-                SolidBrush whiteBrush = new SolidBrush(Color.White);
-                graphics.FillRectangle(whiteBrush, 0, 0, bitMap.Width, bitMap.Height);
-                graphics.DrawString("*" + barCode + "*", oFont, blackBrush, point);
-            }
-            using (MemoryStream ms = new MemoryStream())
-            {
-                bitMap.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                byte[] byteImage = ms.ToArray();
 
-                Convert.ToBase64String(byteImage);
-                imgBarCode.ImageUrl = "data:image/png;base64," + Convert.ToBase64String(byteImage);
-            }
-            plBarCode.Controls.Add(imgBarCode);
-        }
-    }
-    protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
-    {
-        GridViewRow row = GridView1.SelectedRow;
-        txt_title.Text = row.Cells[0].Text;
-        txt_size.Text = row.Cells[1].Text;
-        txt_total.Text = row.Cells[2].Text;
+
     }
 }
