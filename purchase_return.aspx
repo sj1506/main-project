@@ -32,10 +32,11 @@
 <body>
     <form id="form1" runat="server">
                    
-                     <div style="height: 50px; width: 100%">
+                     <div style="height: 50px; width: 100%;     margin-top: 20px;
+    margin-left: 51px;">
                     <asp:Label ID="lbl_select" runat="server" Text=""><b>Please Select Whole Seller : </b></asp:Label>
                     <asp:DropDownList ID="ddl_ws" Width="20%" class="drop" runat="server" 
-                        AutoPostBack="true">
+                        AutoPostBack="true" onselectedindexchanged="ddl_ws_SelectedIndexChanged">
                     </asp:DropDownList>
                 </div>
 
@@ -46,30 +47,31 @@
                         <table id="tblData" >	
                         <thead>
                          <tr> 
-                         <th><asp:Label ID="lbl_itemname" runat="server" Text="Item Name"></asp:Label></th>
-                          <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th> 
-                           <th><asp:Label ID="lbl_rate" runat="server" Text="rate"></asp:Label> </th>
-                            <th><asp:Label ID="lbl_unit" runat="server" Text="per"></asp:Label> </th>
-                           <th> <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost"></asp:Label></th>
-                           <th><asp:Label ID="lbl_narration" runat="server" Text="Narration"></asp:Label></th>
+                         <th><asp:Label ID="lbl_itemname" runat="server" Text="Item Name" style="
+    margin-left: 52px;"></asp:Label></th>
+                          <th><asp:Label ID="lbl_qty" runat="server" Text="Qty" style="margin-left: 33px;"></asp:Label></th> 
+                           <th><asp:Label ID="lbl_rate" runat="server" Text="rate" style="margin-left: 33px;" ></asp:Label> </th>
+                            <th><asp:Label ID="lbl_unit" runat="server" Text="per" style="margin-left: 33px;"></asp:Label> </th>
+                           <th> <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost" style="margin-left: 33px;"></asp:Label></th>
+                           <th><asp:Label ID="lbl_narration" runat="server" Text="Narration" style="margin-left: 33px;"></asp:Label></th>
                            <th></th>
                            </tr>
                            <tr>
                                <th>
-                             <asp:DropDownList ID="ddl_product" runat="server">
+                             <asp:DropDownList ID="ddl_product" runat="server" style="     margin-left: 37px;">
                              </asp:DropDownList>
                          </th>
-                           <td><asp:TextBox ID="qty" runat="server" style="     width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="rate" runat="server"  style=" width: 90px;"  
+                           <td><asp:TextBox ID="qty" runat="server" style="  margin-left: 15px;   width: 90px;"></asp:TextBox></td>
+                           <td><asp:TextBox ID="rate" runat="server"  style=" margin-left: 15px; width: 90px;"  
                                    AutoPostBack="true" ontextchanged="rate_TextChanged"></asp:TextBox></td>
                            <td> 
-                               <asp:DropDownList ID="ddl_unit" runat="server">
+                               <asp:DropDownList ID="ddl_unit" runat="server" style=" margin-left: 15px;">
                                </asp:DropDownList>
                            </td>
-                  <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" width: 110px;" 
+                  <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" margin-left: 15px; width: 110px;" 
                                     AutoPostBack="true" ></asp:TextBox></td>
 
-                       <td><asp:TextBox ID="txt_narration" runat="server" style="     width: 90px;"></asp:TextBox></td>
+                       <td><asp:TextBox ID="txt_narration" runat="server" style="  margin-left: 15px;   width: 200px;"></asp:TextBox></td>
                            <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" style=" margin-left: 15px;" 
                                 onclick="btn_addmore_Click" />
   

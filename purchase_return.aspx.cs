@@ -75,7 +75,8 @@ public partial class purchase_return : System.Web.UI.Page
         cmd.CommandText = "sp_temp_purchase_return";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@pr_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@item_name", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@item_id", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@item_name", ddl_product.SelectedItem.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@rate", rate.Text.ToString());
         cmd.Parameters.AddWithValue("@unit", ddl_unit.SelectedValue.ToString());
@@ -111,7 +112,8 @@ public partial class purchase_return : System.Web.UI.Page
         cmd.CommandText = "sp_temp_purchase_return";
         cmd.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         cmd.Parameters.AddWithValue("@pr_id", hdn1.Value.ToString());
-        cmd.Parameters.AddWithValue("@item_name", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@item_id", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@item_name", ddl_product.SelectedItem.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
         cmd.Parameters.AddWithValue("@rate", rate.Text.ToString());
         cmd.Parameters.AddWithValue("@unit", ddl_unit.SelectedValue.ToString());
@@ -133,9 +135,9 @@ public partial class purchase_return : System.Web.UI.Page
     {
         if (btn_final.Text == "Save")
         {
-          
 
-            string QryforTemp = "select * from dbo.tbl_temp_transaction_buy_detail where ws_id='" + ddl_ws.SelectedValue + "'";
+
+            string QryforTemp = "select * from dbo.tbl_purchase_temp_return where ws_id='" + ddl_ws.SelectedValue + "'";
             // DataSet dt = new DataSet();
             SqlConnection con = new SqlConnection(conn);
 
@@ -150,8 +152,9 @@ public partial class purchase_return : System.Web.UI.Page
                     SqlCommand cmd1 = new SqlCommand();
                     cmd1.CommandType = CommandType.StoredProcedure;
                     cmd1.CommandText = "sp_purchase_return";
-                    cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
+                    cmd1.Parameters.AddWithValue("@action", btn_final.Text.ToLower());
                     cmd1.Parameters.AddWithValue("@pr_id", ds.Tables[0].Rows[i]["pr_id"].ToString());
+                    cmd1.Parameters.AddWithValue("@item_id", ds.Tables[0].Rows[i]["item_id"].ToString());
                     cmd1.Parameters.AddWithValue("@item_name", ds.Tables[0].Rows[i]["item_name"].ToString());
                     cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
                     cmd1.Parameters.AddWithValue("@rate", ds.Tables[0].Rows[i]["rate"].ToString());
@@ -174,8 +177,8 @@ public partial class purchase_return : System.Web.UI.Page
                     SqlCommand cmd2 = new SqlCommand();
                     cmd2.CommandType = CommandType.StoredProcedure;
                     cmd2.CommandText = "sp_temp_purchase_return_delete";
-                    cmd2.Parameters.AddWithValue("@ws_id",hdn2.Value.ToString());
-                    cmd2.Parameters.AddWithValue("@ws_name", ddl_ws.SelectedValue.ToString());
+                    cmd2.Parameters.AddWithValue("@ws_id", ddl_ws.SelectedValue.ToString());
+                    cmd2.Parameters.AddWithValue("@ws_name", ddl_ws.SelectedItem.ToString());
                     cmd2.Connection = con;
                     if (con.State == ConnectionState.Closed)
                     {
@@ -205,8 +208,8 @@ public partial class purchase_return : System.Web.UI.Page
                 SqlDataReader dr = cl.selectDR(str1);
                 if (dr.Read())
                 {
-                    hdn1.Value = dr["t_id"].ToString();
-                    ddl_product.SelectedValue = dr["item_name"].ToString();
+                    hdn1.Value = dr["pr_id"].ToString();
+                    ddl_product.SelectedValue = dr["item_id"].ToString();
                     qty.Text = dr["qty"].ToString();
                     rate.Text = dr["rate"].ToString();
                     ddl_unit.SelectedValue = dr["unit"].ToString();
@@ -241,5 +244,9 @@ public partial class purchase_return : System.Web.UI.Page
             ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "error", true);
 
         }
+    }
+    protected void ddl_ws_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        BindListView1();
     }
 }
