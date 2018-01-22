@@ -101,7 +101,7 @@ public partial class purchase_return : System.Web.UI.Page
         rate.Text = "";
         ddl_unit.SelectedIndex=-1;
         txt_total_cost.Text = "";
-        ddl_ws.SelectedIndex = 1;
+        ddl_ws.SelectedIndex = -1;
         txt_narration.Text = "";
     }
     public void Update1()
