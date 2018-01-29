@@ -12,7 +12,8 @@ using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
 
-public partial class product : System.Web.UI.Page
+public partial class Product : System.Web.UI.Page
+
 {
     string conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
     Class1 cl = new Class1();

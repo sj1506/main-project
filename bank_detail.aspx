@@ -1,55 +1,54 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="bank_detail.aspx.cs" Inherits="bank_detail" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master" CodeFile="bank_detail.aspx.cs" Inherits="bank_detail" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>Bank Detail</title>
       <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="jquery.min.js" type="text/javascript"></script>
-</head>
-<body>
+    </asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form id="form1" runat="server">
-    <div>
+    <div class="full">
+
     <asp:HiddenField ID="hdn1" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_cpyname" runat="server" Text=" Company Name :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="cpy_name" runat="server"></asp:TextBox>
+             <asp:TextBox ID="cpy_name" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_accno" runat="server" Text="Account No :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="acc_no" runat="server"></asp:TextBox>
+             <asp:TextBox ID="acc_no" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_bankname" runat="server" Text=" Bank Name :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="bank_name" runat="server"></asp:TextBox>
+             <asp:TextBox ID="bank_name" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
         
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_ifsc" runat="server" Text="IFSC No :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="ifsc_no" runat="server"></asp:TextBox>
+             <asp:TextBox ID="ifsc_no" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
          
          
-                  <asp:Button ID="btn_submit" runat="server" Text="insert" 
+                  <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
 
        <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
@@ -127,5 +126,4 @@
                         </div>
     </div>
     </form>
-</body>
-</html>
+</asp:Content>
