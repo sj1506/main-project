@@ -1,9 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="purchase_return.aspx.cs" Inherits="purchase_return" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master" CodeFile="purchase_return.aspx.cs" Inherits="purchase_return" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>Purchase Return</title>
     <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
@@ -28,61 +25,102 @@
         width: 200%;
     }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server">
-                   
-                     <div style="height: 50px; width: 100%;     margin-top: 20px;
-    margin-left: 51px;">
-                    <asp:Label ID="lbl_select" runat="server" Text=""><b>Please Select Whole Seller : </b></asp:Label>
-                    <asp:DropDownList ID="ddl_ws" Width="20%" class="drop" runat="server" 
+     </asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <form id="form1" style="    height: 600px;" runat="server">
+
+                    <div class="full">
+                <div class="col-sm-12" style=" margin-top: 8px">
+         <div class="col-sm-6 divstyle">
+             <asp:Label ID="lbl_select" runat="server" Text=""><b>Please Select Whole Seller : </b></asp:Label>
+         </div>
+         <div class="col-sm-6">
+              <asp:DropDownList ID="ddl_ws"  class="drop form-control" runat="server" 
                         AutoPostBack="true" onselectedindexchanged="ddl_ws_SelectedIndexChanged">
                     </asp:DropDownList>
-                </div>
-
-
-          <div >
+             
+         </div>
+         </div>
+          
                             <asp:HiddenField ID="hdn1" runat="server" />
                             <asp:HiddenField ID="hdn2" runat="server" />
-                        <table id="tblData" >	
-                        <thead>
-                         <tr> 
-                         <th><asp:Label ID="lbl_itemname" runat="server" Text="Item Name" style="
-    margin-left: 52px;"></asp:Label></th>
-                          <th><asp:Label ID="lbl_qty" runat="server" Text="Qty" style="margin-left: 33px;"></asp:Label></th> 
-                           <th><asp:Label ID="lbl_rate" runat="server" Text="rate" style="margin-left: 33px;" ></asp:Label> </th>
-                            <th><asp:Label ID="lbl_unit" runat="server" Text="per" style="margin-left: 33px;"></asp:Label> </th>
-                           <th> <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost" style="margin-left: 33px;"></asp:Label></th>
-                           <th><asp:Label ID="lbl_narration" runat="server" Text="Narration" style="margin-left: 33px;"></asp:Label></th>
-                           <th></th>
-                           </tr>
-                           <tr>
-                               <th>
-                             <asp:DropDownList ID="ddl_product" runat="server" style="     margin-left: 37px;">
-                             </asp:DropDownList>
-                         </th>
-                           <td><asp:TextBox ID="qty" runat="server" style="  margin-left: 15px;   width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="rate" runat="server"  style=" margin-left: 15px; width: 90px;"  
-                                   AutoPostBack="true" ontextchanged="rate_TextChanged"></asp:TextBox></td>
-                           <td> 
-                               <asp:DropDownList ID="ddl_unit" runat="server" style=" margin-left: 15px;">
-                               </asp:DropDownList>
-                           </td>
-                  <td><asp:TextBox ID="txt_total_cost" runat="server"  style=" margin-left: 15px; width: 110px;" 
-                                    AutoPostBack="true" ></asp:TextBox></td>
 
-                       <td><asp:TextBox ID="txt_narration" runat="server" style="  margin-left: 15px;   width: 200px;"></asp:TextBox></td>
-                           <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" style=" margin-left: 15px;" 
+                       	 <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                           <asp:Label ID="lbl_itemname" runat="server" Text="Item Name" style=" margin-left: 52px;"></asp:Label>
+                            </div>
+                        <div class="col-sm-6">
+                            <asp:DropDownList ID="ddl_product" runat="server" class="form-control">
+                             </asp:DropDownList>
+             
+                           </div>
+                           </div>
+
+                            <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                            <asp:Label ID="lbl_qty" runat="server" Text="Qty" ></asp:Label>
+                            </div>
+                        <div class="col-sm-6">
+                             <asp:TextBox ID="qty" runat="server" class="form-control"></asp:TextBox>
+                           </div>
+                           </div>
+                        
+                         <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                           <asp:Label ID="lbl_rate" runat="server" Text="rate" style="margin-left: 33px;" ></asp:Label> 
+                            </div>
+                        <div class="col-sm-6">
+                                <asp:TextBox ID="rate" runat="server" class="form-control"
+                                   AutoPostBack="true" ontextchanged="rate_TextChanged"></asp:TextBox>
+                           </div>
+                           </div>
+                         
+                            <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                          <asp:Label ID="lbl_unit" runat="server" Text="per" style="margin-left: 33px;"></asp:Label>
+                            </div>
+                        <div class="col-sm-6">
+                                <asp:DropDownList ID="ddl_unit" runat="server" class="form-control">
+                               </asp:DropDownList>
+                           </div>
+                           </div>
+
+                             <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                         <asp:Label ID="lbl_totalcost" runat="server" Text="Total cost" style="margin-left: 33px;"></asp:Label>
+                            </div>
+                        <div class="col-sm-6">
+                                 <asp:TextBox ID="txt_total_cost" class="form-control" runat="server" 
+                                    AutoPostBack="true" ></asp:TextBox>
+                           </div>
+                           </div>
+
+                           <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                          <asp:Label ID="lbl_narration" runat="server" Text="Narration" style="margin-left: 33px;"></asp:Label>
+                            </div>
+                        <div class="col-sm-6">   
+                       <asp:TextBox ID="txt_narration" runat="server" class="form-control"></asp:TextBox>
+                           </div>
+                           </div>
+
+                            <div class="col-sm-12" style="    margin-top: 8px">
+                         <div class="col-sm-6 divstyle">
+                          
+                            </div>
+                        <div class="col-sm-6">   
+                                                  <asp:Button ID="btn_addmore"  class="button btn btn-primary" runat="server" Text="Add More"
                                 onclick="btn_addmore_Click" />
+                           </div>
+                           </div>
+
   
-                                </td>
-                           </tr>
-                            </thead> 
-                               </table>
+                               
              <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
                                                     runat="server" Text=""></asp:Label>
-                        </div>
-    
+                        
+                </div>
                                              <%-- list view for transaction_buy detail--%>
                                                    <div class="row">
                             <div class="col-lg-12">
@@ -174,9 +212,12 @@
                                                  
                                                     </div>
                                                    <%--end details for list view--%>
-                             <asp:Button ID="btn_final" runat="server" Text="Save" 
-                                  Height="21px" Width="91px" style=" margin-left: 90%;
-                                 margin-top: 20px;" onclick="btn_final_Click"/>
+                                                   <div style=" margin-top: 35px;">
+                                                     <div style="    margin-left: 47%;font-size: 19px;font-family: sans-serif;">
+                     <asp:Label ID="lbl_finalsubmit" runat="server" Text="Final Submit :"></asp:Label>
+                     </div>
+                             <asp:Button ID="btn_final"  class="button btn btn-primary" runat="server" Text="Save" 
+                                 onclick="btn_final_Click"/>
+                                 </div>
     </form>
-</body>
-</html>
+</asp:Content>

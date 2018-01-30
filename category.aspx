@@ -1,37 +1,37 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="category.aspx.cs" Inherits="category" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master" CodeFile="category.aspx.cs" Inherits="category" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>category</title>
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <title>Category</title>
+      <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
-    <script src="jquery.min.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
+    <script src="jquery.min.js" type="text/javascript"></script>
+    </asp:Content>
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <form id="form1" runat="server">
-    <div>
+    <div class="full">
     <asp:HiddenField ID="hdn1" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_name" runat="server" Text="Name :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="txt_name" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txt_name" class="form-control" runat="server"></asp:TextBox>
              
          </div>
          </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_description" runat="server" Text="Description :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="txt_des" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txt_des" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
-          <asp:Button ID="btn_submit" runat="server" Text="insert" 
+          <asp:Button ID="btn_submit"  class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
 
        <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
@@ -97,5 +97,4 @@
                             </div>
                         </div>
     </form>
-</body>
-</html>
+    </asp:Content>

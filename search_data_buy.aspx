@@ -1,25 +1,49 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="search_data_buy.aspx.cs" Inherits="search_data_buy" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master" CodeFile="search_data_buy.aspx.cs" Inherits="search_data_buy" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title> Search Data</title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-         <asp:Label ID="lbl_fromdate" runat="server" Text="From Date :"></asp:Label><br />
-        <asp:TextBox ID="txt_fromdate" runat="server"></asp:TextBox> <br />
+      <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="bootstrap.min.js" type="text/javascript"></script>
+    <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <script src="jquery.min.js" type="text/javascript"></script>
+    </asp:Content>
+    
 
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <form id="form1" style="height: 600px;" runat="server">
+    <div class="full">
+        
+            <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6 divstyle">
+            <asp:Label ID="lbl_fromdate" runat="server" Text="From Date :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+            <asp:TextBox ID="txt_fromdate" class="form-control" runat="server"></asp:TextBox>
+             
+         </div>
+         </div>
 
-        <asp:Label ID="lbl_enddate" runat="server" Text="End Date :"></asp:Label><br />
-        <asp:TextBox ID="txt_enddate" runat="server"></asp:TextBox><br />
+               <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6 divstyle">
+            <asp:Label ID="lbl_enddate" runat="server" Text="End Date :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+          
+        <asp:TextBox ID="txt_enddate" class="form-control" runat="server"></asp:TextBox>
+         </div>
+         </div>
 
-        <asp:Label ID="lbl_product" runat="server" Text="select product :"></asp:Label><br />
-        <asp:DropDownList ID="ddl_product" runat="server">
-        </asp:DropDownList><br />
-        <asp:Button ID="btn_display" runat="server" Text="display" 
+          <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-6 divstyle">
+            <asp:Label ID="lbl_product" runat="server" Text="select product :"></asp:Label>
+         </div>
+         <div class="col-sm-6">
+           <asp:DropDownList ID="ddl_product" class="form-control" runat="server">
+        </asp:DropDownList>
+         </div>
+         </div>
+
+        <asp:Button ID="btn_display"  class="button btn btn-primary" runat="server" Text="display" 
             onclick="btn_display_Click"  style=" margin-top: 15px;"/>
 
              <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
@@ -48,5 +72,4 @@
         </asp:GridView>
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

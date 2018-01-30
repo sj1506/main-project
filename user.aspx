@@ -1,44 +1,42 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="user.aspx.cs" Inherits="user" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/MasterPage.master" CodeFile="user.aspx.cs" Inherits="user" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>Users</title>
     <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
     <script src="jquery.min.js" type="text/javascript"></script>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
+    </asp:Content>
+
+    <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<form id="form1" style="    height: 600px;" runat="server">
+    <div class="full">
     <asp:HiddenField ID="hdn1" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_username" runat="server" Text=" User Name :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="user_name" runat="server"></asp:TextBox>
+             <asp:TextBox ID="user_name" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_password" runat="server" Text=" Password :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="password" runat="server" TextMode="Password"></asp:TextBox>
+             <asp:TextBox ID="password" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
          </div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
-             <asp:Label ID="lbl_role" runat="server" Text=" Role :"></asp:Label>
+         <div class="col-sm-6 divstyle">
+             <asp:Label ID="lbl_role"  runat="server" Text=" Role :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="role" runat="server"></asp:TextBox>
+             <asp:TextBox ID="role" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
-                  <asp:Button ID="btn_submit" runat="server" Text="insert" 
+                  <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
 
        <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
@@ -109,5 +107,4 @@
                         </div>
     </div>
     </form>
-</body>
-</html>
+</asp:Content>

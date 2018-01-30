@@ -1,25 +1,25 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/MasterPage.master" AutoEventWireup="true" CodeFile="unit.aspx.cs" Inherits="unit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="unit.aspx.cs" Inherits="unit" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="bootstrap.min.js" type="text/javascript"></script>
     <script src="jquery.min.js" type="text/javascript"></script>
     <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-          
-          <div>
+ <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+<form id="form1" style="    height: 600px;" runat="server">
+    <div class="full">
               <asp:HiddenField ID="hdn1" runat="server" />
           </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-6 divstyle">
              <asp:Label ID="lbl_unitname" runat="server" Text="Unit Name :"></asp:Label>
          </div>
          <div class="col-sm-6">
-             <asp:TextBox ID="txt_unitname" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txt_unitname" class="form-control" runat="server"></asp:TextBox>
          </div>
          </div>
-        <asp:Button ID="btn_submit" runat="server" Text="insert" 
+        <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
 
        <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
@@ -77,5 +77,6 @@
                                 </div>
                             </div>
                         </div>
+                        </form>
 </asp:Content>
 
