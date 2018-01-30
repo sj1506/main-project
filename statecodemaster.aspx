@@ -2,10 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>State Code Master</title>
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="bootstrap.min.js" type="text/javascript"></script>
-    <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <script src="jquery.min.js" type="text/javascript"></script>
+
 </asp:Content>
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
 <form id="form1" style="    height: 600px;" runat="server">

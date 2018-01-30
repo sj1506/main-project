@@ -2,10 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title>Purchase Return</title>
-    <link href="bootstrap.min.css" rel="stylesheet" type="text/css" />
-    <script src="bootstrap.min.js" type="text/javascript"></script>
-    <link href="font-awesome.min.css" rel="stylesheet" type="text/css" />
-    <script src="jquery.min.js" type="text/javascript"></script>
+
     <style type ="text/css">
     .set
     {

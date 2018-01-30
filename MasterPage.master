@@ -43,46 +43,95 @@
 						</li>
 			
                 						<li class="active">
-							<a href="#"><i class="fa fa-cogs nav_icon"></i>Components <span class="nav-badge">12</span> <span class="fa arrow"></span></a>
+							<a href="#"><i class="fa fa-cogs nav_icon"></i>Master <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="grids.html">Grid System</a>
+									<a href="category.aspx">Category</a>
 								</li>
 								<li>
-									<a href="media.html">Media Objects</a>
+									<a href="states.aspx">States</a>
+								</li>
+                                <li>
+                                  <a href="statecodemaster.aspx">State Code Master</a>
+                                </li>
+                                <li>
+                                  <a href="sub_unit.aspx">Sub Unit</a>
+                                </li>
+                                <li>
+                                  <a href="unit.aspx">Unit</a>
+                                </li>
+							</ul>
+							<!-- /nav-second-level -->
+						</li>
+
+                        <li class="active">
+							<a href="#"><i class="fa fa-cogs nav_icon"></i>Purchase <span class="fa arrow"></span></a>
+							<ul class="nav nav-second-level collapse">
+								<li>
+									<a href="purchase_return.aspx">Purchase Return</a>
+								</li>
+								<li>
+									
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
 
-
 					   <li class="active">
-							<a href="#"><i class="fa fa-cogs nav_icon"></i>Products<span class="fa arrow"></span></a>
+							<a href="#"><i class="fa fa-cogs nav_icon"></i>Sell<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="Product.aspx">Add Product</a>
+									<a href="Sell_return.aspx">Sell Return</a>
 								</li>
 								
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
 						<li class="">
-							<a href="#"><i class="fa fa-cogs nav_icon"></i>Purchase<span class="fa arrow"></span></a>
+							<a href="bank_detail.aspx"><i class="fa fa-cogs nav_icon"></i>Bank Detail</a>
+						</li>
+
+                        <li>
+                          <a href="customers.aspx"><i class="fa fa-cogs nav_icon"></i>Customers</a>
+                        </li>
+						
+						<li>
+                       <a href ="Minimum_quantity.aspx"><i class="fa fa-cogs nav_icon"></i>Quantity</a>
+                        </li>
+						
+                        <li>
+                        <a href="product.aspx"><i class="fa fa-cogs nav_icon"></i>Product</a>
+                        </li>
+						
+                        <li>
+                          <a href="shops_profile.aspx"><i class="fa fa-cogs nav_icon"></i>Shop Profile</a>
+                        </li>
+
+                        <li class="active">
+							<a href="#"><i class="fa fa-cogs nav_icon"></i>Report <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="Product.aspx">Purchase </a>
+									<a href="search_data_buy.aspx">Data Buy Search</a>
 								</li>
 								<li>
-									<a href="Product.aspx">Purchase Return</a>
+									<a href="search_data_sell.aspx">Data Sell Search</a>
 								</li>
+                  
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
-						
-						
-						
-						
-		
+
+                        <li>
+                         <a href="supplier.aspx"><i class="fa fa-cogs nav_icon"></i>Suppliers</a>
+                        </li>
+		                  
+                          <li>
+                           <a href="whole_sellers.aspx"><i class="fa fa-cogs nav_icon"></i>Whole Sellers</a>
+                          </li>
+
+                          <li>
+                           <a href="user.aspx"><i class="fa fa-cogs nav_icon"></i>Users</a>
+                          </li>
 						
 					</ul>
                     
