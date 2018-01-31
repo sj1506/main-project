@@ -87,23 +87,23 @@
 							</ul>
 							<!-- /nav-second-level -->
 						</li>
-						<li class="">
+						<li class="active">
 							<a href="bank_detail.aspx"><i class="fa fa-cogs nav_icon"></i>Bank Detail</a>
 						</li>
 
-                        <li>
+                        <li class="active">
                           <a href="customers.aspx"><i class="fa fa-cogs nav_icon"></i>Customers</a>
                         </li>
 						
-						<li>
+						<li class="active">
                        <a href ="Minimum_quantity.aspx"><i class="fa fa-cogs nav_icon"></i>Quantity</a>
                         </li>
 						
-                        <li>
+                        <li class="active">
                         <a href="product.aspx"><i class="fa fa-cogs nav_icon"></i>Product</a>
                         </li>
 						
-                        <li>
+                        <li class="active">
                           <a href="shops_profile.aspx"><i class="fa fa-cogs nav_icon"></i>Shop Profile</a>
                         </li>
 
@@ -121,15 +121,15 @@
 							<!-- /nav-second-level -->
 						</li>
 
-                        <li>
+                        <li class="active">
                          <a href="supplier.aspx"><i class="fa fa-cogs nav_icon"></i>Suppliers</a>
                         </li>
 		                  
-                          <li>
+                          <li class="active">
                            <a href="whole_sellers.aspx"><i class="fa fa-cogs nav_icon"></i>Whole Sellers</a>
                           </li>
 
-                          <li>
+                          <li class="active">
                            <a href="user.aspx"><i class="fa fa-cogs nav_icon"></i>Users</a>
                           </li>
 						

@@ -11,7 +11,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using System.Xml.Linq;
 using System.Data.SqlClient;
-public partial class transaction_sell : System.Web.UI.Page
+public partial class sell : System.Web.UI.Page
 {
 
     String conn = ConfigurationManager.ConnectionStrings["connection"].ConnectionString;
