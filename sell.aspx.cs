@@ -105,7 +105,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        
         //clear();
         
     }
@@ -301,7 +301,9 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
+        //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", cmd.Parameters["@result"].Value.ToString(), true);
+        
         clear1();
     }
     private void clear1()
@@ -342,7 +344,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' update Successfully');</script>");
         BindListView1();
         btn_addmore.Text = "Add More";
         clear1();
@@ -393,7 +395,8 @@ public partial class sell : System.Web.UI.Page
                     }
 
                     cmd1.ExecuteNonQuery();
-                    lbl_msg.Text = cmd1.Parameters["@result"].Value.ToString();
+                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
+                    
 
                    // inserttransaction_sell_detail();
 
@@ -437,15 +440,17 @@ public partial class sell : System.Web.UI.Page
                 con.Open();
             }
 
-        string sql = "select ugst, cgst, igst, sgst from tbl_transaction_buy_detail where p_id= '" + ddl_product.SelectedValue + "'";
+       string sql = "select ugst, cgst, igst, sgst, per_unit_cost from tbl_transaction_buy_detail where p_id= '" + ddl_product.SelectedValue + "'";
         SqlCommand cmd= new SqlCommand(sql,con);
          SqlDataReader dr = cl.selectDR(sql);
                 if (dr.Read())
                 {
+                    cost_per_unit.Text = dr["per_unit_cost"].ToString();
                     txt_cgst.Text = dr["cgst"].ToString();
                     txt_sgst.Text = dr["sgst"].ToString();
                     txt_igst.Text = dr["igst"].ToString();
                     txt_ugst.Text = dr["ugst"].ToString();
+                    qty.Text = "1";
                 }
             }
     public void inserttransaction_sell_detail()
@@ -473,7 +478,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage","alert('"+cmd.Parameters["@result"].Value.ToString()+"')" , true);
 
     }
 
@@ -503,5 +508,9 @@ public partial class sell : System.Web.UI.Page
             ugst11 = ugst11 + Convert.ToDecimal(lbl_totalugst.Text);
             ugst.Text = ugst11.ToString();
         }
+    }
+    protected void qty_TextChanged(object sender, EventArgs e)
+            {
+            total.Text = (Convert.ToDecimal(cost_per_unit.Text) * Convert.ToDecimal(qty.Text)).ToString(); ;
     }
 }

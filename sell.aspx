@@ -1,15 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master"  CodeFile="sell.aspx.cs" Inherits="sell" %>
-
-
-   
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/MasterPage.master"  CodeFile="sell.aspx.cs" Inherits="sell" %>  
     <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <title> Transaction Sell</title>
- 
-
 </asp:Content>
     
     <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" style="height:600px">
      <div  class="full">
       <div class="col-sm-12" style="    margin-top: 8px">
          <div class="col-sm-1  col-sm-padding">
@@ -93,61 +88,108 @@
          </div>
           <div class="col-sm-1 col-sm-padding">
              <asp:TextBox ID="discount" runat="server" class="text"></asp:TextBox>
-              <asp:Label ID="lbl_msg" Font-Bold="True" BackColor="#FFFF66" ForeColor="#FF3300"
-                                                    runat="server" Text=""></asp:Label>
+              
          </div>
          </div>
 
 
-    <div>
+   
     
+        
 
+        <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-1  col-sm-padding">
+             p_id 
+         </div>
+         <div class="col-sm-1 col-sm-padding">
+             Qty
+         </div>
+          
+          <div class="col-sm-1 col-sm-padding">
+            cost per unit
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             total 
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             Cgst
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+            Sgst 
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+            Igst 
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             Ugst
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+              
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+            
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             
+         </div>
+         </div>
                    
 
+                   <div class="col-sm-12" style="    margin-top: 8px">
+         <div class="col-sm-1  col-sm-padding">
+    <asp:HiddenField ID="hdn2" runat="server" />
 
-                                                      <div >
-                            <asp:HiddenField ID="hdn2" runat="server" />
-                        <table id="tblData" >	
-                        <thead>
-                         <tr> 
-                        <%-- <th><asp:Label ID="lbl_bill" runat="server" Text="Bill No. "></asp:Label></th>--%>
-                         <th><asp:Label ID="lbl_p_id" runat="server" Text="p_id"></asp:Label></th> 
-                          <th><asp:Label ID="lbl_qty" runat="server" Text="Qty"></asp:Label></th>
-                          <th><asp:Label ID="lbl_cost_per_unit" runat="server" Text="cost per unit"></asp:Label> </th>
-                          <th><asp:Label ID="lbl_total" runat="server" Text="total"></asp:Label> </th>
-                           <th><asp:Label ID="lbl_cgst1" runat="server" Text="Cgst"></asp:Label></th>
-                           <th><asp:Label ID="lbl_sgst1" runat="server" Text="Sgst"></asp:Label></th>
-                          <th><asp:Label ID="lbl_igst1" runat="server" Text="Igst"></asp:Label></th>
-                          <th><asp:Label ID="lbl_ugst1" runat="server" Text="Ugst"></asp:Label></th>
-           
-                         </tr>
-                           <tr>
-                           <%--<td>
-                              <asp:TextBox ID="bill_no" runat="server" style=" width: 110px;"></asp:TextBox>
-                           </td>--%>
-                             
-                               <th>
-                             <asp:DropDownList ID="ddl_product" runat="server" 
-                                       onselectedindexchanged="ddl_product_SelectedIndexChanged" AutoPostBack="true">
-                             </asp:DropDownList>
-                         </th>
-                           <td><asp:TextBox ID="qty" runat="server" style="     width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="cost_per_unit" runat="server" style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="total" runat="server"  style=" width: 90px;" ></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_cgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_sgst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_igst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:TextBox ID="txt_ugst" runat="server"  style=" width: 90px;"></asp:TextBox></td>
-                           <td><asp:Button ID="btn_addmore" runat="server" Text="Add More" style=" margin-left: 15px;" 
+             <asp:DropDownList ID="ddl_product" class="text" Width="100px" runat="server" 
+                    onselectedindexchanged="ddl_product_SelectedIndexChanged" AutoPostBack="true">
+                </asp:DropDownList>
+         </div>
+         <div class="col-sm-1 col-sm-padding">
+             <asp:TextBox ID="qty" runat="server" Width="100px"  class="text" 
+                 ontextchanged="qty_TextChanged" AutoPostBack="true"></asp:TextBox>  
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             <asp:TextBox ID="cost_per_unit" class="text"  runat="server"></asp:TextBox>
+         </div>
+          
+          <div class="col-sm-1 col-sm-padding">
+             <asp:TextBox ID="total" class="text" runat="server"></asp:TextBox>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+              <asp:TextBox ID="txt_cgst" runat="server" class="text"></asp:TextBox>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+               <asp:TextBox ID="txt_sgst" runat="server" class="text"></asp:TextBox>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+            <asp:TextBox ID="txt_igst" runat="server" class="text"></asp:TextBox>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+           <asp:TextBox ID="txt_ugst" runat="server" class="text"></asp:TextBox>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             <asp:Button ID="btn_addmore" class="button btn btn-primary" runat="server" Text="Add More" style=" margin-top: 2px;" 
                                 onclick="btn_addmore_Click" />
-  
-                                </td>
-                           </tr>
-                            </thead> 
-                               </table>
-                        </div>
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+             
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+            
+         </div>
+          <div class="col-sm-1 col-sm-padding">
+          
+             
+         </div>
+         </div>
 
-    </div>
+
+
+                                                      
+
+    
 
                                                             <%-- list view for transaction_sell detail--%>
                                                    <div class="row">
@@ -272,9 +314,8 @@
                                                    <%--end details for list view--%>
 
 
-                             <asp:Button ID="btn_final" runat="server" Text="Save" 
-                                  Height="21px" Width="91px" style=" margin-left: 90%;
-                                 margin-top: 20px;" onclick="btn_final_Click"/>
+                             <asp:Button ID="btn_final" class="button btn btn-primary"  style="margin-top: 38px;" runat="server" Text="Save" 
+                                  onclick="btn_final_Click"/>
 
                                  </div>
     </form>

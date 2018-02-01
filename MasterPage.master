@@ -68,10 +68,10 @@
 							<a href="#"><i class="fa fa-cogs nav_icon"></i>Purchase <span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="purchase_return.aspx">Purchase Return</a>
+									<a href="purchase.aspx">Purchase</a>
 								</li>
 								<li>
-									
+									<a href="purchase_return.aspx">Purchase Return</a>
 								</li>
 							</ul>
 							<!-- /nav-second-level -->
@@ -81,9 +81,11 @@
 							<a href="#"><i class="fa fa-cogs nav_icon"></i>Sell<span class="fa arrow"></span></a>
 							<ul class="nav nav-second-level collapse">
 								<li>
-									<a href="Sell_return.aspx">Sell Return</a>
+									<a href="sell.aspx">Sell</a>
 								</li>
-								
+								<li>
+                                <a href="Sell_return.aspx">Sell Return</a>
+                                </li>
 							</ul>
 							<!-- /nav-second-level -->
 						</li>

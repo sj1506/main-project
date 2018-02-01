@@ -93,7 +93,6 @@ public partial class purchase : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
        // clear();
     }
     private void clear()
@@ -286,7 +285,7 @@ public partial class purchase : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
        
     }
     private void clear1()
@@ -330,7 +329,7 @@ public partial class purchase : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Update Successfully');</script>");
         BindListView1();
         btn_addmore.Text = "Add More";
         clear1();
@@ -383,7 +382,7 @@ public partial class purchase : System.Web.UI.Page
                   }
                 
                   cmd1.ExecuteNonQuery();
-                  lbl_msg.Text = cmd1.Parameters["@result"].Value.ToString();
+                  Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
 
                   SqlCommand cmd2 = new SqlCommand();
                   cmd2.CommandType = CommandType.StoredProcedure;
@@ -462,7 +461,7 @@ public partial class purchase : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        lbl_msg.Text = cmd.Parameters["@result"].Value.ToString();
+        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
 
     }
 
