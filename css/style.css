@@ -192,7 +192,7 @@ button#showLeftPush:hover {
 /*--//push-menu-css--*/
 /*--side-menu--*/
 .sidebar ul li{
-	 margin-bottom: 1em;
+	/*-- margin-bottom: 1em;--*/
 }
 .sidebar ul li a {
     color: #FFFFFF;
