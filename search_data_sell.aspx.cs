@@ -74,4 +74,5 @@ public partial class search_data_sell : System.Web.UI.Page
             ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Error')", true);
         }
     }
+    
 }

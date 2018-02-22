@@ -15,12 +15,14 @@
               <asp:HiddenField ID="hdn1" runat="server" />
           </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_statename" runat="server" Text="State Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_statename" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
         <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />

@@ -9,21 +9,25 @@
     <div class="full">
     <asp:HiddenField ID="hdn1" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+          <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_code" runat="server" Text=" Code :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="code" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+          <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_sname" runat="server" Text=" State Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:DropDownList ID="ddl_state" class="form-control" runat="server">
              </asp:DropDownList>
          </div>
+         <div class="col-sm-3"></div>
          </div>
                   <asp:Button ID="btn_submit" class="button btn btn-primary"  runat="server" Text="insert" 
           onclick="btn_submit_Click" />

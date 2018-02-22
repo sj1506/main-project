@@ -11,191 +11,237 @@
       </div>
       <div class="full">
       <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+      <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
 
              <asp:HiddenField ID="hdn1" runat="server" />
          </div>
+         <div class="col-sm-3"></div>
          </div>
       <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_name" runat="server" Text="Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_name" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_address" runat="server" Text="Address :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_address" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+               <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_city" runat="server" Text="City :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_city" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div> 
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+               <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_district" runat="server" Text="District :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_district" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_state" runat="server" Text="State :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_state" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_country" runat="server" Text="Country :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_country" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_phone1" runat="server" Text="Phone No.1 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_phone1" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div> 
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_phone2" runat="server" Text="Phone No.2 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_phone2" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_phone3" runat="server" Text="Phone No.3 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_phone3" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_mobile1" runat="server" Text="Mobile No.1 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_mobile1" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+            <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_mobile2" runat="server" Text="Mobile No.2 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_mobile2" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
             <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_mobile3" runat="server" Text="Mobile No.3 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_mobile3" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_Mail" runat="server" Text="Mail id-1 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="mail1" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_mail2" runat="server" Text="Mail id-2 :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="mail2" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div> 
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_website" runat="server" Text="Website :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="website" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_regno" runat="server" Text="Registration No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="regno" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_tin_no" runat="server" Text="Tin No :"></asp:Label>
          </div>
          <div class="col-sm-6">
              <asp:TextBox ID="tin_no" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
        <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_gst" runat="server" Text="GST No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="gst_no" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
         <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_cin" runat="server" Text="Cin No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="cin_no" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
           <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_servicetax" runat="server" Text="Service Tax No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="servicetaxno" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
       <div class="form-group">
         <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_logo" runat="server" Text="Logo :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:FileUpload ID="file_logo" class="form-control" runat="server" />
          </div>
+         <div class="col-sm-3"></div>
       </div>
       </div>
            <div class="col-sm-12" style="    margin-top: 8px">
-           <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_tagline" runat="server" Text="Tag Line :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="tagline" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
       </div>
     <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" 
           onclick="btn_submit_Click" />

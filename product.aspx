@@ -11,64 +11,78 @@
     <div class="full">
         <asp:HiddenField ID="hdn1" runat="server" />
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class="  col-sm-6 divstyle">
+            <div class="col-sm-3"></div>
+            <div class="  col-sm-3 divstyle">
                 <asp:Label ID="lbl_title" runat="server" Text="Product Title :"></asp:Label>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:TextBox ID="p_title" class="form-control" runat="server"></asp:TextBox>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class="  col-sm-6 divstyle">
+        <div class="col-sm-3"></div>
+            <div class="  col-sm-3 divstyle">
                 <asp:Label ID="lbl_brand" runat="server" Text="Brand :"></asp:Label>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:DropDownList ID="ddl_Brandname" class="form-control" runat="server">
                 </asp:DropDownList>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class=" col-sm-6 divstyle">
+        <div class="col-sm-3"></div>
+            <div class=" col-sm-3 divstyle">
                 <asp:Label ID="lbl_min_qty" runat="server" Text="Minimum Quantity :"></asp:Label>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:TextBox ID="min_qty" class="form-control" runat="server"></asp:TextBox>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class=" col-sm-6 divstyle">
+        <div class="col-sm-3"></div>
+            <div class=" col-sm-3 divstyle">
                 <asp:Label ID="lbl_unit" runat="server" Text="Unit :"></asp:Label>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:DropDownList ID="ddl_unit" class="form-control" runat="server" AutoPostBack="true"
                     OnSelectedIndexChanged="ddl_unit_SelectedIndexChanged">
                 </asp:DropDownList>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class="col-sm-6 divstyle">
+        <div class="col-sm-3"></div>
+            <div class="col-sm-3 divstyle">
                 <%--<asp:Label ID="Label1" runat="server" Text="Unit :"></asp:Label>--%>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:DropDownList ID="ddl_sub_unit" class="form-control" runat="server">
                 </asp:DropDownList>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class=" divstyle col-sm-6">
+        <div class="col-sm-3"></div>
+            <div class=" divstyle col-sm-3">
                 <asp:Label ID="lbl_barcode" runat="server" Text="Bar Code :"></asp:Label>
             </div>
-            <div class="col-sm-6 ">
+            <div class="col-sm-3 ">
                 <asp:TextBox ID="bar_code" class="form-control" runat="server"></asp:TextBox>
             </div>
+            <div class="col-sm-3"></div>
         </div>
         <div class="col-sm-12" style="margin-top: 8px">
-            <div class="  col-sm-6 divstyle">
+               <div class="col-sm-3"></div>
+            <div class="  col-sm-3 divstyle">
                 <asp:Label ID="lbl_qtyinstock" runat="server" Text="Qty in stock :"></asp:Label>
             </div>
-            <div class="col-sm-6">
+            <div class="col-sm-3">
                 <asp:TextBox ID="txt_qtyinstock" class="form-control" runat="server"></asp:TextBox>
             </div>
+         <div class="col-sm-3"></div>
         </div>
         
         <asp:Button ID="btn_submit" class="button btn btn-primary" runat="server" Text="insert" OnClick="btn_submit_Click" />

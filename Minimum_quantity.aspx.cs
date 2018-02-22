@@ -36,4 +36,5 @@ public partial class Minimum_quantity : System.Web.UI.Page
         GridView1.DataSource = dt;
         GridView1.DataBind();
     }
+   
 }

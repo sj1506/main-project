@@ -11,37 +11,45 @@
 
     <asp:HiddenField ID="hdn1" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+             <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_cpyname" runat="server" Text=" Company Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="cpy_name" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_accno" runat="server" Text="Account No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="acc_no" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_bankname" runat="server" Text=" Bank Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="bank_name" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
         
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+            <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_ifsc" runat="server" Text="IFSC No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="ifsc_no" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          
          

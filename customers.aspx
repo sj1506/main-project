@@ -11,71 +11,85 @@
     <div  class="full">
      <asp:HiddenField ID="hdn0" runat="server" />
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+           <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_name" runat="server" Text=" Name :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="name" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_contact" runat="server" Text="Contact No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="contact" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_address" runat="server" Text=" Address :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="address" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
         
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+            <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_mail" runat="server" Text="E-Mail :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="mail_id" class="form-control" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
          
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+          <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_gst" runat="server" Text="Gst No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="gst_no" class="form-control" runat="server"></asp:TextBox>
              <asp:RegularExpressionValidator Display = "Dynamic" ControlToValidate = "gst_no" ID="RegularExpressionValidator1" 
            Operator="DataTypeCheck" Type="Integer" ValidationExpression = "^[\s\S]{15,15}$" runat="server"
             ErrorMessage=" 15 characters allowed only." required="true"></asp:RegularExpressionValidator>
          </div>
+         <div class="col-sm-3"></div>
          </div>
 
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_state" runat="server" Text="State :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:DropDownList ID="ddl_state" class="form-control" runat="server" AutoPostBack="true" 
                  onselectedindexchanged="ddl_state_SelectedIndexChanged">
              </asp:DropDownList>
          </div>
+         <div class="col-sm-3"></div>
          </div>
 
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6 divstyle">
+            <div class="col-sm-3"></div>
+         <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_district" runat="server" Text="District :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
                  <asp:DropDownList ID="ddl_district" class="form-control" runat="server">
              </asp:DropDownList>
              
          </div>
+         <div class="col-sm-3"></div>
          </div>
                                         
 

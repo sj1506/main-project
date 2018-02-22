@@ -16,36 +16,44 @@
         <asp:HiddenField ID="hdn0" runat="server" />
            
           <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+            <div class="col-sm-3"></div>
+         <div class="col-sm-3">
              
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:HiddenField ID="hdn1" runat="server" />
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3">
              
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
             <asp:HiddenField ID="hdn2" runat="server" />
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+         <div class="col-sm-3"></div>
+         <div class="col-sm-3">
              
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
             <asp:HiddenField ID="hdn3" runat="server" />
          </div>
+         <div class="col-sm-3"></div>
          </div>
          <div class="col-sm-12" style="    margin-top: 8px">
-         <div class="col-sm-6">
+             <div class="col-sm-3"></div>
+         <div class="col-sm-3">
              <asp:Label ID="lbl_gst" runat="server" Text="Gst Number :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="txt_gst" runat="server"></asp:TextBox>
          </div>
+         <div class="col-sm-3"></div>
          </div>
                   <asp:Button ID="btn_submit" runat="server" Text="insert" 
           onclick="btn_submit_Click" />
