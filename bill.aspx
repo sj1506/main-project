@@ -29,7 +29,7 @@
         }
         .style3
         {
-            width: 77px;
+            width: 98px;
         }
     </style>
 </head>
@@ -42,78 +42,78 @@
 	border-collapse:collapse;
 	    width: 1000px;">
                <tr style="border: thin solid black;">
-                   <td colspan="9" align="center" style="border: thin solid black;">
+                   <td colspan="10" align="center" style="border: thin solid black;">
                        <h2>
                        Enterprises
                        </h2>
                        </td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="9" align="center" style="border: thin solid black;">
+                   <td colspan="10" align="center" style="border: thin solid black;">
                        Meera Marg mansarovar jaipur rajasthan 302020</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="8" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        Gst No. : 12462576281</td>
-                   <td style="border: thin solid black;">
+                   <td colspan="4" style="border: thin solid black;" align="center">
                        Original recipt</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="8" rowspan="2" style="border: thin solid black;" align="center">
+                   <td colspan="6" rowspan="2" style="border: thin solid black;" align="center">
                        <h3> Invoice </h3></td>
-                   <td style="border: thin solid black;">
+                   <td colspan="4" style="border: thin solid black;" align="center">
                        Supplier recipt</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td style="border: thin solid black;">
+                   <td colspan="4" style="border: thin solid black;" align="center">
                        transporter reciept</td>
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="4" style="border: thin solid black;">
                        Reverse Charge</td>
-                   <td colspan="5" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        Transport Mode</td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td colspan="4" style="border: thin solid black;">
                        Invoice No.</td>
-                   <td colspan="5" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        Vehcile No.</td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td colspan="4" style="border: thin solid black;">
                        Invoice Date</td>
-                   <td colspan="5" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        Date of Supply</td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td colspan="4" style="border: thin solid black;">
                        State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                        State Code</td>
-                   <td colspan="5" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        Place of Supply</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="6" align="center" style="border: thin solid black;">
+                   <td colspan="7" align="center" style="border: thin solid black;">
                        Details of Reciever</td>
                    <td colspan="3" align="center" style="border: thin solid black;">
                        Shipped to :</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="6" style="border: thin solid black;">
+                   <td colspan="7" style="border: thin solid black;">
                        Saksham Jain</td>
                    <td colspan="3" rowspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="6" style="border: thin solid black;">
+                   <td colspan="7" style="border: thin solid black;">
                        Jaipur<br />
                        MOB :-9610356925</td>
                </tr>
                <tr style="border: thin solid black;">
                    <td class="style1" style="border: thin solid black;">
                        GSTIN :</td>
-                   <td colspan="5" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;">
                        URD:</td>
                </tr>
                <tr style="border: thin solid black;">
@@ -123,7 +123,7 @@
                        rajasthan</td>
                    <td class="style2" colspan="2" style="border: thin solid black;">
                        State Code</td>
-                   <td class="style3" style="border: thin solid black;">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        08</td>
                    <td colspan="3" style="border-collapse: collapse;border: thin solid black;">
                        &nbsp;</td>
@@ -136,214 +136,214 @@
                    <td style="border: thin solid black;">
                        Quantity</td>
                    <td class="style2" colspan="2" style="border: thin solid black;">
-                       UNIT</td>
-                   <td class="style3" style="border: thin solid black;">
-                       RATE</td>
-                   <td>
-                       AMOUNT</td>
-                   <td>
-                       DISCOUNT</td>
-                   <td>
-                       TAXABLE AMOUNT</td>
+                       Unit</td>
+                   <td class="style3" style="border: thin solid black;" colspan="2">
+                       Rate</td>
+                   <td style="border: thin solid black;">
+                       Amount</td>
+                   <td style="border: thin solid black;">
+                       Discount</td>
+                   <td style="border: thin solid black;">
+                       Taxable Amount</td>
                </tr>
-               <tr>
-                   <td class="style1">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2">
+                   <td class="style2" colspan="2" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-               </tr>
-               <tr>
-                   <td class="style1">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td class="style2" colspan="2">
-                       &nbsp;</td>
-                   <td class="style3">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
-               <tr>
-                   <td class="style1">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2">
+                   <td class="style2" colspan="2" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-               </tr>
-               <tr>
-                   <td class="style1">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td class="style2" colspan="2">
-                       &nbsp;</td>
-                   <td class="style3">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
-               <tr>
-                   <td class="style1">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2">
+                   <td class="style2" colspan="2" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-               </tr>
-               <tr>
-                   <td class="style1">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td class="style2" colspan="2">
-                       &nbsp;</td>
-                   <td class="style3">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
-               <tr>
-                   <td class="style1">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2">
+                   <td class="style2" colspan="2" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-               </tr>
-               <tr>
-                   <td class="style1">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td class="style2" colspan="2">
-                       &nbsp;</td>
-                   <td class="style3">
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
-                       &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
-               <tr>
-                   <td class="style1">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2">
+                   <td class="style2" colspan="2" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
-                   <td>
+                   <td style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
-               <tr>
-                   <td class="style1" colspan="5" rowspan="4">
+               <tr style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3">
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style2" colspan="2" style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+               </tr>
+               <tr style="border: thin solid black;">
+                   <td class="style1"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style2" colspan="2"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+               </tr>
+               <tr style="border: thin solid black;">
+                   <td class="style1"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style2" colspan="2"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+               </tr>
+               <tr style="border: thin solid black;">
+                   <td class="style1"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style2" colspan="2"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td style="border: thin solid black;">
+                       &nbsp;</td>
+               </tr>
+               <tr style="border: thin solid black;">
+                   <td class="style1" colspan="5" rowspan="4"  style="border: thin solid black;">
+                       &nbsp;</td>
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        Sub Total</td>
                    <td colspan="3">
                        &nbsp;</td>
                    </tr>
-               <tr>
-                   <td class="style3">
+               <tr style="border: thin solid black;">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        CGST</td>
                    <td colspan="3">
                        &nbsp;</td>
                    </tr>
-               <tr>
-                   <td class="style3">
+               <tr style="border: thin solid black;">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        SGST</td>
-                   <td colspan="3">
+                   <td colspan="3" >
                        &nbsp;</td>
                    </tr>
-               <tr>
-                   <td class="style3">
+               <tr style="border: thin solid black;">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        IGST</td>
-                   <td colspan="3">
+                   <td colspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                    </tr>
-               <tr>
-                   <td class="style1" colspan="5">
+               <tr style="border: thin solid black;">
+                   <td class="style1" colspan="5" style="border: thin solid black;">
                        Bank Name :&nbsp; anc&nbsp;&nbsp;&nbsp; Bank A/C No. : </td>
-                   <td class="style3">
+                   <td class="style3" style="border: thin solid black;" colspan="2">
                        Total</td>
-                   <td colspan="3">
+                   <td colspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                    </tr>
-               <tr>
-                   <td class="style1" colspan="9">
+               <tr style="border: thin solid black;">
+                   <td class="style1" colspan="10" style="border: thin solid black;">
                        Terms and Conditions:<br />
                        1.Goods once sold will not be taken 
                        back.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
