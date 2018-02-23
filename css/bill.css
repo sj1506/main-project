@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+.table
+{
+	border: thin solid black;
+	border-collapse:collapse;
+	    width: 100%;
+}
+.table td
+{
+	border: thin solid black;
+}
