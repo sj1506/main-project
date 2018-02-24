@@ -31,6 +31,7 @@
         {
             width: 98px;
         }
+       
     </style>
 </head>
 <body>
@@ -42,309 +43,672 @@
 	border-collapse:collapse;
 	    width: 1000px;">
                <tr style="border: thin solid black;">
-                   <td colspan="10" align="center" style="border: thin solid black;">
-                       <h2>
-                       Enterprises
-                       </h2>
+                   <td colspan="10" align="center" style="border: thin solid black; margin-top: 25px;   font-size: 24px;">
+                       <h1>
+                       ABC
+                       <asp:Label ID="lbl_heading" runat="server" ></asp:Label>
+                       </h1>
                        </td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="10" align="center" style="border: thin solid black;">
-                       Meera Marg mansarovar jaipur rajasthan 302020</td>
+                   <td colspan="10" align="center" style="border: thin solid black;    font-size: 16px;">
+                       <asp:Label ID="lbl_address" runat="server" ></asp:Label>
+                         Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="6" style="border: thin solid black;">
-                       Gst No. : 12462576281</td>
-                   <td colspan="4" style="border: thin solid black;" align="center">
+                   <td colspan="6" style="border: thin solid black;    font-size: 16px;">
+                       Gst No. : <asp:Label ID="lbl_gstno" runat="server" ></asp:Label></td>
+                   <td colspan="4" style="border: thin solid black; font-size: 16px;" align="center">
                        Original recipt</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="6" rowspan="2" style="border: thin solid black;" align="center">
-                       <h3> Invoice </h3></td>
-                   <td colspan="4" style="border: thin solid black;" align="center">
+                   <td colspan="6" rowspan="2" style="border: thin solid black;     font-size: 22px;" align="center">
+                       <h3> INVOICE </h3></td>
+                   <td colspan="4" style="border: thin solid black; font-size: 16px;" align="center">
                        Supplier recipt</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="4" style="border: thin solid black;" align="center">
+                   <td colspan="4" style="border: thin solid black; font-size: 16px;" align="center">
                        transporter reciept</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="4" style="border: thin solid black;">
+                   <td colspan="4" style="border: thin solid black; font-size: 16px;">
                        Reverse Charge</td>
-                   <td colspan="6" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black; font-size: 16px;">
                        Transport Mode</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="4" style="border: thin solid black;">
-                       Invoice No.</td>
-                   <td colspan="6" style="border: thin solid black;">
+                   <td colspan="4" style="border: thin solid black;font-size: 16px;">
+                       Invoice No.  <asp:Label ID="lbl_invoice_no" runat="server" ></asp:Label></td>
+                   <td colspan="6" style="border: thin solid black; font-size: 16px;">
                        Vehcile No.</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="4" style="border: thin solid black;">
-                       Invoice Date</td>
-                   <td colspan="6" style="border: thin solid black;">
-                       Date of Supply</td>
+                   <td colspan="4" style="border: thin solid black;font-size: 16px;">
+                       Invoice Date  <asp:Label ID="lbl_invoice_date" runat="server" ></asp:Label></td>
+                   <td colspan="6" style="border: thin solid black;font-size: 16px;">
+                       Date of Supply  <asp:Label ID="lbl_date_supply" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="4" style="border: thin solid black;">
-                       State&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+                   <td colspan="4" style="border: thin solid black;font-size: 16px;">
+                       State  <asp:Label ID="lbl_state" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                        State Code</td>
-                   <td colspan="6" style="border: thin solid black;">
+                   <td colspan="6" style="border: thin solid black;font-size: 16px;">
                        Place of Supply</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="7" align="center" style="border: thin solid black;">
+                   <td colspan="7" align="center" style="border: thin solid black;font-size: 16px;">
                        Details of Reciever</td>
-                   <td colspan="3" align="center" style="border: thin solid black;">
+                   <td colspan="3" align="center" style="border: thin solid black;font-size: 16px;">
                        Shipped to :</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="7" style="border: thin solid black;">
-                       Saksham Jain</td>
+                   <td colspan="7" style="border: thin solid black; font-size:18px;">
+                   Saksham Jain
+                        <asp:Label ID="lbl_buyer_name" runat="server" ></asp:Label></td>
                    <td colspan="3" rowspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td colspan="7" style="border: thin solid black;">
-                       Jaipur<br />
-                       MOB :-9610356925</td>
+                   <td colspan="7" style="border: thin solid black;font-size: 16px;">
+                        <asp:Label ID="lbl_buyer_place" runat="server" ></asp:Label><br />
+                       MOB :- <asp:Label ID="lbl_buyer_mobile" runat="server" ></asp:Label></td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       GSTIN :</td>
-                   <td colspan="6" style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;font-size: 16px;">
+                       GSTIN : <asp:Label ID="lbl_gstin" runat="server" ></asp:Label></td>
+                   <td colspan="6" style="border: thin solid black;font-size: 16px;">
                        URD:</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       State</td>
-                   <td colspan="2" style="border: thin solid black;">
-                       rajasthan</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
+                   <td class="style1" style="border: thin solid black;font-size: 16px;">
+                       State </td>
+                   <td colspan="2" style="border: thin solid black;font-size: 16px;">
+                        <asp:Label ID="lbl_buyer_state" runat="server" ></asp:Label></td>
+                   <td class="style2" colspan="2" style="border: thin solid black;font-size: 16px;">
                        State Code</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
-                       08</td>
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
+                        <asp:Label ID="lbl_state_code" runat="server" ></asp:Label></td>
                    <td colspan="3" style="border-collapse: collapse;border: thin solid black;">
                        &nbsp;</td>
                </tr>
                <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       Sr. No</td>
-                   <td width="400px" style="border: thin solid black;">
-                       Description</td>
-                   <td style="border: thin solid black;">
-                       Quantity</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
-                       Unit</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
-                       Rate</td>
-                   <td style="border: thin solid black;">
-                       Amount</td>
-                   <td style="border: thin solid black;">
-                       Discount</td>
-                   <td style="border: thin solid black;">
-                       Taxable Amount</td>
+                   <td class="style1" style="border: thin solid black; font-size:large">
+                       <b>Sr. No</b></td>
+                   <td width="400px" style="border: thin solid black; font-size:large">
+                       <b>Description</b></td>
+                   <td style="border: thin solid black;font-size:large">
+                       <b>Quantity</b></td>
+                   <td class="style2" colspan="2" style="border: thin solid black;font-size:large">
+                       <b>Unit</b></td>
+                   <td class="style3" style="border: thin solid black;font-size:large" colspan="2">
+                       <b>Rate</b></td>
+                   <td style="border: thin solid black;font-size:large">
+                       <b>Amount</b></td>
+                   <td style="border: thin solid black;font-size:large">
+                       <b>Discount</b></td>
+                   <td style="border: thin solid black;font-size:large">
+                       <b>Taxable Amount</b></td>
                </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-               </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
                </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-               </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
                </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
+              <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-               </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style2" colspan="2" style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
                </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1"  style="border: thin solid black;">
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2"  style="border: thin solid black;">
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-               </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1"  style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style2" colspan="2"  style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
-                       &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
                </tr>
-               <tr style="border: thin solid black;">
-                   <td class="style1"  style="border: thin solid black;">
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style2" colspan="2"  style="border: thin solid black;">
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td class="style3"  style="border: thin solid black;" colspan="2">
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
-                   <td style="border: thin solid black;">
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
                        &nbsp;</td>
                </tr>
-               <tr style="border: thin solid black;">
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr>
+                   <td class="style1" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black; border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style2 a" colspan="2" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                   <td class="style3 a" style="border: thin solid black;border-bottom: none;
+    border-top: none;" colspan="2">
+                       &nbsp;</td>
+                   <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+                       <td class="a" style="border: thin solid black;border-bottom: none;
+    border-top: none;">
+                       &nbsp;</td>
+               </tr>
+               <tr style="border: thin solid black;font-size: 16px;">
                    <td class="style1" colspan="5" rowspan="4"  style="border: thin solid black;">
                        &nbsp;</td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Sub Total</td>
                    <td colspan="3">
                        &nbsp;</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        CGST</td>
                    <td colspan="3">
                        &nbsp;</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        SGST</td>
                    <td colspan="3" >
                        &nbsp;</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        IGST</td>
                    <td colspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td class="style1" colspan="5" style="border: thin solid black;">
+                   <td class="style1" colspan="5" style="border: thin solid black;font-size: 16px;">
                        Bank Name :&nbsp; anc&nbsp;&nbsp;&nbsp; Bank A/C No. : </td>
-                   <td class="style3" style="border: thin solid black;" colspan="2">
+                   <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Total</td>
                    <td colspan="3" style="border: thin solid black;">
                        &nbsp;</td>
                    </tr>
                <tr style="border: thin solid black;">
-                   <td class="style1" colspan="10" style="border: thin solid black;">
+                   <td class="style1" colspan="10" style="border: thin solid black;font-size: 16px;">
+                       <br />
                        Terms and Conditions:<br />
+                       <br />
                        1.Goods once sold will not be taken 
                        back.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
                        For :&nbsp;&nbsp;&nbsp;&nbsp; CUBE HEAP
