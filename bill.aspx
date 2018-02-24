@@ -104,7 +104,7 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="7" style="border: thin solid black; font-size:18px;">
-                   Saksham Jain
+                   
                         <asp:Label ID="lbl_buyer_name" runat="server" ></asp:Label></td>
                    <td colspan="3" rowspan="3" style="border: thin solid black;">
                        &nbsp;</td>
@@ -676,33 +676,33 @@
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Sub Total</td>
                    <td colspan="3">
-                       &nbsp;</td>
+                       <asp:Label ID="lbl_subtotal" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        CGST</td>
                    <td colspan="3">
-                       &nbsp;</td>
+                       &nbsp;<asp:Label ID="lbl_cgst" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        SGST</td>
                    <td colspan="3" >
-                       &nbsp;</td>
+                       <asp:Label ID="lbl_sgst" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        IGST</td>
                    <td colspan="3" style="border: thin solid black;">
-                       &nbsp;</td>
+                       &nbsp;<asp:Label ID="lbl_igst" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style1" colspan="5" style="border: thin solid black;font-size: 16px;">
-                       Bank Name :&nbsp; anc&nbsp;&nbsp;&nbsp; Bank A/C No. : </td>
+                       Bank Name :&nbsp; <asp:Label ID="lbl_bankname" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp; Bank A/C No. :   <asp:Label ID="lbl_bank_account_no" runat="server" ></asp:Label></td>
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Total</td>
                    <td colspan="3" style="border: thin solid black;">
-                       &nbsp;</td>
+                       &nbsp;<asp:Label ID="lbl_total" runat="server" ></asp:Label></td>
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style1" colspan="10" style="border: thin solid black;font-size: 16px;">
