@@ -71,7 +71,7 @@
 					<div class="login-body">
 						<form>
 							
-                            <asp:TextBox  inputtype="email"  class="user" ID="txtuser"  placeholder="Enter your email" runat="server" Width="100%" required autofocus></asp:TextBox>
+                            <asp:TextBox  inputtype="email"  class="user" ID="txtuser"  placeholder="Enter your username" runat="server" Width="100%" required autofocus></asp:TextBox>
 							
                              <asp:TextBox ID="txtpass" runat="server" type="password" class="lock" placeholder="password" required="true" Width="100%"></asp:TextBox>
                               <asp:Button ID="btn_login" runat="server" Text="Login" 

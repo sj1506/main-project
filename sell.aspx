@@ -317,6 +317,10 @@
                              <asp:Button ID="btn_final" class="button btn btn-primary"  style="margin-top: 38px;" runat="server" Text="Save" 
                                   onclick="btn_final_Click"/>
 
+                              <a href="bill.aspx" style ="   margin-left: 123px;
+    color: black;"> Print Bill.
+                              </a> 
+
                                  </div>
     </form>
 

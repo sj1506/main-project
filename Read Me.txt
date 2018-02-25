@@ -1,0 +1,7 @@
+Download Project from github and after download 
+open page Login.aspx and enter username as 
+"saksham" and password "2222".
+ After login visit page purchase page and also can
+check another pages.
+Invoice Print is in process.Right now only 
+layout is designed.

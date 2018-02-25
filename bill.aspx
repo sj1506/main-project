@@ -52,7 +52,7 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="10" align="center" style="border: thin solid black;    font-size: 16px;">
-                       <asp:Label ID="lbl_address" runat="server" ></asp:Label>
+                      Jaipur <asp:Label ID="lbl_address" runat="server" ></asp:Label>
                          Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
                </tr>
                <tr style="border: thin solid black;">
@@ -104,7 +104,7 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="7" style="border: thin solid black; font-size:18px;">
-                   
+                   Saksham Jain
                         <asp:Label ID="lbl_buyer_name" runat="server" ></asp:Label></td>
                    <td colspan="3" rowspan="3" style="border: thin solid black;">
                        &nbsp;</td>
