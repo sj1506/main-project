@@ -36,10 +36,29 @@
 </head>
 <body>
     <form id="form1" runat="server">
-       <div id="print">
+       
 
-
-           <table style="border: thin solid black;
+                          
+              <div id="myModal" class="modal fade" style="margin-left: 1PX; width: 100%;" data-toggle="modal"
+        data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog" style="width: 85%;">
+            <!-- Modal content-->
+            <div class="modal-content" style="height: 700px; width:auto; overflow-y: scroll;">
+                <div class="modal-body" style=" height: 50px;">
+                    <button type="button" class="close" data-dismiss="modal" style="background: #2e6da4;
+                        border-radius: 50% 50% 50% 50%; -webkit-border-radius: 50% 50% 50% 50%; font-size: 18px;
+                        font-weight: bold; position: absolute; right: 15px; text-align: center; top: 10px;
+                        width: 30px; height: 30px; line-height: 30px; color: white; opacity: 1;">
+                        &times;
+                    </button>
+                    <div class="lightbox-inner">
+                                            
+                    </div>
+                    <div class="container">
+                           <div id="Div1">
+                                        
+                                        <div id="print">
+                                      <table style="border: thin solid black;
 	border-collapse:collapse;
 	    width: 1000px;">
                <tr style="border: thin solid black;">
@@ -722,10 +741,22 @@
                
                
            </table>
-
+           </div>
 
     </div>
-      <input type="button" onclick="printdiv();" value="Print" />
+      <input type="button" onclick="printdiv();" value="Print" />  
+                                        
+                                             
+                          </div>
+                      
+                </div>
+                    </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+   
+           
     </form>
 </body>
 </html>

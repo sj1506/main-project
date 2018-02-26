@@ -301,7 +301,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
+        //Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
         //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", cmd.Parameters["@result"].Value.ToString(), true);
         
         clear1();
@@ -351,77 +351,78 @@ public partial class sell : System.Web.UI.Page
     }
     protected void btn_final_Click(object sender, EventArgs e)
     {
-        if (btn_final.Text == "Save")
-        {
-            submit();
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
+        //if (btn_final.Text == "Save")
+        //{
+        //    submit();
 
-            string QryforTemp = "select * from tbl_temp_transaction_sell_detail where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'";
-            // DataSet dt = new DataSet();
-            SqlConnection con = new SqlConnection(conn);
+        //    string QryforTemp = "select * from tbl_temp_transaction_sell_detail where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'";
+        //    // DataSet dt = new DataSet();
+        //    SqlConnection con = new SqlConnection(conn);
 
-            SqlCommand cmd = new SqlCommand(QryforTemp, con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
-            if (ds.Tables[0].Rows.Count > 0)
-            {
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {//t_id, bill_no, p_id, qty, selling_price_per_product, per_unit_cost, total_cost, ugst, cgst, igst, sgst, barcode, ws_id
-                    //string t_id= ds.Tables[0].Rows[0][""].ToString();
+        //    SqlCommand cmd = new SqlCommand(QryforTemp, con);
+        //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+        //    DataSet ds = new DataSet();
+        //    sda.Fill(ds);
+        //    if (ds.Tables[0].Rows.Count > 0)
+        //    {
+        //        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //        {//t_id, bill_no, p_id, qty, selling_price_per_product, per_unit_cost, total_cost, ugst, cgst, igst, sgst, barcode, ws_id
+        //            //string t_id= ds.Tables[0].Rows[0][""].ToString();
 
-                    SqlCommand cmd1 = new SqlCommand();
-                    cmd1.CommandType = CommandType.StoredProcedure;
-                    cmd1.CommandText = "sp_transaction_sell_detail";
-                    cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
-                    cmd1.Parameters.AddWithValue("@id", ds.Tables[0].Rows[i]["id"].ToString());
-                    cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
-                    cmd1.Parameters.AddWithValue("@ts_id",0);
-                    cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
-                    cmd1.Parameters.AddWithValue("@cost_per_unit", ds.Tables[0].Rows[i]["cost_per_unit"].ToString());
-                    cmd1.Parameters.AddWithValue("@total", ds.Tables[0].Rows[i]["total"].ToString());
-                    cmd1.Parameters.AddWithValue("@cgst", ds.Tables[0].Rows[i]["cgst"].ToString());
-                    cmd1.Parameters.AddWithValue("@ugst", ds.Tables[0].Rows[i]["ugst"].ToString());
-                    cmd1.Parameters.AddWithValue("@igst", ds.Tables[0].Rows[i]["igst"].ToString());
-                    cmd1.Parameters.AddWithValue("@sgst", ds.Tables[0].Rows[i]["sgst"].ToString());
-                    cmd1.Parameters.AddWithValue("@customer_id", ds.Tables[0].Rows[i]["customer_id"].ToString());
-                    cmd1.Parameters.AddWithValue("@customer_name", ds.Tables[0].Rows[i]["customer_name"].ToString());
-                    cmd1.Parameters.AddWithValue("@date", ds.Tables[0].Rows[i]["date"].ToString());
-                    cmd1.Parameters.Add("@result", SqlDbType.NVarChar, 500);
-                    cmd1.Parameters["@result"].Direction = ParameterDirection.Output;
-                    cmd1.Connection = con;
-                    if (con.State == ConnectionState.Closed)
-                    {
-                        con.Open();
-                    }
+        //            SqlCommand cmd1 = new SqlCommand();
+        //            cmd1.CommandType = CommandType.StoredProcedure;
+        //            cmd1.CommandText = "sp_transaction_sell_detail";
+        //            cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
+        //            cmd1.Parameters.AddWithValue("@id", ds.Tables[0].Rows[i]["id"].ToString());
+        //            cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
+        //            cmd1.Parameters.AddWithValue("@ts_id",0);
+        //            cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
+        //            cmd1.Parameters.AddWithValue("@cost_per_unit", ds.Tables[0].Rows[i]["cost_per_unit"].ToString());
+        //            cmd1.Parameters.AddWithValue("@total", ds.Tables[0].Rows[i]["total"].ToString());
+        //            cmd1.Parameters.AddWithValue("@cgst", ds.Tables[0].Rows[i]["cgst"].ToString());
+        //            cmd1.Parameters.AddWithValue("@ugst", ds.Tables[0].Rows[i]["ugst"].ToString());
+        //            cmd1.Parameters.AddWithValue("@igst", ds.Tables[0].Rows[i]["igst"].ToString());
+        //            cmd1.Parameters.AddWithValue("@sgst", ds.Tables[0].Rows[i]["sgst"].ToString());
+        //            cmd1.Parameters.AddWithValue("@customer_id", ds.Tables[0].Rows[i]["customer_id"].ToString());
+        //            cmd1.Parameters.AddWithValue("@customer_name", ds.Tables[0].Rows[i]["customer_name"].ToString());
+        //            cmd1.Parameters.AddWithValue("@date", ds.Tables[0].Rows[i]["date"].ToString());
+        //            cmd1.Parameters.Add("@result", SqlDbType.NVarChar, 500);
+        //            cmd1.Parameters["@result"].Direction = ParameterDirection.Output;
+        //            cmd1.Connection = con;
+        //            if (con.State == ConnectionState.Closed)
+        //            {
+        //                con.Open();
+        //            }
 
-                    cmd1.ExecuteNonQuery();
-                    Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
-                    
+        //            cmd1.ExecuteNonQuery();
+        //            Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
 
-                   // inserttransaction_sell_detail();
+                  
+        //           // inserttransaction_sell_detail();
 
-                    SqlCommand cmd2 = new SqlCommand();
-                    cmd2.CommandType = CommandType.StoredProcedure;
-                    cmd2.CommandText = "sp_temp_transaction_sell_detail_delete";
-                    cmd2.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
-                    cmd2.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
-                    cmd2.Connection = con;
-                    if (con.State == ConnectionState.Closed)
-                    {
-                        con.Open();
-                    }
+        //            SqlCommand cmd2 = new SqlCommand();
+        //            cmd2.CommandType = CommandType.StoredProcedure;
+        //            cmd2.CommandText = "sp_temp_transaction_sell_detail_delete";
+        //            cmd2.Parameters.AddWithValue("@customer_id", ddl_customer.SelectedValue.ToString());
+        //            cmd2.Parameters.AddWithValue("@customer_name", cs_name.Text.ToString());
+        //            cmd2.Connection = con;
+        //            if (con.State == ConnectionState.Closed)
+        //            {
+        //                con.Open();
+        //            }
 
-                    cmd2.ExecuteNonQuery();
+        //            cmd2.ExecuteNonQuery();
 
-                }
+        //        }
 
-            }
-            BindListView1();
-        }
-             if (btn_final.Text == "update")
-            {
-                //Update();
-            }
+        //    }
+        //    BindListView1();
+        //}
+        //     if (btn_final.Text == "update")
+        //    {
+        //        //Update();
+        //    }
     }
     protected void ddl_customer_SelectedIndexChanged(object sender, EventArgs e)
     {
@@ -452,6 +453,7 @@ public partial class sell : System.Web.UI.Page
                     txt_ugst.Text = dr["ugst"].ToString();
                     qty.Text = "1";
                 }
+                total.Text = (Convert.ToDecimal(cost_per_unit.Text) * Convert.ToDecimal(qty.Text)).ToString(); 
             }
     public void inserttransaction_sell_detail()
     {
@@ -479,6 +481,7 @@ public partial class sell : System.Web.UI.Page
         con.Open();
         cmd.ExecuteNonQuery();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "alertMessage","alert('"+cmd.Parameters["@result"].Value.ToString()+"')" , true);
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
 
     }
 
@@ -510,7 +513,7 @@ public partial class sell : System.Web.UI.Page
         }
     }
     protected void qty_TextChanged(object sender, EventArgs e)
-            {
-            total.Text = (Convert.ToDecimal(cost_per_unit.Text) * Convert.ToDecimal(qty.Text)).ToString(); ;
+    {
+            total.Text = (Convert.ToDecimal(cost_per_unit.Text) * Convert.ToDecimal(qty.Text)).ToString(); 
     }
 }
