@@ -23,6 +23,8 @@ public partial class purchase : System.Web.UI.Page
         if (!IsPostBack)
         {
         //    BindListView();
+            string unit = "select unit_id, unit_name from tbl_unit";
+            cl.filldropdown(unit, "unit_id", "unit_name", ddl_unit);
             string qry = "select p_id, p_title from tbl_product";
             cl.filldropdown(qry, "p_id", "p_title", ddl_product);
             string qury = "select ws_id, ws_name from tbl_wholesellers";
@@ -231,6 +233,7 @@ public partial class purchase : System.Web.UI.Page
                     b_id.Text = dr["bill_no"].ToString();
                     ddl_product.SelectedValue = dr["p_id"].ToString();
                     qty.Text = dr["qty"].ToString();
+                    ddl_unit.SelectedValue = dr["unit"].ToString();
                     selling_price.Text = dr["selling_price_per_product"].ToString();
                     per_unit_cost.Text = dr["per_unit_cost"].ToString();
                     txt_total_cost.Text = dr["total_cost"].ToString();
@@ -270,6 +273,7 @@ public partial class purchase : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@bill_no", b_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
+        cmd.Parameters.AddWithValue("@unit", ddl_unit.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@selling_price_per_unit", selling_price.Text.ToString());
         cmd.Parameters.AddWithValue("@per_unit_cost", per_unit_cost.Text.ToString());
         cmd.Parameters.AddWithValue("@total_cost", txt_total_cost.Text.ToString());
@@ -291,6 +295,7 @@ public partial class purchase : System.Web.UI.Page
     private void clear1()
     {
         //txt_bill_no.Text="";
+        ddl_unit.SelectedIndex = -1;
         ddl_product.SelectedIndex= -1;
         qty.Text = "";
         selling_price.Text = "";
@@ -314,6 +319,7 @@ public partial class purchase : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@bill_no", b_id.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
+        cmd.Parameters.AddWithValue("@unit", ddl_unit.SelectedItem.ToString());
         cmd.Parameters.AddWithValue("@selling_price_per_unit", selling_price.Text.ToString());
         cmd.Parameters.AddWithValue("@per_unit_cost", per_unit_cost.Text.ToString());
         cmd.Parameters.AddWithValue("@total_cost", txt_total_cost.Text.ToString());
@@ -363,6 +369,7 @@ public partial class purchase : System.Web.UI.Page
                   cmd1.Parameters.AddWithValue("@bill_no", ds.Tables[0].Rows[i]["bill_no"].ToString());
                   cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
                   cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
+                  cmd1.Parameters.AddWithValue("@unit", ds.Tables[0].Rows[i]["unit"].ToString());
                   cmd1.Parameters.AddWithValue("@selling_price_per_unit", ds.Tables[0].Rows[i]["selling_price_per_product"].ToString());
                   cmd1.Parameters.AddWithValue("@per_unit_cost", ds.Tables[0].Rows[i]["per_unit_cost"].ToString());
                   cmd1.Parameters.AddWithValue("@total_cost", ds.Tables[0].Rows[i]["total_cost"].ToString());

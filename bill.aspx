@@ -71,8 +71,9 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="10" align="center" style="border: thin solid black;    font-size: 16px;">
-                      Jaipur <asp:Label ID="lbl_address" runat="server" ></asp:Label>
-                         Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
+                      &nbsp;<asp:Label ID="lbl_shopaddress" runat="server" ></asp:Label>
+                         &nbsp;<asp:Label ID="lbl_shopcity" runat="server" Text="Label"></asp:Label> - 
+                       <asp:Label ID="lbl_shopstate" runat="server" Text="Label"></asp:Label>Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="6" style="border: thin solid black;    font-size: 16px;">
@@ -717,7 +718,10 @@
                    </tr>
                <tr style="border: thin solid black;">
                    <td class="style1" colspan="5" style="border: thin solid black;font-size: 16px;">
-                       Bank Name :&nbsp; <asp:Label ID="lbl_bankname" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp; Bank A/C No. :   <asp:Label ID="lbl_bank_account_no" runat="server" ></asp:Label></td>
+                       Bank Name :&nbsp; <asp:Label ID="lbl_bankname" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp; Bank A/C No. :   <asp:Label ID="lbl_bank_account_no" runat="server" ></asp:Label>&nbsp; 
+                       Ifsc Code : 
+                       <asp:Label ID="lbl_ifsc" runat="server" Text="Label"></asp:Label>
+                      </td>
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Total</td>
                    <td colspan="3" style="border: thin solid black;">

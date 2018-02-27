@@ -104,6 +104,10 @@
           <div class="col-sm-1 col-sm-padding">
             Qty
          </div>
+            <div class="col-sm-1 col-sm-padding">
+            Unit
+         </div>
+
           <div class="col-sm-1 col-sm-padding">
              Selling Price 
          </div>
@@ -125,9 +129,7 @@
           <div class="col-sm-1 col-sm-padding">
              Ugst
          </div>
-          <div class="col-sm-1 col-sm-padding">
-            
-         </div>
+          
           <div class="col-sm-1 col-sm-padding">
              
          </div>
@@ -145,6 +147,11 @@
          </div>
           <div class="col-sm-1 col-sm-padding">
              <asp:TextBox ID="qty" class="text"  runat="server"></asp:TextBox>
+         </div>
+
+          <div class="col-sm-1 col-sm-padding">
+              <asp:DropDownList ID="ddl_unit" class="text" Width="100px" runat="server">
+              </asp:DropDownList>
          </div>
           
           <div class="col-sm-1 col-sm-padding">
@@ -173,9 +180,7 @@
             <asp:Button ID="btn_addmore" class="button btn btn-primary" runat="server" Text="Add More" style=" margin-top: 2px;" 
                                onclick="btn_addmore_Click" />
          </div>
-          <div class="col-sm-1 col-sm-padding">
-          
-         </div>
+         
          </div>
 
 
@@ -205,6 +210,9 @@
                                                         </th>
                                                         <th>
                                                             QTY :
+                                                        </th>
+                                                        <th>
+                                                          Unit :
                                                         </th>
                                                         <th>
                                                             Selling Price :
@@ -261,6 +269,9 @@
                                             </td>
                                             <td>
                                                 <%# Eval("qty")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("unit")%>
                                             </td>
                                             <td>
                                                 <%# Eval("selling_price_per_product")%>

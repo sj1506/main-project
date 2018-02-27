@@ -70,6 +70,7 @@ public class Class1
         com.Connection = con;
         com.CommandText = str;
         dr = com.ExecuteReader();
+        
         return dr;
     }
 

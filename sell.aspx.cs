@@ -44,7 +44,8 @@ public partial class sell : System.Web.UI.Page
             //SELECT @ts_id=ISNULL(MAX(ts_id),0)+1 FROM tbl_transaction_sell
             SqlCommand command = new SqlCommand(bill, con);
             b_no.Text   = command.ExecuteScalar().ToString();
-       
+            con.Close();
+            date.Text = DateTime.Now.ToString("MM\\/dd\\/yyyy");
 
         }
     }
@@ -73,6 +74,7 @@ public partial class sell : System.Web.UI.Page
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
+            con.Close();
             //ListView1.DataSource = dt;
             //ListView1.DataBind();
         }
@@ -105,7 +107,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
-        
+        con.Close();
         //clear();
         
     }
@@ -222,12 +224,15 @@ public partial class sell : System.Web.UI.Page
                 con.Open();
             }
 
-            SqlCommand cmd = new SqlCommand("select * from tbl_temp_transaction_sell_detail where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'", con);
+            SqlCommand cmd = new SqlCommand("select ttsd.id, ttsd.p_id, ttsd.bill_no,p.p_title, ttsd.qty,ttsd.unit, ttsd.cost_per_unit, ttsd.total, ttsd.cgst, ttsd.ugst, ttsd.igst, ttsd.sgst, ttsd.customer_id, ttsd.customer_name, ttsd.date from tbl_temp_transaction_sell_detail as ttsd left join  tbl_product as p on ttsd.p_id=p.p_id   where customer_id='" + ddl_customer.SelectedValue + "' and customer_name='" + cs_name.Text + "'", con);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             adp.Fill(dt);
             ListView2.DataSource = dt;
             ListView2.DataBind();
+          
+                con.Close();
+
         }
         catch
         {
@@ -250,7 +255,9 @@ public partial class sell : System.Web.UI.Page
                     hdn2.Value = dr["id"].ToString();
                     b_no.Text = dr["bill_no"].ToString();
                     ddl_product.SelectedValue = dr["p_id"].ToString();
+                    txt_p_title.Text = dr["p_title"].ToString();
                     qty.Text = dr["qty"].ToString();
+                    txt_unit.Text = dr["unit"].ToString();
                     cost_per_unit.Text = dr["cost_per_unit"].ToString();
                     total.Text = dr["total"].ToString();
                     txt_cgst.Text = dr["cgst"].ToString();
@@ -286,7 +293,9 @@ public partial class sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@p_title", txt_p_title.Text.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
+        cmd.Parameters.AddWithValue("@unit", txt_unit.Text.ToString());
         cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
         cmd.Parameters.AddWithValue("@total", total.Text.ToString());
         cmd.Parameters.AddWithValue("@cgst", txt_cgst.Text.ToString());
@@ -301,6 +310,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Connection = con;
         con.Open();
         cmd.ExecuteNonQuery();
+        con.Close();
         //Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert(' Insert Successfully');</script>");
         //ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", cmd.Parameters["@result"].Value.ToString(), true);
         
@@ -309,7 +319,8 @@ public partial class sell : System.Web.UI.Page
     private void clear1()
     {
         //bill_no.Text = "";
-        
+        txt_p_title.Text = "";
+        txt_unit.Text = "";
         ddl_product.SelectedIndex = -1;
         qty.Text = "";
         cost_per_unit.Text = "";
@@ -329,7 +340,9 @@ public partial class sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@id", hdn2.Value.ToString());
         cmd.Parameters.AddWithValue("@bill_no", b_no.Text.ToString());
         cmd.Parameters.AddWithValue("@p_id", ddl_product.SelectedValue.ToString());
+        cmd.Parameters.AddWithValue("@p_title", txt_p_title.Text.ToString());
         cmd.Parameters.AddWithValue("@qty", qty.Text.ToString());
+        cmd.Parameters.AddWithValue("@unit", txt_unit.Text.ToString());
         cmd.Parameters.AddWithValue("@cost_per_unit", cost_per_unit.Text.ToString());
         cmd.Parameters.AddWithValue("@total", total.Text.ToString());
         cmd.Parameters.AddWithValue("@cgst", txt_cgst.Text.ToString());
@@ -351,7 +364,7 @@ public partial class sell : System.Web.UI.Page
     }
     protected void btn_final_Click(object sender, EventArgs e)
     {
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
+        
         //if (btn_final.Text == "Save")
         //{
         //    submit();
@@ -376,8 +389,10 @@ public partial class sell : System.Web.UI.Page
         //            cmd1.Parameters.AddWithValue("@action", btn_addmore.Text.ToLower());
         //            cmd1.Parameters.AddWithValue("@id", ds.Tables[0].Rows[i]["id"].ToString());
         //            cmd1.Parameters.AddWithValue("@p_id", ds.Tables[0].Rows[i]["p_id"].ToString());
+        //                    cmd1.Parameters.AddWithValue("@p_title", ds.Tables[0].Rows[i]["p_title"].ToString());
         //            cmd1.Parameters.AddWithValue("@ts_id",0);
         //            cmd1.Parameters.AddWithValue("@qty", ds.Tables[0].Rows[i]["qty"].ToString());
+        //              cmd1.Parameters.AddWithValue("@unit", ds.Tables[0].Rows[i]["unit"].ToString());
         //            cmd1.Parameters.AddWithValue("@cost_per_unit", ds.Tables[0].Rows[i]["cost_per_unit"].ToString());
         //            cmd1.Parameters.AddWithValue("@total", ds.Tables[0].Rows[i]["total"].ToString());
         //            cmd1.Parameters.AddWithValue("@cgst", ds.Tables[0].Rows[i]["cgst"].ToString());
@@ -423,7 +438,83 @@ public partial class sell : System.Web.UI.Page
         //    {
         //        //Update();
         //    }
+
+        lbl_buyer_name.Text = cs_name.Text;
+        lbl_buyer_state.Text = ddl_state.SelectedItem.ToString();
+        lbl_invoice_no.Text = b_no.Text.ToString();
+        lbl_invoice_date.Text = date.Text.ToString();
+        lbl_date_supply.Text = date.Text.ToString();
+        lbl_subtotal.Text = total.Text.ToString();
+        lbl_cgst.Text = cgst.Text.ToString();
+        lbl_sgst.Text = sgst.Text.ToString();
+        lbl_igst.Text = igst.Text.ToString();
+        lbl_total.Text = gt_with_tax.Text.ToString();
+
+
+        fillgridview();
+        Shop_details();
+        bank();
+        ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
     }
+
+    private void bank()
+    {
+        SqlConnection con = new SqlConnection(conn);
+       
+        string qry = "select acc_no, bank_name, ifsc_no from tbl_bank_detail";
+        SqlCommand cmd = new SqlCommand(qry, con);
+        SqlDataReader dr = cl.selectDR(qry);
+        if (dr.Read())
+        {
+            lbl_bankname.Text = dr["bank_name"].ToString();
+            lbl_bank_account_no.Text = dr["acc_no"].ToString();
+            lbl_ifsc.Text = dr["ifsc_no"].ToString();
+        }
+        dr.Close();
+    }
+
+    private void Shop_details()
+    {
+        SqlConnection con = new SqlConnection(conn);
+       
+        string qry = "select name,address,city,state,mobile_no1, gst_no from tbl_shops_profile";
+       
+        SqlCommand cmd = new SqlCommand(qry, con);
+        SqlDataReader dr = cl.selectDR(qry);
+        if (dr.Read())
+        {
+            lbl_heading.Text = dr["name"].ToString();
+            lbl_shopaddress.Text = dr["address"].ToString();
+            lbl_shopcity.Text = dr["city"].ToString();
+            lbl_shopstate.Text = dr["state"].ToString();
+            lbl_mobile.Text = dr["mobile_no1"].ToString();
+            lbl_gstno.Text = dr["gst_no"].ToString();
+            lbl_state.Text = dr["state"].ToString();
+        }
+        dr.Close();
+        if (con.State == ConnectionState.Open)
+        {
+           
+            con.Close();
+        }
+
+    }
+
+    public void fillgridview()
+    {
+        SqlConnection cnn = new SqlConnection(conn);
+        cnn.Open();
+        string qry = "select p_title, qty, total,unit from tbl_temp_transaction_sell_detail ";
+        SqlCommand cmd = new SqlCommand(qry, cnn);
+        SqlDataAdapter ad = new SqlDataAdapter(cmd);
+        DataTable dt = new DataTable();
+        ad.Fill(dt);
+        cnn.Close();
+        GridView1.DataSource = dt;
+        GridView1.DataBind();
+    }
+
+
     protected void ddl_customer_SelectedIndexChanged(object sender, EventArgs e)
     {
         cs_name.Text = ddl_customer.SelectedItem.Text.ToString();
@@ -441,7 +532,9 @@ public partial class sell : System.Web.UI.Page
                 con.Open();
             }
 
-       string sql = "select ugst, cgst, igst, sgst, per_unit_cost from tbl_transaction_buy_detail where p_id= '" + ddl_product.SelectedValue + "'";
+       txt_p_title.Text = ddl_product.SelectedItem.Text.ToString();
+
+       string sql = "select ugst, cgst, igst, sgst, per_unit_cost, unit from tbl_transaction_buy_detail where p_id= '" + ddl_product.SelectedValue + "'";
         SqlCommand cmd= new SqlCommand(sql,con);
          SqlDataReader dr = cl.selectDR(sql);
                 if (dr.Read())
@@ -451,6 +544,7 @@ public partial class sell : System.Web.UI.Page
                     txt_sgst.Text = dr["sgst"].ToString();
                     txt_igst.Text = dr["igst"].ToString();
                     txt_ugst.Text = dr["ugst"].ToString();
+                    txt_unit.Text = dr["unit"].ToString();
                     qty.Text = "1";
                 }
                 total.Text = (Convert.ToDecimal(cost_per_unit.Text) * Convert.ToDecimal(qty.Text)).ToString(); 

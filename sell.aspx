@@ -9,10 +9,10 @@
            function showModal() {
 
                $("#myModal").modal('show');
-               alert('pop up');
+               
                  }
             </script>
-
+            
 
              <script type="text/javascript">
            function printdiv() {
@@ -144,10 +144,15 @@
          <div class="col-sm-1  col-sm-padding">
              p_id 
          </div>
+          <div class="col-sm-1 col-sm-padding">
+              Product name
+         </div>
          <div class="col-sm-1 col-sm-padding">
              Qty
          </div>
-          
+          <div class="col-sm-1 col-sm-padding">
+             Unit
+         </div>
           <div class="col-sm-1 col-sm-padding">
             cost per unit
          </div>
@@ -166,12 +171,8 @@
           <div class="col-sm-1 col-sm-padding">
              Ugst
          </div>
-          <div class="col-sm-1 col-sm-padding">
-              
-         </div>
-          <div class="col-sm-1 col-sm-padding">
-             
-         </div>
+         
+          
           <div class="col-sm-1 col-sm-padding">
             
          </div>
@@ -189,9 +190,15 @@
                     onselectedindexchanged="ddl_product_SelectedIndexChanged" AutoPostBack="true">
                 </asp:DropDownList>
          </div>
+          <div class="col-sm-1 col-sm-padding">
+              <asp:TextBox ID="txt_p_title" class="text"  runat="server"></asp:TextBox>
+         </div>
          <div class="col-sm-1 col-sm-padding">
              <asp:TextBox ID="qty" runat="server" Width="100px"  class="text" 
                  ontextchanged="qty_TextChanged" AutoPostBack="true"></asp:TextBox>  
+         </div>
+         <div class="col-sm-1 col-sm-padding">
+            <asp:TextBox ID="txt_unit" class="text"  runat="server"></asp:TextBox>
          </div>
           <div class="col-sm-1 col-sm-padding">
              <asp:TextBox ID="cost_per_unit" class="text"  runat="server"></asp:TextBox>
@@ -216,12 +223,8 @@
              <asp:Button ID="btn_addmore" class="button btn btn-primary" runat="server" Text="Add More" style=" margin-top: 2px;" 
                                 onclick="btn_addmore_Click" />
          </div>
-          <div class="col-sm-1 col-sm-padding">
-             
-         </div>
-          <div class="col-sm-1 col-sm-padding">
-            
-         </div>
+         
+          
           <div class="col-sm-1 col-sm-padding">
           
              
@@ -256,11 +259,15 @@
                                                         <th>
                                                            p_id :
                                                         </th>
-                                                        
+                                                        <td>
+                                                           Title
+                                                        </td>
                                                         <th>
                                                             QTY :
                                                         </th>
-                                                        
+                                                        <td>
+                                                            unit :
+                                                          </td>
                                                         <th>
                                                         cost pr unit :
                                                         </th>
@@ -309,10 +316,17 @@
                                             <td>
                                                 <%# Eval("p_id")%>
                                             </td>
+                                            
+                                            <td>
+                                                <%# Eval("p_title")%>
+                                            </td>
+
                                             <td>
                                                 <%# Eval("qty")%>
                                             </td>
-                                            
+                                            <td>
+                                                <%# Eval("unit")%>
+                                            </td>
                                             <td>
                                                 <%# Eval("cost_per_unit")%>
                                             </td>
@@ -399,8 +413,9 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="10" align="center" style="border: thin solid black;    font-size: 16px;">
-                      Jaipur <asp:Label ID="lbl_address" runat="server" ></asp:Label>
-                         Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
+                      &nbsp;<asp:Label ID="lbl_shopaddress" runat="server" ></asp:Label>
+                         &nbsp;<asp:Label ID="lbl_shopcity" runat="server" Text="Label"></asp:Label> - 
+                       <asp:Label ID="lbl_shopstate" runat="server" Text="Label"></asp:Label>Mob :-  <asp:Label ID="lbl_mobile" runat="server" ></asp:Label></td>
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="6" style="border: thin solid black;    font-size: 16px;">
@@ -451,7 +466,7 @@
                </tr>
                <tr style="border: thin solid black;">
                    <td colspan="7" style="border: thin solid black; font-size:18px;">
-                   Saksham Jain
+                   
                         <asp:Label ID="lbl_buyer_name" runat="server" ></asp:Label></td>
                    <td colspan="3" rowspan="3" style="border: thin solid black;">
                        &nbsp;</td>
@@ -497,11 +512,69 @@
                    <td style="border: thin solid black;font-size:large">
                        <b>Taxable Amount</b></td>
                </tr>
-               <tr>
-                   <td class="style1" style="border: thin solid black;border-bottom: none;
+               <tr style="height:200px;">
+                   <td colspan="8" class="style1" style="border: thin solid black;border-bottom: none;
     border-top: none;">
+                       <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                          <Columns>
+                          <asp:TemplateField HeaderText="" Visible="false" >
+           <ItemTemplate>
+            <asp:Label ID="lblid" runat="server"  Text= ' <%# Container.DataItemIndex+1 %>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+              
+
+           <asp:TemplateField  >
+           <ItemTemplate>
+            <asp:Label ID="lbl_title" runat="server"  Text= '<%# Eval("p_title")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+           <asp:TemplateField  >
+           <ItemTemplate>
+            <asp:Label ID="lbl_qty" runat="server"  Text= '<%# Eval("qty")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+           <asp:TemplateField HeaderText="" >
+           <ItemTemplate>
+            <asp:Label ID="lbl_unit" runat="server"  Text= '<%# Eval("unit")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+           <asp:TemplateField HeaderText="" >
+           <ItemTemplate>
+            <asp:Label ID="lbl_rate" runat="server"  Text= '<%# Eval("total")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+           <asp:TemplateField HeaderText="" >
+           <ItemTemplate>
+            <asp:Label ID="lbl_amount" runat="server"  Text= '<%# Eval("total")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+
+         <%--  <asp:TemplateField HeaderText="" >
+           <ItemTemplate>
+            <asp:Label ID="lbl_discount" runat="server"  Text= '<%# Eval("discount")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>--%>
+
+           <asp:TemplateField HeaderText="" >
+           <ItemTemplate>
+            <asp:Label ID="lbl_taxable_amount" runat="server"  Text= '<%# Eval("total")%>' style="width: 40%;"></asp:Label>
+           </ItemTemplate>
+           </asp:TemplateField>
+                          
+                          
+                          
+                          </Columns>
+                       </asp:GridView>
+
+
+
                        &nbsp;</td>
-                   <td class="a" style="border: thin solid black; border-bottom: none;
+                   <%--<td class="a" style="border: thin solid black; border-bottom: none;
     border-top: none;">
                        &nbsp;</td>
                    <td class="a" style="border: thin solid black;border-bottom: none;
@@ -521,9 +594,9 @@
                        &nbsp;</td>
                        <td class="a" style="border: thin solid black;border-bottom: none;
     border-top: none;">
-                       &nbsp;</td>
+                       &nbsp;</td>--%>
                </tr>
-               <tr>
+              <%-- <tr>
                    <td class="style1" style="border: thin solid black;border-bottom: none;
     border-top: none;">
                        &nbsp;</td>
@@ -1016,7 +1089,7 @@
                        <td class="a" style="border: thin solid black;border-bottom: none;
     border-top: none;">
                        &nbsp;</td>
-               </tr>
+               </tr>--%>
                <tr style="border: thin solid black;font-size: 16px;">
                    <td class="style1" colspan="5" rowspan="4"  style="border: thin solid black;">
                        &nbsp;</td>
@@ -1043,9 +1116,12 @@
                    <td colspan="3" style="border: thin solid black;">
                        &nbsp;<asp:Label ID="lbl_igst" runat="server" ></asp:Label></td>
                    </tr>
-               <tr style="border: thin solid black;">
+                <tr style="border: thin solid black;">
                    <td class="style1" colspan="5" style="border: thin solid black;font-size: 16px;">
-                       Bank Name :&nbsp; <asp:Label ID="lbl_bankname" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp; Bank A/C No. :   <asp:Label ID="lbl_bank_account_no" runat="server" ></asp:Label></td>
+                       Bank Name :&nbsp; <asp:Label ID="lbl_bankname" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp; Bank A/C No. :   <asp:Label ID="lbl_bank_account_no" runat="server" ></asp:Label>&nbsp; 
+                       Ifsc Code : 
+                       <asp:Label ID="lbl_ifsc" runat="server" Text="Label"></asp:Label>
+                      </td>
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Total</td>
                    <td colspan="3" style="border: thin solid black;">
