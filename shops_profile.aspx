@@ -41,46 +41,76 @@
          </div>
          <div class="col-sm-3"></div>
       </div>
+
+      <div class="col-sm-12" style="    margin-top: 8px">
+             <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
+             <asp:Label ID="lbl_country" runat="server" Text="Country :"></asp:Label>
+         </div>
+         <div class="col-sm-3">
+         <asp:DropDownList ID="ddl_country" class="form-control" runat="server" AutoPostBack="true"
+                 onselectedindexchanged="ddl_country_SelectedIndexChanged">
+             </asp:DropDownList>
+                     </div>
+         <div class="col-sm-3"></div>
+      </div>
+
+      <div class="col-sm-12" style="    margin-top: 8px">
+              <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
+         
+             <asp:Label ID="lbl_state" runat="server" Text="State :"></asp:Label>
+         </div>
+         <div class="col-sm-3">
+         <asp:DropDownList ID="ddl_state" class="form-control" runat="server" AutoPostBack="true"
+                 onselectedindexchanged="ddl_state_SelectedIndexChanged">
+             </asp:DropDownList>
+             
+         </div>
+         <div class="col-sm-3"></div>
+      </div>
+
+      <div class="col-sm-12" style="    margin-top: 8px">
+               <div class="col-sm-3"></div>
+           <div class="col-sm-3 divstyle">
+             <asp:Label ID="lbl_district" runat="server" Text="District :"></asp:Label>
+         </div>
+         <div class="col-sm-3">
+             
+             <asp:DropDownList ID="ddl_district" class="form-control" runat="server" AutoPostBack="true"
+                 onselectedindexchanged="ddl_district_SelectedIndexChanged">
+             </asp:DropDownList>
+         </div>
+         <div class="col-sm-3"></div>
+      </div>
+
           <div class="col-sm-12" style="    margin-top: 8px">
                <div class="col-sm-3"></div>
            <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_city" runat="server" Text="City :"></asp:Label>
          </div>
          <div class="col-sm-3">
-             <asp:TextBox ID="txt_city" class="form-control" runat="server"></asp:TextBox>
+         <asp:DropDownList ID="ddl_city" class="form-control" runat="server">
+             </asp:DropDownList>
+             
          </div>
          <div class="col-sm-3"></div>
       </div> 
-          <div class="col-sm-12" style="    margin-top: 8px">
-               <div class="col-sm-3"></div>
-           <div class="col-sm-3 divstyle">
-             <asp:Label ID="lbl_district" runat="server" Text="District :"></asp:Label>
-         </div>
-         <div class="col-sm-3">
-             <asp:TextBox ID="txt_district" class="form-control" runat="server"></asp:TextBox>
-         </div>
-         <div class="col-sm-3"></div>
-      </div>
-           <div class="col-sm-12" style="    margin-top: 8px">
+          
+           
+           
+
+      <div class="col-sm-12" style="    margin-top: 8px">
               <div class="col-sm-3"></div>
            <div class="col-sm-3 divstyle">
-             <asp:Label ID="lbl_state" runat="server" Text="State :"></asp:Label>
+             <asp:Label ID="lbl_statecode" runat="server" Text="State Code :"></asp:Label>
          </div>
          <div class="col-sm-3">
-             <asp:TextBox ID="txt_state" class="form-control" runat="server"></asp:TextBox>
+             <asp:TextBox ID="txt_statecode" class="form-control" runat="server"></asp:TextBox>
          </div>
          <div class="col-sm-3"></div>
-      </div>
-           <div class="col-sm-12" style="    margin-top: 8px">
-             <div class="col-sm-3"></div>
-           <div class="col-sm-3 divstyle">
-             <asp:Label ID="lbl_country" runat="server" Text="Country :"></asp:Label>
-         </div>
-         <div class="col-sm-3">
-             <asp:TextBox ID="txt_country" class="form-control" runat="server"></asp:TextBox>
-         </div>
-         <div class="col-sm-3"></div>
-      </div>
+      </div> 
+
           <div class="col-sm-12" style="    margin-top: 8px">
               <div class="col-sm-3"></div>
            <div class="col-sm-3 divstyle">
@@ -186,7 +216,7 @@
            <div class="col-sm-3 divstyle">
              <asp:Label ID="lbl_tin_no" runat="server" Text="Tin No :"></asp:Label>
          </div>
-         <div class="col-sm-6">
+         <div class="col-sm-3">
              <asp:TextBox ID="tin_no" class="form-control" runat="server"></asp:TextBox>
          </div>
          <div class="col-sm-3"></div>
@@ -283,6 +313,9 @@
                                                             Country :
                                                         </th>
                                                         <th>
+                                                          State Code :
+                                                        </th>
+                                                        <th>
                                                             Phone No.1 :
                                                         </th>
                                                         <th>
@@ -368,6 +401,9 @@
 
                                             <td>
                                                 <%# Eval(" country")%>
+                                            </td>
+                                            <td>
+                                                <%# Eval("state_code")%>
                                             </td>
                                              <td>
                                                 <%# Eval("phone1")%>

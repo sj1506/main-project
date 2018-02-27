@@ -454,7 +454,7 @@
                <tr style="border: thin solid black;">
                    <td colspan="4" style="border: thin solid black;font-size: 16px;">
                        State  <asp:Label ID="lbl_state" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-                       State Code</td>
+                       State Code&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="lbl_shopstatecode" runat="server" ></asp:Label></td>
                    <td colspan="6" style="border: thin solid black;font-size: 16px;">
                        Place of Supply</td>
                    </tr>
@@ -1092,6 +1092,9 @@
                </tr>--%>
                <tr style="border: thin solid black;font-size: 16px;">
                    <td class="style1" colspan="5" rowspan="4"  style="border: thin solid black;">
+                       
+                       <asp:Label ID="lbl_words" runat="server"></asp:Label>
+                       
                        &nbsp;</td>
                    <td class="style3" style="border: thin solid black;font-size: 16px;" colspan="2">
                        Sub Total</td>

@@ -454,6 +454,7 @@ public partial class sell : System.Web.UI.Page
         fillgridview();
         Shop_details();
         bank();
+        words();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "alert", "showModal();", true);
     }
 
@@ -477,7 +478,7 @@ public partial class sell : System.Web.UI.Page
     {
         SqlConnection con = new SqlConnection(conn);
        
-        string qry = "select name,address,city,state,mobile_no1, gst_no from tbl_shops_profile";
+        string qry = "select name,address,city,state,mobile_no1, gst_no,state_code from tbl_shops_profile";
        
         SqlCommand cmd = new SqlCommand(qry, con);
         SqlDataReader dr = cl.selectDR(qry);
@@ -490,6 +491,7 @@ public partial class sell : System.Web.UI.Page
             lbl_mobile.Text = dr["mobile_no1"].ToString();
             lbl_gstno.Text = dr["gst_no"].ToString();
             lbl_state.Text = dr["state"].ToString();
+            lbl_shopstatecode.Text = dr["state_code"].ToString();
         }
         dr.Close();
         if (con.State == ConnectionState.Open)
@@ -499,6 +501,53 @@ public partial class sell : System.Web.UI.Page
         }
 
     }
+
+    private void words()
+    {
+        string word = ConvertNumbertoWords(Convert.ToInt32(lbl_total.Text));
+              lbl_words.Text = word;
+}
+public static string ConvertNumbertoWords(int number)
+{
+if (number == 0)
+return "ZERO";
+if (number < 0)
+return "minus " + ConvertNumbertoWords(Math.Abs(number));
+string words = "";
+if ((number / 1000000) > 0)
+{
+words += ConvertNumbertoWords(number / 1000000) + " MILLION ";
+number %= 1000000;
+}
+if ((number / 1000) > 0)
+{
+words += ConvertNumbertoWords(number / 1000) + " THOUSAND ";
+number %= 1000;
+}
+if ((number / 100) > 0)
+{
+words += ConvertNumbertoWords(number / 100) + " HUNDRED ";
+number %= 100;
+}
+if (number > 0)
+{
+if (words != "")
+words += "AND ";
+var unitsMap = new[] { "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN", "ELEVEN", "TWELVE", "THIRTEEN", "FOURTEEN", "FIFTEEN", "SIXTEEN", "SEVENTEEN", "EIGHTEEN", "NINETEEN" };
+var tensMap = new[] { "ZERO", "TEN", "TWENTY", "THIRTY", "FORTY", "FIFTY", "SIXTY", "SEVENTY", "EIGHTY", "NINETY" };
+
+if (number < 20)
+words += unitsMap[number];
+else
+{
+words += tensMap[number / 10];
+if ((number % 10) > 0)
+words += " " + unitsMap[number % 10];
+}
+}
+return words;
+}
+    
 
     public void fillgridview()
     {

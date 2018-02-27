@@ -25,6 +25,8 @@ public partial class shops_profile : System.Web.UI.Page
         if (!IsPostBack)
         {
             BindListView();
+            string qry = "select CountryId, CountryName from tbl_Country ";
+            cl.filldropdown(qry, "CountryId", "CountryName", ddl_country);
         }
     }
     private void BindListView()
@@ -66,10 +68,11 @@ public partial class shops_profile : System.Web.UI.Page
                     hdn1.Value = dr["id"].ToString();
                     txt_name.Text = dr["name"].ToString();
                     txt_address.Text = dr["address"].ToString();
-                    txt_city.Text = dr["city"].ToString();
-                    txt_district.Text = dr["district"].ToString();
-                    txt_state.Text = dr["state"].ToString();
-                    txt_country.Text = dr["country"].ToString();
+                    ddl_city.SelectedValue = dr["city"].ToString();
+                    ddl_district.SelectedValue = dr["district"].ToString();
+                    ddl_state.SelectedValue = dr["state"].ToString();
+                   ddl_country.SelectedValue = dr["country"].ToString();
+                    txt_statecode.Text = dr["state_code"].ToString();
                     txt_phone1.Text = dr["phone1"].ToString();
                     txt_phone2.Text = dr["phone2"].ToString();
                     txt_phone3.Text = dr["phone3"].ToString();
@@ -95,7 +98,7 @@ public partial class shops_profile : System.Web.UI.Page
                 Session["id"] = e.CommandArgument.ToString();
                 SqlConnection con = new SqlConnection(conn);
                 id = e.CommandArgument.ToString();
-                SqlCommand cmd = new SqlCommand("delete from tbl_shops_profile where pid=" + id, con);
+                SqlCommand cmd = new SqlCommand("delete from tbl_shops_profile where id=" + id, con);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -144,10 +147,11 @@ public partial class shops_profile : System.Web.UI.Page
         com.Parameters.AddWithValue("@id", 0);
         com.Parameters.AddWithValue("@name", txt_name.Text.ToString());
         com.Parameters.AddWithValue("@address", txt_address.Text.ToString());
-        com.Parameters.AddWithValue("@city", txt_city.Text.ToString());
-        com.Parameters.AddWithValue("@district", txt_district.Text.ToString());
-        com.Parameters.AddWithValue("@state", txt_state.Text.ToString());
-        com.Parameters.AddWithValue("@country", txt_country.Text.ToString());
+        com.Parameters.AddWithValue("@city", Convert.ToInt32(ddl_city.SelectedValue.ToString()));
+        com.Parameters.AddWithValue("@district", Convert.ToInt32(ddl_district.SelectedValue.ToString()));
+        com.Parameters.AddWithValue("@state", Convert.ToInt32(ddl_state.SelectedValue.ToString()));
+        com.Parameters.AddWithValue("@country", Convert.ToInt32(ddl_country.SelectedValue.ToString()));
+        com.Parameters.AddWithValue("@state_code", txt_statecode.Text.ToString());
         com.Parameters.AddWithValue("@phone1", txt_phone1.Text.ToString());
         com.Parameters.AddWithValue("@phone2", txt_phone2.Text.ToString());
         com.Parameters.AddWithValue("@phone3", txt_phone3.Text.ToString());
@@ -199,10 +203,11 @@ public partial class shops_profile : System.Web.UI.Page
             com.Parameters.AddWithValue("@id", hdn1.Value.ToString());
             com.Parameters.AddWithValue("@name", txt_name.Text.ToString());
             com.Parameters.AddWithValue("@address", txt_address.Text.ToString());
-            com.Parameters.AddWithValue("@city", txt_city.Text.ToString());
-            com.Parameters.AddWithValue("@district", txt_district.Text.ToString());
-            com.Parameters.AddWithValue("@state", txt_state.Text.ToString());
-            com.Parameters.AddWithValue("@country", txt_country.Text.ToString());
+            com.Parameters.AddWithValue("@city", Convert.ToInt32(ddl_city.SelectedValue.ToString()));
+            com.Parameters.AddWithValue("@district", Convert.ToInt32(ddl_district.SelectedValue.ToString()));
+            com.Parameters.AddWithValue("@state", Convert.ToInt32(ddl_state.SelectedValue.ToString()));
+            com.Parameters.AddWithValue("@country", Convert.ToInt32(ddl_country.SelectedValue.ToString()));
+            com.Parameters.AddWithValue("@state_code", txt_statecode.Text.ToString());
             com.Parameters.AddWithValue("@phone1", txt_phone1.Text.ToString());
             com.Parameters.AddWithValue("@phone2", txt_phone2.Text.ToString());
             com.Parameters.AddWithValue("@phone3", txt_phone3.Text.ToString());
@@ -236,10 +241,11 @@ public partial class shops_profile : System.Web.UI.Page
     {
         txt_name.Text = "";
         txt_address.Text = "";
-        txt_city.Text = "";
-        txt_district.Text = "";
-        txt_state.Text = "";
-        txt_country.Text = "";
+        ddl_city.SelectedIndex = -1;
+        ddl_district.SelectedIndex=-1;
+        ddl_state.SelectedIndex=-1;
+        ddl_country.SelectedIndex=-1;
+        txt_statecode.Text = "";
         txt_phone1.Text = "";
         txt_phone2.Text = "";
         txt_phone3.Text = "";
@@ -257,5 +263,31 @@ public partial class shops_profile : System.Web.UI.Page
         tagline.Text = "";
     }
 
+    protected void ddl_district_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string quy = "select CityId, CityName  from tbl_City  where CountryId= '" + ddl_country.SelectedValue + "' and StateId='" + ddl_state.SelectedValue + "' and DistrictId='" + ddl_district.SelectedValue + "'";
+        cl.filldropdown(quy, "CityId", "CityName", ddl_city);
+    }
+    protected void ddl_state_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string qy = "select DistrictId,  District  from tbl_District where CountryId= '" + ddl_country.SelectedValue + "' and StateId= '" + ddl_state.SelectedValue + "' ";
+        cl.filldropdown(qy, "DistrictId", "District", ddl_district);
+
+        SqlConnection con = new SqlConnection(conn);
+        string q = "select code from tblState where Id='" + ddl_state.SelectedValue + "'";
+        SqlCommand cmd = new SqlCommand(q, con);
+        SqlDataReader dr = cl.selectDR(q);
+        if (dr.Read())
+        {
+            txt_statecode.Text = dr["code"].ToString();
+        }
+        dr.Close();
+    }
+    protected void ddl_country_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        string qury = "select Id, State from tblState where CountryId ='" + ddl_country.SelectedValue + "' ";
+        cl.filldropdown(qury, "Id", "State", ddl_state);
+    }
+   
 }
 
