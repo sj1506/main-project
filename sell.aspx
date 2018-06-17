@@ -84,9 +84,9 @@
           <div class="col-sm-1 col-sm-padding">
              total with tax
          </div>
-          <div class="col-sm-1 col-sm-padding">
+          <%--<div class="col-sm-1 col-sm-padding">
              Discount 
-         </div>
+         </div>--%>
          </div>
 
 <div class="col-sm-12" style="    margin-top: 8px">
@@ -129,8 +129,8 @@
           <div class="col-sm-1 col-sm-padding">
              <asp:TextBox ID="gt_with_tax" class="text" runat="server"></asp:TextBox>
          </div>
-          <div class="col-sm-1 col-sm-padding">
-             <asp:TextBox ID="discount" runat="server" class="text"></asp:TextBox>
+         <%-- <div class="col-sm-1 col-sm-padding">
+             <asp:TextBox ID="discount" runat="server" class="text"></asp:TextBox>--%>
               
          </div>
          </div>
@@ -507,15 +507,16 @@
                        <b>Rate</b></td>
                    <td style="border: thin solid black;font-size:large">
                        <b>Amount</b></td>
-                   <td style="border: thin solid black;font-size:large">
-                       <b>Discount</b></td>
+                   <%--<td style="border: thin solid black;font-size:large">
+                       <b>Discount</b></td>--%>
                    <td style="border: thin solid black;font-size:large">
                        <b>Taxable Amount</b></td>
                </tr>
                <tr style="height:200px;">
                    <td colspan="8" class="style1" style="border: thin solid black;border-bottom: none;
     border-top: none;">
-                       <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="false">
+                          <div style="max-width: 950px;">
+                      <%-- <asp:GridView ID="GridView1" CssClass="margin-left:62px;" runat="server" AutoGenerateColumns="false">
                           <Columns>
                           <asp:TemplateField HeaderText="" Visible="false" >
            <ItemTemplate>
@@ -554,11 +555,11 @@
            </ItemTemplate>
            </asp:TemplateField>
 
-         <%--  <asp:TemplateField HeaderText="" >
+          <%-- <asp:TemplateField HeaderText="" >
            <ItemTemplate>
             <asp:Label ID="lbl_discount" runat="server"  Text= '<%# Eval("discount")%>' style="width: 40%;"></asp:Label>
            </ItemTemplate>
-           </asp:TemplateField>--%>
+           </asp:TemplateField>
 
            <asp:TemplateField HeaderText="" >
            <ItemTemplate>
@@ -569,8 +570,37 @@
                           
                           
                           </Columns>
-                       </asp:GridView>
-
+                       </asp:GridView>--%>
+                              <asp:DataList ID="DataList1" runat="server" RepeatColumns="1">
+                                   <ItemTemplate>
+                                   <asp:Table runat="server">
+                                      <asp:TableRow>
+                                        <%--<asp:TableCell>
+                                         <asp:Label ID="lblid" runat="server"  Text= ' <%# Container.DataItemIndex+1 %>' style="width: 40%;"></asp:Label>
+                                        </asp:TableCell>--%>
+                                        <asp:TableCell>
+                                         <asp:Label ID="lbl_title" runat="server"  Text= '<%# Eval("p_title")%>' style="padding-right:112px"></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                        <asp:Label ID="lbl_qty" runat="server"  Text= '<%# Eval("qty")%>' style="padding-right:112px" ></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                        <asp:Label ID="lbl_unit" runat="server"  Text= '<%# Eval("unit")%>' ></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                         <asp:Label ID="lbl_rate" runat="server"  Text= '<%# Eval("total")%>' ></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                        <asp:Label ID="lbl_amount" runat="server"  Text= '<%# Eval("total")%>'></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell>
+                                         <asp:Label ID="lbl_taxable_amount" runat="server"  Text= '<%# Eval("total")%>'></asp:Label>
+                                        </asp:TableCell>
+                                      </asp:TableRow>
+                                   </asp:Table>
+                                   </ItemTemplate>
+                              </asp:DataList>
+                       </div>
 
 
                        &nbsp;</td>

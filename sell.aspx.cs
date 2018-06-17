@@ -101,7 +101,7 @@ public partial class sell : System.Web.UI.Page
         cmd.Parameters.AddWithValue("@ugst", ugst.Text.ToString());
         cmd.Parameters.AddWithValue("@date", date.Text.ToString());
         cmd.Parameters.AddWithValue("@grand_total_with_tax", gt_with_tax.Text.ToString());
-        cmd.Parameters.AddWithValue("@discount", discount.Text.ToString());
+        cmd.Parameters.AddWithValue("@discount", "0");
         cmd.Parameters.Add("@result", SqlDbType.NVarChar, 500);
         cmd.Parameters["@result"].Direction = ParameterDirection.Output;
         cmd.Connection = con;
@@ -124,7 +124,7 @@ public partial class sell : System.Web.UI.Page
         igst.Text = "";
         date.Text = "";
         gt_with_tax.Text = "";
-        discount.Text = "";
+        //discount.Text = "";
     }
     //public void Update()
     //{
@@ -182,7 +182,7 @@ public partial class sell : System.Web.UI.Page
                     ugst.Text = dr["ugst"].ToString();
                     date.Text = dr["date"].ToString();
                     gt_with_tax.Text = dr["gt_with_tax"].ToString();
-                    discount.Text = dr["discount"].ToString();
+                   // discount.Text = dr["discount"].ToString();
                 }
             }
             if (e.CommandName == "CmdDelete")
@@ -196,6 +196,7 @@ public partial class sell : System.Web.UI.Page
                 con.Close();
                 Page.ClientScript.RegisterStartupScript(Page.GetType(), "MessageBox", "<script language='javascript'>alert('Deleted Successfully');</script>");
                 // BindListView();
+
             }
         }
         catch { }
@@ -451,7 +452,8 @@ public partial class sell : System.Web.UI.Page
         lbl_total.Text = gt_with_tax.Text.ToString();
 
 
-        fillgridview();
+        //fillgridview();
+        filldatalist();
         Shop_details();
         bank();
         words();
@@ -547,21 +549,35 @@ words += " " + unitsMap[number % 10];
 }
 return words;
 }
-    
 
-    public void fillgridview()
-    {
-        SqlConnection cnn = new SqlConnection(conn);
-        cnn.Open();
-        string qry = "select p_title, qty, total,unit from tbl_temp_transaction_sell_detail ";
-        SqlCommand cmd = new SqlCommand(qry, cnn);
-        SqlDataAdapter ad = new SqlDataAdapter(cmd);
-        DataTable dt = new DataTable();
-        ad.Fill(dt);
-        cnn.Close();
-        GridView1.DataSource = dt;
-        GridView1.DataBind();
-    }
+
+public void filldatalist()
+{
+    SqlConnection cnn = new SqlConnection(conn);
+    cnn.Open();
+     string qry = "select p_title, qty, total,unit from tbl_temp_transaction_sell_detail ";
+     SqlCommand cmd = new SqlCommand(qry, cnn);
+       SqlDataAdapter ad = new SqlDataAdapter(cmd);
+      DataTable dt = new DataTable();
+      ad.Fill(dt);
+     cnn.Close();
+     DataList1.DataSource = dt;
+     DataList1.DataBind();
+}
+
+    //public void fillgridview()
+    //{
+    //    SqlConnection cnn = new SqlConnection(conn);
+    //    cnn.Open();
+    //    string qry = "select p_title, qty, total,unit from tbl_temp_transaction_sell_detail ";
+    //    SqlCommand cmd = new SqlCommand(qry, cnn);
+    //    SqlDataAdapter ad = new SqlDataAdapter(cmd);
+    //    DataTable dt = new DataTable();
+    //    ad.Fill(dt);
+    //    cnn.Close();
+    //    GridView1.DataSource = dt;
+    //    GridView1.DataBind();
+    //}
 
 
     protected void ddl_customer_SelectedIndexChanged(object sender, EventArgs e)
