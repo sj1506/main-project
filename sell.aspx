@@ -402,7 +402,7 @@
                                         <div id="print">
                                       <table style="border: thin solid black;
 	border-collapse:collapse;
-	    width: 1000px;">
+	    width: 1078px;">
                <tr style="border: thin solid black;">
                    <td colspan="10" align="center" style="border: thin solid black; margin-top: 25px;   font-size: 24px;">
                        <h1>
@@ -575,25 +575,25 @@
                                    <ItemTemplate>
                                    <asp:Table runat="server">
                                       <asp:TableRow>
-                                        <%--<asp:TableCell>
-                                         <asp:Label ID="lblid" runat="server"  Text= ' <%# Container.DataItemIndex+1 %>' style="width: 40%;"></asp:Label>
-                                        </asp:TableCell>--%>
-                                        <asp:TableCell>
-                                         <asp:Label ID="lbl_title" runat="server"  Text= '<%# Eval("p_title")%>' style="padding-right:112px"></asp:Label>
+                                        <asp:TableCell ColumnSpan="2"  >
+                                        <%-- <asp:Label ID="lblid" runat="server"  Text= ' <%# Container.DataItemIndex+1 %>' style="width: 40%;"></asp:Label>--%>
                                         </asp:TableCell>
-                                        <asp:TableCell>
-                                        <asp:Label ID="lbl_qty" runat="server"  Text= '<%# Eval("qty")%>' style="padding-right:112px" ></asp:Label>
+                                        <asp:TableCell ColumnSpan="5">
+                                         <asp:Label ID="lbl_title" runat="server"  Text= '<%# Eval("p_title")%>' style="margin: 112px;"></asp:Label>
                                         </asp:TableCell>
-                                        <asp:TableCell>
-                                        <asp:Label ID="lbl_unit" runat="server"  Text= '<%# Eval("unit")%>' ></asp:Label>
+                                        <asp:TableCell ColumnSpan="2">
+                                        <asp:Label ID="lbl_qty" runat="server"  Text= '<%# Eval("qty")%>' style="margin: 268px;" ></asp:Label>
                                         </asp:TableCell>
-                                        <asp:TableCell>
-                                         <asp:Label ID="lbl_rate" runat="server"  Text= '<%# Eval("total")%>' ></asp:Label>
+                                        <asp:TableCell ColumnSpan="2">
+                                        <asp:Label ID="lbl_unit" runat="server"  Text= '<%# Eval("unit")%>'  style="margin: -184px;"></asp:Label>
                                         </asp:TableCell>
-                                        <asp:TableCell>
-                                        <asp:Label ID="lbl_amount" runat="server"  Text= '<%# Eval("total")%>'></asp:Label>
+                                        <asp:TableCell ColumnSpan="3">
+                                         <asp:Label ID="lbl_rate" runat="server"  Text= '<%# Eval("total")%>' style="margin: -82px;" ></asp:Label>
                                         </asp:TableCell>
-                                        <asp:TableCell>
+                                        <asp:TableCell ColumnSpan="3">
+                                        <asp:Label ID="lbl_amount" runat="server"  Text= '<%# Eval("total")%>' style="margin: 74px;"></asp:Label>
+                                        </asp:TableCell>
+                                        <asp:TableCell ColumnSpan="3">
                                          <asp:Label ID="lbl_taxable_amount" runat="server"  Text= '<%# Eval("total")%>'></asp:Label>
                                         </asp:TableCell>
                                       </asp:TableRow>
